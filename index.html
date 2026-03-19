@@ -10,13 +10,13 @@
 <meta property="og:title" content="ProcureCalc.de – Profi-Kalkulatoren für den Industrieeinkauf">
 <meta property="og:description" content="15 kostenlose Kalkulatoren für strategischen Einkauf: TCO, BATNA, Savings, Make-or-Buy und mehr. Direkt im Browser, keine Anmeldung.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.procerecalc.de">
+<meta property="og:url" content="https://www.procurecalc.de">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ProcureCalc.de – Einkauf-Kalkulatoren">
 <meta name="robots" content="index, follow">
 <meta name="author" content="ProcureCalc.de">
 <meta name="language" content="de">
-<link rel="canonical" href="https://www.procerecalc.de">
+<link rel="canonical" href="https://www.procurecalc.de">
 <meta name="description" content="ProcureCalc.de: 15 kostenlose Kalkulatoren für strategischen Einkauf – TCO, BATNA, Savings, Make-or-Buy und mehr.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -945,7 +945,7 @@ function applyTrackingConsent(consentValue){
       <p>Beethovenstraße 17</p>
       <p>31199 Diekholzen</p>
       <p>Deutschland</p>
-      <p style="margin-top:8px">E-Mail: <a href="mailto:info@procerecalc.de" style="color:var(--gold-d)">info@procerecalc.de</a></p>
+      <p style="margin-top:8px">E-Mail: <a href="mailto:info@procurecalc.de" style="color:var(--gold-d)">info@procurecalc.de</a></p>
     </div>
 
     <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
@@ -982,7 +982,7 @@ function applyTrackingConsent(consentValue){
     <div class="legal-box">
       <p><strong>Paul Klußmann</strong></p>
       <p>Beethovenstraße 17, 31199 Diekholzen</p>
-      <p>E-Mail: <a href="mailto:info@procerecalc.de" style="color:var(--gold-d)">info@procerecalc.de</a></p>
+      <p>E-Mail: <a href="mailto:info@procurecalc.de" style="color:var(--gold-d)">info@procurecalc.de</a></p>
     </div>
 
     <h2>2. Allgemeine Hinweise zur Verarbeitung</h2>
@@ -1118,19 +1118,6 @@ function applyTrackingConsent(consentValue){
         <span class="star" onclick="setStar(3)">★</span><span class="star" onclick="setStar(4)">★</span>
         <span class="star" onclick="setStar(5)">★</span>
       </div>
-      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Name</label>
-      <input id="fb-name" name="name" type="text" class="fb-input" placeholder="Max Mustermann" required>
-      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Deine E-Mail</label>
-      <input id="fb-email" name="email" type="email" class="fb-input" placeholder="max@firma.de" required>
-      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Welchen Kalkulator hast du genutzt?</label>
-      <select id="fb-calc" name="calculator" class="fb-input">
-        <option value="">— Bitte wählen —</option>
-        <option>Positionsrechner</option><option>Preiserhöhungs-Check</option><option>TCO-Vergleich</option>
-        <option>Savings-Kalkulator</option><option>Make-or-Buy</option><option>Rahmenvertrag</option>
-        <option>Zahlungsziel</option><option>Skonto</option><option>Safety Stock</option>
-        <option>Lieferantenrisiko</option><option>Indexklausel</option>
-        <option>Währungsrisiko</option><option>Lieferzeit-Kosten</option><option>Jahresgespräch</option><option>Lernkurve</option>
-      </select>
       <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Feedback</label>
       <textarea id="fb-text" name="message" class="fb-input" placeholder="Was hat geholfen? Was fehlt? Fehler gefunden?" required></textarea>
       <div style="display:flex;gap:10px;justify-content:flex-end">
@@ -1954,14 +1941,11 @@ async function submitFB(e) {
   if (!fbStar) { alert('Bitte vergib eine Bewertung (1–5 Sterne).'); return; }
 
   const stars   = fbStar;
-  const name    = document.getElementById('fb-name').value.trim();
-  const email   = document.getElementById('fb-email').value.trim();
-  const calc    = document.getElementById('fb-calc').value;
   const message = document.getElementById('fb-text').value.trim();
   const date    = new Date().toLocaleDateString('de-DE');
 
-  if (!name || !email || !message) {
-    alert('Bitte Name, E-Mail und Feedback ausfüllen.');
+  if (!message) {
+    alert('Bitte Feedback ausfüllen.');
     return;
   }
 
@@ -1969,7 +1953,7 @@ async function submitFB(e) {
   document.getElementById('fb-ok').style.display = 'block';
 
   // 1. Supabase (Datenbank)
-  await sbInsert('feedback', { stars, name, email, calculator: calc, message, page_url: location.href });
+  await sbInsert('feedback', { stars, message, page_url: location.href });
 
   // 2. Formspree (E-Mail an dich)
   try {
@@ -1977,19 +1961,16 @@ async function submitFB(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name,
-        email,
         message,
-        calculator: calc || '—',
         stars,
-        _subject: `ProcureCalc Feedback: ${stars}★ — ${calc || 'Allgemein'}`,
+        _subject: `ProcureCalc Feedback: ${stars}★`,
         datum: date
       })
     });
   } catch(e2) { console.warn('Formspree send failed'); }
 
   // 3. localStorage Fallback (immer)
-  track('fb', { stars, name, email, calc, text: message, date });
+  track('fb', { stars, text: message, date });
 
   document.getElementById('fb-form').reset();
   setStar(0); fbStar = 0;
