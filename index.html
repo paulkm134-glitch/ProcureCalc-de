@@ -190,7 +190,7 @@ body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--t1
 .rr{display:flex;justify-content:space-between;align-items:center;padding:6px 11px;font-size:.79rem;border-bottom:1px solid var(--border)}
 .rr:last-child{border-bottom:none}
 .rr span:first-child{color:var(--t2)}
-.rv{font-family:var(--mono);font-size:.79rem;font-weight:500;color:var(--t1)}
+.rv{font-family:var(--mono);font-size:.79rem;font-weight:500;color:var(--t1);font-variant-numeric:tabular-nums;letter-spacing:.01em}
 .rr.g{background:var(--green-l)}.rr.g .rv{color:var(--green)}
 .rr.w{background:var(--amber-l)}.rr.w .rv{color:var(--amber)}
 .rr.d{background:var(--red-l)}.rr.d .rv{color:var(--red)}
@@ -1522,26 +1522,35 @@ const CDefs={
     y:{ticks:{font:{family:"'DM Mono',monospace",size:9},color:'#A0AABF'},grid:{color:'rgba(0,0,0,.05)'}}
   }
 };
+const isFiniteNum=v=>typeof v==='number'&&Number.isFinite(v);
 const fmt=(n,d=2)=>{
-  if(!isFinite(n)||isNaN(n))return '—';
+  if(!isFiniteNum(n))return '—';
   return n.toLocaleString('de-DE',{minimumFractionDigits:d,maximumFractionDigits:d});
 };
-const fe=n=>{if(!isFinite(n)||isNaN(n))return '—';return fmt(n,2)+' €';};
-const fp=n=>{const v=n*100;if(!isFinite(v)||isNaN(v))return '—';return fmt(v,1)+' %';};
+const fe=n=>!isFiniteNum(n)?'—':fmt(n,2)+' €';
+const fp=n=>{const v=n*100;return !isFiniteNum(v)?'—':fmt(v,1)+' %';};
+const valOrDash=v=>{
+  if(v===undefined||v===null||v==='')return '–';
+  if(typeof v==='number'&&!Number.isFinite(v))return '–';
+  return String(v);
+};
 const gv=id=>{
   const e=document.getElementById(id);
   if(!e)return 0;
-  const v=parseFloat(e.value);
-  if(isNaN(v))return 0;
-  // Validate: warn on negative where input has min>=0 attr
-  if(e.min!==undefined&&e.min!==''&&v<0){e.classList.add('inp-warn');}
-  else{e.classList.remove('inp-warn');}
-  return v;
+  const raw=Number.parseFloat(e.value);
+  if(!Number.isFinite(raw))return 0;
+  const min=Number.parseFloat(e.min);
+  if(Number.isFinite(min)&&raw<min){
+    e.classList.add('inp-warn');
+    return min;
+  }
+  e.classList.remove('inp-warn');
+  return raw;
 };
 const vp=id=>{const v=gv(id);return safe(v/100);};
 // pct: parse a raw number value (e.g. 32 → 0.32), safe
 const pct=v=>{const n=parseFloat(v)||0;return safe(n/100);};
-const rr=(l,v,c='')=>`<div class="rr ${c}"><span>${l}</span><span class="rv">${v}</span></div>`;
+const rr=(l,v,c='')=>`<div class="rr ${c}"><span>${l}</span><span class="rv">${valOrDash(v)}</span></div>`;
 
 // ═══ RAHMENVERTRAG ROWS ═══
 function birv(){
@@ -2124,22 +2133,32 @@ function toggleScenarioPanel(id){
 
 // ═══ INPUT VALIDATION ═══
 function validateInputs(){
+  const NON_NEGATIVE_IDS = [
+    'c_cur','c_vol','c_bat','c_sw','c_tgt','p_p','sv_o','sv_n','sv_v','sv_a','sv_pr',
+    'ta_p','tb_p','tc_p','mob_f','mob_v','mob_i','mob_d','mob_b','mob_vol',
+    'fx_p','fx_r','fx_v','lt_v','lt_wa','lt_sa','lt_wb','lt_sb','lk_p','lk_n0','lk_n1','lk_v'
+  ];
   // Warn on % > 100
   ['p_ms','p_ls','p_es','ix_ms','ix_ls','ix_es'].forEach(id=>{
     const el=document.getElementById(id);
     if(!el)return;
-    const v=parseFloat(el.value);
+    const v=Number.parseFloat(el.value);
     let hint=el.parentElement?.querySelector('.inp-hint');
     if(!hint){hint=document.createElement('div');hint.className='inp-hint';el.parentElement?.appendChild(hint);}
-    if(v>100){hint.textContent='⚠ Anteil über 100% — bitte prüfen';hint.classList.add('on');el.classList.add('inp-warn');}
+    if(Number.isFinite(v)&&v>100){hint.textContent='⚠ Anteil über 100% — bitte prüfen';hint.classList.add('on');el.classList.add('inp-warn');}
     else{hint.classList.remove('on');el.classList.remove('inp-warn');}
   });
-  // Warn on negative prices
-  ['c_cur','c_bat','c_tgt','p_p','sv_o','sv_n','mob_b','ta_p','tb_p','tc_p'].forEach(id=>{
+  // Prevent negative where nonsensical
+  NON_NEGATIVE_IDS.forEach(id=>{
     const el=document.getElementById(id);
     if(!el)return;
-    const v=parseFloat(el.value);
-    if(v<0){el.classList.add('inp-warn');}else{el.classList.remove('inp-warn');}
+    const v=Number.parseFloat(el.value);
+    if(Number.isFinite(v)&&v<0){
+      el.value='0';
+      el.classList.add('inp-warn');
+    }else{
+      el.classList.remove('inp-warn');
+    }
   });
 }
 
@@ -2628,13 +2647,38 @@ function adSaveContact() {
 
 async function adSaveSlot(slot) {
   const ads = adGetAds();
-  const g = id => document.getElementById('adm-'+slot+'-'+id)?.value || '';
+  const read = id => {
+    const val = document.getElementById('adm-'+slot+'-'+id)?.value;
+    return typeof val === 'string' ? val.trim() : '';
+  };
+  const cleanUrl = url => {
+    const v = (url || '').trim();
+    return v || '#';
+  };
   if(slot === 'banner') {
-    ads.banner = { title:g('title'), l1t:g('l1t'), l1u:g('l1u'), l2t:g('l2t'), l2u:g('l2u') };
+    ads.banner = {
+      title: read('title') || AD_DEFAULTS.banner.title,
+      l1t: read('l1t') || AD_DEFAULTS.banner.l1t,
+      l1u: cleanUrl(read('l1u')),
+      l2t: read('l2t') || AD_DEFAULTS.banner.l2t,
+      l2u: cleanUrl(read('l2u'))
+    };
   } else if(slot === 'sidebar') {
-    ads.sidebar = { title:g('title'), text:g('text'), lt:g('lt'), url:g('url') };
+    ads.sidebar = {
+      title: read('title') || AD_DEFAULTS.sidebar.title,
+      text: read('text') || AD_DEFAULTS.sidebar.text,
+      lt: read('lt') || AD_DEFAULTS.sidebar.lt,
+      url: cleanUrl(read('url'))
+    };
   } else {
-    ads[slot] = { label:g('label'), title:g('title'), text:g('text'), cta:g('cta'), url:g('url') };
+    const fallback = AD_DEFAULTS[slot] || {};
+    ads[slot] = {
+      label: read('label') || fallback.label || '',
+      title: read('title') || fallback.title || '',
+      text: read('text') || fallback.text || '',
+      cta: read('cta') || fallback.cta || '',
+      url: cleanUrl(read('url'))
+    };
   }
 
   AD_CACHE = adMergeDefaults(ads);
@@ -2661,20 +2705,29 @@ async function adSaveSlot(slot) {
 
 function adPreview() {
   // Live preview while typing
-  const g = (id) => { const el=document.getElementById(id); return el?el.value:''; };
-  const upd = (id, val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
-  upd('ad-banner-title', g('adm-banner-title'));
-  const l1=document.getElementById('ad-banner-link1'); if(l1) l1.textContent=g('adm-banner-l1t');
-  const l2=document.getElementById('ad-banner-link2'); if(l2) l2.textContent=g('adm-banner-l2t');
-  upd('ad-sidebar-title', g('adm-sidebar-title'));
-  const stx=document.getElementById('ad-sidebar-text'); if(stx) stx.textContent=g('adm-sidebar-text');
-  const sla=document.getElementById('ad-sidebar-link'); if(sla) sla.textContent=g('adm-sidebar-lt');
-  upd('ad-home-label', g('adm-home-label')); upd('ad-home-title', g('adm-home-title'));
-  upd('ad-home-text', g('adm-home-text'));   upd('ad-home-cta', g('adm-home-cta'));
-  upd('ad-preis-label', g('adm-preis-label')); upd('ad-preis-title', g('adm-preis-title'));
-  upd('ad-preis-text', g('adm-preis-text'));   upd('ad-preis-cta', g('adm-preis-cta'));
-  upd('ad-strat-label', g('adm-strat-label')); upd('ad-strat-title', g('adm-strat-title'));
-  upd('ad-strat-text', g('adm-strat-text'));   upd('ad-strat-cta', g('adm-strat-cta'));
+  const g = id => document.getElementById(id)?.value ?? '';
+  const applyText = (targetId, sourceId) => {
+    const el=document.getElementById(targetId);
+    if(el) el.textContent = g(sourceId);
+  };
+  applyText('ad-banner-title','adm-banner-title');
+  applyText('ad-banner-link1','adm-banner-l1t');
+  applyText('ad-banner-link2','adm-banner-l2t');
+  applyText('ad-sidebar-title','adm-sidebar-title');
+  applyText('ad-sidebar-text','adm-sidebar-text');
+  applyText('ad-sidebar-link','adm-sidebar-lt');
+  applyText('ad-home-label','adm-home-label');
+  applyText('ad-home-title','adm-home-title');
+  applyText('ad-home-text','adm-home-text');
+  applyText('ad-home-cta','adm-home-cta');
+  applyText('ad-preis-label','adm-preis-label');
+  applyText('ad-preis-title','adm-preis-title');
+  applyText('ad-preis-text','adm-preis-text');
+  applyText('ad-preis-cta','adm-preis-cta');
+  applyText('ad-strat-label','adm-strat-label');
+  applyText('ad-strat-title','adm-strat-title');
+  applyText('ad-strat-text','adm-strat-text');
+  applyText('ad-strat-cta','adm-strat-cta');
 }
 
 function adResetAds() {
