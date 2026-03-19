@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap (sobald vorhanden)
+# Sitemap: https://www.procerecalc.de/sitemap.xml
+
+# Admin-Bereich nicht indexieren (ist client-seitig, aber trotzdem)
+Disallow: /admin

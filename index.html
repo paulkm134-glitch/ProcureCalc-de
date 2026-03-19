@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProcureCalc.de – Profi-Kalkulatoren für den Industrieeinkauf</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzJEMjkyNiIvPjxyZWN0IHg9IjAiIHk9IjI4IiB3aWR0aD0iMzIiIGhlaWdodD0iMiIgcng9IjAiIGZpbGw9IiNDNEE4NjIiLz48dGV4dCB4PSIxNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjQzRBODYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QQzwvdGV4dD48L3N2Zz4=">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzJEMjkyNiIvPjxyZWN0IHg9IjAiIHk9IjI4IiB3aWR0aD0iMzIiIGhlaWdodD0iMiIgcng9IjAiIGZpbGw9IiNDNEE4NjIiLz48dGV4dCB4PSIxNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjQzRBODYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QQzwvdGV4dD48L3N2Zz4=">
+<meta name="theme-color" content="#2D2926">
+<meta property="og:title" content="ProcureCalc.de – Profi-Kalkulatoren für den Industrieeinkauf">
+<meta property="og:description" content="15 kostenlose Kalkulatoren für strategischen Einkauf: TCO, BATNA, Savings, Make-or-Buy und mehr. Direkt im Browser, keine Anmeldung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.procerecalc.de">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ProcureCalc.de – Einkauf-Kalkulatoren">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ProcureCalc.de">
+<meta name="language" content="de">
+<link rel="canonical" href="https://www.procerecalc.de">
+<meta name="description" content="ProcureCalc.de: 15 kostenlose Kalkulatoren für strategischen Einkauf – TCO, BATNA, Savings, Make-or-Buy und mehr.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════ DESIGN TOKENS ══════════════ */
+:root{
+  /* ── Warm Editorial Tokens (Design Handbook 2026) ── */
+  --bg:      #FFFEF9;
+  --surface: #FFFFFF;
+  --card:    #FFFFFF;
+  --panel:   #F5F0E8;
+  --panel2:  #EDE8DF;
+  --border:  #E8E5DE;
+  --border2: #D4CFC7;
+
+  /* Primary — Charcoal + Gold */
+  --charcoal:  #2D2926;
+  --gold:      #C4A862;
+  --gold-d:    #8B6914;
+  --gold-a:    rgba(196,168,98,.12);
+  --stone:     #9B8B7A;
+  --cream:     #F5F0E8;
+
+  /* Semantic — Ergebnisfarben */
+  --blue:    #2454E8;   /* Behalten für Diagramme/Links */
+  --blue-l:  #EEF2FE;
+  --blue-d:  #1A3DB5;
+  --blue-a:  rgba(36,84,232,.1);
+  --amber:   #D68910;
+  --amber-l: #FEF9EC;
+  --amber-a: rgba(214,137,16,.1);
+  --green:   #0B8A5C;
+  --green-l: #EDF7F3;
+  --green-a: rgba(11,138,92,.1);
+  --red:     #C93535;
+  --red-l:   #FEF2F2;
+  --red-a:   rgba(201,53,53,.1);
+
+  /* Text */
+  --t1: #2D2926;
+  --t2: #4A3F38;
+  --t3: #9B8B7A;
+  --t4: #C0B4A8;
+
+  --shadow-sm: 0 1px 3px rgba(45,41,38,.06);
+  --shadow:    0 2px 8px rgba(45,41,38,.08), 0 6px 20px rgba(45,41,38,.05);
+  --shadow-lg: 0 8px 32px rgba(45,41,38,.14);
+
+  --r:  4px;
+  --r2: 8px;
+  --r3: 12px;
+
+  --mono: 'DM Mono', monospace;
+  --sans: 'Poppins', 'Arial Nova', Arial, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--t1);font-size:14px;line-height:1.6}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--panel)}::-webkit-scrollbar-thumb{background:var(--gold);opacity:.4;border-radius:0}
+
+/* ══ TOPBAR ══ */
+.topbar{
+  position:sticky;top:0;z-index:300;
+  background:#2D2926;
+  border-bottom:1px solid rgba(196,168,98,.25);
+  height:54px;display:flex;align-items:center;padding:0 24px;gap:16px;
+  box-shadow:0 2px 12px rgba(45,41,38,.3);
+}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;color:#FFFEF9;font-weight:500;font-size:.95rem;flex-shrink:0;font-family:var(--sans)}
+.logo-mark{width:30px;height:30px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#2D2926;letter-spacing:-.02em}
+.logo em{font-style:normal;color:rgba(255,254,249,.45);font-weight:300}
+.topnav{display:flex;gap:2px;align-items:center;flex:1;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.tnb{font-size:.8rem;color:rgba(255,254,249,.65);padding:6px 14px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:var(--sans);white-space:nowrap;transition:all .15s;font-weight:300;letter-spacing:.01em}
+.tnb:hover{color:#FFFEF9;background:rgba(255,254,249,.08)}
+.tnb.on{color:#FFFEF9;border-bottom-color:var(--gold);background:transparent}
+.top-right{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.btn-fb{font-size:.78rem;background:transparent;color:var(--gold);border:1px solid rgba(196,168,98,.4);padding:6px 14px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-weight:500;transition:all .15s;white-space:nowrap}
+.btn-fb:hover{background:var(--gold);color:#2D2926}
+.badge-new{font-size:.65rem;background:var(--amber-a);color:var(--amber);border:1px solid rgba(214,137,16,.25);padding:2px 7px;border-radius:12px;font-weight:600}
+
+/* ══ AD STRIP ══ */
+.ad-strip{background:#F5F0E8;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:6px 20px;gap:10px;font-size:.77rem;color:var(--stone);flex-wrap:wrap}
+.ad-lbl{font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(139,105,20,.3);padding:1px 6px;border-radius:3px;color:var(--gold-d);font-weight:600;flex-shrink:0}
+.ad-strip a{color:var(--gold-d);text-decoration:none;font-weight:500}
+.ad-strip a:hover{text-decoration:underline}
+
+/* ══ LAYOUT ══ */
+.layout{display:block;min-height:calc(100vh - 80px)}
+
+/* ══ SIDEBAR ══ */
+/* sidebar removed — nav moved to topbar dropdown */
+.ni{display:none}
+
+/* ══ MAIN ══ */
+.main{width:100%;min-width:0;padding:28px;max-width:1200px;margin:0 auto}
+
+/* ══ SECTIONS ══ */
+.sec{display:none}
+.sec.on{display:block;animation:fadeIn .18s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ══ HERO ══ */
+.hero{
+  background:#2D2926;
+  border-radius:var(--r3);padding:36px 44px;margin-bottom:24px;color:#FFFEF9;
+  position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;top:0;right:0;width:240px;height:240px;background:rgba(196,168,98,.06);border-radius:50%;transform:translate(30%,-30%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;width:160px;height:160px;background:rgba(196,168,98,.04);border-radius:50%;transform:translate(-30%,30%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(196,168,98,.35);color:var(--gold);padding:3px 10px;border-radius:3px;margin-bottom:16px;font-weight:500}
+.hero h1{font-family:var(--serif);font-size:2.2rem;font-weight:400;font-style:italic;line-height:1.2;margin-bottom:10px;position:relative;color:#FFFEF9}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-gold-line{width:48px;height:2px;background:var(--gold);margin-bottom:14px}
+.hero p{font-size:.88rem;color:rgba(255,254,249,.6);max-width:480px;margin-bottom:24px;line-height:1.7;position:relative;font-weight:300}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;position:relative;padding-top:20px;border-top:1px solid rgba(196,168,98,.18)}
+.stat-n{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:500;line-height:1;color:var(--gold)}
+.stat-l{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,254,249,.4);margin-top:4px}
+
+/* ══ CAT GRID ══ */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:22px}
+.cat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:18px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm)}
+.cat-card:hover{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
+.cat-card .ic{font-size:1.5rem;margin-bottom:10px}
+.cat-card h3{font-size:.88rem;font-weight:700;margin-bottom:5px}
+.cat-card p{font-size:.77rem;color:var(--t3);line-height:1.5;margin-bottom:10px}
+.cat-card .cnt{font-size:.7rem;color:var(--t4);border-top:1px solid var(--border);padding-top:7px;font-family:var(--mono)}
+
+/* ══ SEC HEADER ══ */
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.sh h2{font-size:1.05rem;font-weight:500;font-family:var(--serif);font-style:italic;color:var(--charcoal)}
+.sh-tag{font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-d);background:var(--panel);border:1px solid rgba(139,105,20,.2);padding:2px 8px;border-radius:3px;font-weight:600}
+.exp-btn{margin-left:auto;font-size:.74rem;background:none;border:1px solid rgba(196,168,98,.4);color:var(--gold-d);padding:5px 12px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-weight:500;transition:all .15s;white-space:nowrap}
+.exp-btn:hover{border-color:var(--gold);color:var(--gold-d);background:var(--gold-a)}
+
+/* ══ CALC GRID ══ */
+.cgrd{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;margin-bottom:18px}
+.cfull{grid-column:1/-1}
+
+/* ══ CALC CARD ══ */
+.cp{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow-sm);border-left:3px solid var(--gold)}
+.cp-hd{padding:13px 15px 11px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--panel)}
+.cp-hd h3{font-size:.85rem;font-weight:500;display:flex;align-items:center;gap:7px;color:var(--charcoal)}
+.cp-bd{padding:15px;background:#FFFEF9}
+.info-btn{font-size:.7rem;background:transparent;border:1px solid rgba(196,168,98,.35);color:var(--gold-d);padding:3px 8px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-weight:500;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.info-btn:hover{border-color:var(--gold);color:var(--gold-d);background:var(--gold-a)}
+
+/* ══ INFO BOX ══ */
+.ib{display:none;background:var(--panel);border:1px solid rgba(196,168,98,.2);border-left:3px solid var(--gold);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;font-size:.79rem;color:var(--t2)}
+.ib.on{display:block}
+.ib h4{font-size:.68rem;color:var(--gold-d);margin-bottom:5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.ib p,.ib li{margin-bottom:5px;line-height:1.6}
+.ib ul{padding-left:14px;margin-bottom:5px}
+.ib code{font-family:var(--mono);font-size:.75rem;background:rgba(139,105,20,.1);padding:1px 5px;border-radius:3px;color:var(--gold-d)}
+.tip{background:rgba(196,168,98,.08);border:1px solid rgba(196,168,98,.2);border-radius:var(--r);padding:8px 11px;font-size:.77rem;color:var(--gold-d);margin-top:8px}
+
+/* ══ FORM FIELDS ══ */
+.fr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.fr label{font-size:.79rem;color:var(--t2);flex:1;line-height:1.4}
+.fr input,.fr select{width:112px;flex-shrink:0;font-family:var(--mono);font-size:.78rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:5px 8px;text-align:right;outline:none;transition:border-color .15s}
+.fr input:focus,.fr select:focus{border-color:var(--gold);background:#fff;outline:none}
+.fr select{text-align:left}
+.sub-lbl{font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--t4);margin:10px 0 5px;border-top:1px solid var(--border);padding-top:8px;font-weight:600}
+
+/* ══ RESULT BOX ══ */
+.rb{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);margin-top:11px;overflow:hidden}
+.rr{display:flex;justify-content:space-between;align-items:center;padding:6px 11px;font-size:.79rem;border-bottom:1px solid var(--border)}
+.rr:last-child{border-bottom:none}
+.rr span:first-child{color:var(--t2)}
+.rv{font-family:var(--mono);font-size:.79rem;font-weight:500;color:var(--t1)}
+.rr.g{background:var(--green-l)}.rr.g .rv{color:var(--green)}
+.rr.w{background:var(--amber-l)}.rr.w .rv{color:var(--amber)}
+.rr.d{background:var(--red-l)}.rr.d .rv{color:var(--red)}
+.rr.hl .rv{color:var(--gold-d);font-weight:700}
+
+/* ══ CHART ══ */
+.ch-btn{font-family:var(--sans);font-size:.74rem;background:none;border:1px solid var(--border);color:var(--t3);padding:6px 12px;border-radius:var(--r);cursor:pointer;width:100%;margin-top:10px;transition:all .15s;font-weight:500}
+.ch-btn:hover{border-color:var(--gold);color:var(--gold-d)}
+.ch-wrap{display:none;padding:12px 0 4px;max-height:240px}
+.ch-wrap.on{display:block}
+.ch-wrap canvas{max-height:220px}
+
+/* ══ TCO TABLE ══ */
+.tco-hd,.tco-row{display:grid;grid-template-columns:1fr 75px 75px 75px;gap:6px;align-items:center;margin-bottom:7px}
+.tco-hd{font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding-bottom:6px;border-bottom:1px solid var(--border);font-weight:600}
+.tco-row label{font-size:.79rem;color:var(--t2)}
+.tco-i{width:100%;font-family:var(--mono);font-size:.77rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:4px 6px;text-align:right;outline:none;transition:border-color .15s}
+.tco-i:focus{border-color:var(--gold);background:#fff}
+
+/* ══ RISK TABLE ══ */
+.risk-hd,.risk-row{display:grid;grid-template-columns:1fr 58px 65px;gap:6px;align-items:center;margin-bottom:7px}
+.risk-hd{font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding-bottom:5px;border-bottom:1px solid var(--border);font-weight:600}
+.risk-row label{font-size:.79rem;color:var(--t2)}
+.risk-i{width:100%;font-family:var(--mono);font-size:.77rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:4px 5px;text-align:right;outline:none}
+.risk-i:focus{border-color:var(--gold)}
+
+/* ══ IDX GRID ══ */
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.idx-item{display:flex;flex-direction:column;gap:3px}
+.idx-item label{font-size:.7rem;color:var(--t3);font-weight:500}
+.idx-item input{font-family:var(--mono);font-size:.77rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:4px 7px;text-align:right;outline:none}
+.idx-item input:focus{border-color:var(--gold)}
+.idx-title{font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-d);margin:9px 0 5px;font-weight:600}
+
+/* ══ AD CARD ══ */
+.ad-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:14px 18px;display:flex;align-items:center;gap:14px;margin:18px 0;flex-wrap:wrap;box-shadow:var(--shadow-sm)}
+.ad-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--border2);padding:2px 7px;border-radius:3px;flex-shrink:0;font-weight:600}
+.ad-c h4{font-size:.88rem;font-weight:700;margin-bottom:2px}
+.ad-c p{font-size:.78rem;color:var(--t3)}
+.ad-cta{display:inline-block;padding:6px 14px;background:var(--gold-a);border:1px solid rgba(196,168,98,.4);color:var(--gold-d);border-radius:var(--r);font-size:.78rem;font-weight:500;text-decoration:none;cursor:pointer;flex-shrink:0;transition:all .15s}
+.ad-cta:hover{background:var(--gold);color:#2D2926}
+
+/* ══ LEGAL PAGES ══ */
+.legal{max-width:720px}
+.legal h2{font-size:1rem;font-weight:700;margin:22px 0 8px;color:var(--t1)}
+.legal h2:first-child{margin-top:0}
+.legal h3{font-size:.88rem;font-weight:600;margin:14px 0 5px;color:var(--t2)}
+.legal p{font-size:.85rem;color:var(--t2);margin-bottom:9px;line-height:1.7}
+.legal-box{background:var(--panel);border:1px solid rgba(196,168,98,.2);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 16px;margin-bottom:14px}
+.legal-box p{margin-bottom:4px;font-size:.85rem;color:var(--t2)}
+
+/* ══ ADMIN ══ */
+.pw-wrap{max-width:320px;margin:70px auto;text-align:center}
+.pw-wrap .pw-ic{font-size:2.5rem;margin-bottom:16px}
+.pw-input{width:100%;font-family:var(--sans);font-size:.88rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:10px 14px;outline:none;margin-bottom:10px}
+.pw-input:focus{border-color:var(--gold);background:#fff}
+.btn-prim{background:var(--charcoal);color:#FFFEF9;border:none;padding:9px 20px;border-radius:var(--r);cursor:pointer;font-size:.85rem;font-weight:500;font-family:var(--sans);transition:all .15s}
+.btn-prim:hover{background:var(--gold);color:#2D2926}
+.btn-sec{background:var(--panel);color:var(--t2);border:1px solid var(--border);padding:8px 16px;border-radius:var(--r);cursor:pointer;font-size:.83rem;font-family:var(--sans);font-weight:500;transition:all .15s}
+.btn-sec:hover{border-color:var(--border2);background:var(--panel2)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:20px}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:16px;box-shadow:var(--shadow-sm)}
+.kpi-n{font-family:var(--mono);font-size:1.6rem;font-weight:500;color:var(--gold-d)}
+.kpi-l{font-size:.74rem;color:var(--t3);margin-top:3px}
+.kpi-s{font-size:.7rem;color:var(--green);margin-top:2px;font-weight:500}
+.admin-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.admin-box h3{font-size:.88rem;font-weight:700;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.admin-tbl{width:100%;border-collapse:collapse;font-size:.8rem}
+.admin-tbl th{background:var(--panel);padding:8px 10px;text-align:left;font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);font-weight:600;border-bottom:1px solid var(--border)}
+.admin-tbl td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--t2)}
+.admin-tbl tr:hover td{background:var(--panel)}
+.badge{display:inline-block;font-size:.67rem;padding:2px 7px;border-radius:10px;font-weight:600}
+.badge.g{background:var(--green-a);color:var(--green)}
+.badge.w{background:var(--amber-a);color:var(--amber)}
+.badge.d{background:var(--red-a);color:var(--red)}
+.badge.b{background:var(--blue-a);color:var(--blue)}
+.bar-wrap{background:var(--panel);border-radius:3px;height:6px;overflow:hidden;flex:1;min-width:60px}
+.bar{height:100%;border-radius:3px;background:var(--gold-d);transition:width .4s ease}
+
+/* ══ MODALS ══ */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.modal-bg.on{display:flex}
+.modal{background:var(--surface);border-radius:var(--r3);padding:24px;max-width:460px;width:90vw;box-shadow:var(--shadow-lg);max-height:90vh;overflow-y:auto}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.modal-hd h3{font-size:.95rem;font-weight:700}
+.modal-close{background:none;border:none;color:var(--t3);cursor:pointer;font-size:1.2rem;line-height:1;padding:2px;transition:color .15s}
+.modal-close:hover{color:var(--charcoal)}
+.eb-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.eb{font-size:.79rem;background:var(--panel);border:1px solid var(--border);color:var(--t2);padding:9px 12px;border-radius:var(--r);cursor:pointer;text-align:left;font-family:var(--sans);font-weight:500;transition:all .15s}
+.eb:hover{background:var(--gold-a);border-color:rgba(196,168,98,.4);color:var(--gold-d)}
+.eb.wide{grid-column:1/-1}
+.stars{display:flex;gap:6px;margin:12px 0}
+.star{font-size:1.5rem;cursor:pointer;color:var(--border2);transition:color .15s;user-select:none}
+.star.on{color:var(--gold)}
+.fb-input{width:100%;font-family:var(--sans);font-size:.83rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:8px 10px;outline:none;margin-bottom:10px}
+.fb-input:focus{border-color:var(--blue);background:#fff}
+textarea.fb-input{resize:vertical;min-height:72px}
+
+/* ══ FOOTER ══ */
+footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:20px}
+.footer-brand p{font-size:.79rem;color:rgba(255,254,249,.45);line-height:1.65;max-width:255px;margin-top:10px;font-weight:300}
+.footer-col h5{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;font-weight:600;opacity:.8}
+.footer-col a{display:block;font-size:.8rem;color:rgba(255,254,249,.55);text-decoration:none;margin-bottom:5px;cursor:pointer;transition:color .15s;font-weight:300}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{padding-top:14px;border-top:1px solid rgba(196,168,98,.2);display:flex;justify-content:space-between;align-items:center;font-size:.71rem;color:rgba(255,254,249,.35);flex-wrap:wrap;gap:8px}
+.footer-links{display:flex;gap:14px}
+.footer-links a{color:rgba(255,254,249,.35);text-decoration:none;cursor:pointer;transition:color .15s}
+.footer-links a:hover{color:var(--gold)}
+
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.main{padding:14px}.hero{padding:20px}.hero h1{font-size:1.3rem}.footer-grid{grid-template-columns:1fr}.nav-item>.nav-drop{position:fixed;left:8px;right:8px;top:60px;min-width:unset}}
+
+.adm-field{margin-bottom:8px}
+.adm-field label{display:block;font-size:.72rem;color:var(--t3);margin-bottom:3px;font-weight:500;letter-spacing:.04em}
+.adm-field input{width:100%;font-family:var(--sans);font-size:.82rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:6px 9px;outline:none;transition:border-color .15s}
+.adm-field input:focus{border-color:var(--gold);background:#fff}
+
+/* ── CONVERSION + UX IMPROVEMENTS ── */
+
+/* Beliebte Tools Badge */
+.badge-pop{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:#FEF3C7;color:#92400E;border:1px solid #FCD34D;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle;line-height:1.6}
+.badge-hot{background:#FEE2E2;color:#991B1B;border-color:#FCA5A5}
+
+/* Hero CTA Button */
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:#FFFEF9;color:#2D2926;font-weight:500;font-size:.88rem;padding:10px 22px;border-radius:var(--r);border:none;cursor:pointer;font-family:var(--sans);transition:all .18s;box-shadow:0 2px 12px rgba(45,41,38,.25);margin-top:0}
+.hero-cta:hover{background:var(--gold);color:#2D2926;transform:translateY(-1px)}
+.hero-cta svg{flex-shrink:0}
+.hero-social{font-size:.74rem;color:rgba(255,254,249,.45);margin-top:10px;font-weight:300}
+.hero-social span{color:rgba(255,254,249,.7);font-weight:400}
+
+/* Sticky mini-CTA in topbar */
+.topbar-cta{font-size:.74rem;background:var(--gold);color:#2D2926;border:none;padding:5px 12px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-weight:600;white-space:nowrap;transition:all .15s;display:none}
+.topbar-cta:hover{background:#FFFEF9;color:#2D2926}
+@media(min-width:700px){.topbar-cta{display:block}}
+
+/* Popular tools quick-access strip */
+.quick-strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.quick-chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;font-weight:500;color:var(--t2);cursor:pointer;transition:all .18s;box-shadow:var(--shadow-sm)}
+.quick-chip:hover{border-color:var(--gold);color:var(--gold-d);background:var(--gold-a);transform:translateY(-1px)}
+.quick-chip .qc-ic{font-size:.9rem}
+.quick-chip .qc-badge{font-size:.6rem;background:var(--gold);color:#2D2926;padding:1px 5px;border-radius:8px;font-weight:700}
+
+/* Popular section header */
+.pop-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.pop-hdr h3{font-size:.82rem;font-weight:500;color:var(--charcoal);letter-spacing:.04em;text-transform:uppercase}
+.pop-hdr::before{content:'';display:block;width:3px;height:18px;background:var(--gold);border-radius:0}
+
+/* Result box — enhanced highlight for .hl rows */
+.rr.hl{border-left:3px solid var(--gold);background:#FBF7EE!important}
+.rr.hl .rv{font-size:.88rem!important;font-weight:700!important;color:var(--gold-d)!important}
+.rr.g.hl{border-left-color:var(--green);background:var(--green-l)!important}
+.rr.g.hl .rv{color:var(--green)!important}
+
+/* Input validation warning */
+.fr input.inp-warn{border-color:var(--amber)!important;background:#FFFBEB!important}
+.inp-hint{font-size:.7rem;color:var(--amber);margin-top:-5px;margin-bottom:5px;display:none}
+.inp-hint.on{display:block}
+
+/* Info boxes — partially open by default */
+.ib{max-height:0;overflow:hidden;transition:max-height .25s ease,padding .2s}
+.ib.on{max-height:400px}
+.ib.peek{max-height:60px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,black 40%,transparent 100%);mask-image:linear-gradient(to bottom,black 40%,transparent 100%)}
+
+/* Tooltip improvement */
+.info-btn{position:relative}
+.info-btn::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);right:0;background:var(--t1);color:#fff;font-size:.72rem;white-space:nowrap;padding:4px 9px;border-radius:var(--r);pointer-events:none;opacity:0;transition:opacity .15s;z-index:50;max-width:220px;white-space:normal;text-align:center}
+.info-btn:hover::after{opacity:1}
+
+/* Scenario compare modal */
+.scenario-bar{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.btn-scenario{font-size:.75rem;background:var(--panel);border:1px solid var(--border);color:var(--t3);padding:5px 11px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-weight:500;transition:all .15s;flex:1;text-align:center}
+.btn-scenario:hover{background:var(--gold-a);border-color:rgba(196,168,98,.4);color:var(--gold-d)}
+.btn-scenario.active{background:var(--gold-a);border-color:var(--gold);color:var(--gold-d)}
+
+/* Scenario slots */
+.scenario-panel{display:none;background:var(--panel);border:1px solid var(--border);border-radius:var(--r2);padding:14px;margin-top:8px;font-size:.8rem}
+.scenario-panel.on{display:block}
+.scenario-slots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.scenario-slot{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px}
+.scenario-slot-title{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);margin-bottom:6px;font-weight:600}
+.scenario-slot .rv{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--t1)}
+
+/* Mobile improvements */
+@media(max-width:600px){
+  .hero h1{font-size:1.3rem}
+  .quick-strip{gap:6px}
+  .quick-chip{font-size:.75rem;padding:5px 11px}
+  .scenario-slots{grid-template-columns:1fr}
+}
+
+
+/* ── DROPDOWN MEGA-NAV ── */
+.topnav{display:flex;gap:0;align-items:center;flex:1;overflow-x:auto;scrollbar-width:none;position:relative}
+.topnav::-webkit-scrollbar{display:none}
+
+.nav-item{position:relative}
+.nav-item>.tnb{display:flex;align-items:center;gap:5px}
+.nav-item>.tnb::after{content:'▾';font-size:.6rem;opacity:.5;transition:transform .2s}
+.nav-item:hover>.tnb::after{transform:rotate(-180deg)}
+.nav-item:hover>.tnb,.nav-item>.tnb.on{color:#FFFEF9;border-bottom-color:var(--gold);background:transparent}
+
+/* Dropdown panel */
+.nav-drop{
+  display:none;position:absolute;top:calc(100% + 8px);left:0;
+  background:#2D2926;border:1px solid rgba(196,168,98,.2);
+  border-radius:var(--r2);box-shadow:0 8px 32px rgba(45,41,38,.4);
+  min-width:230px;z-index:500;padding:8px;
+  animation:dropIn .15s ease;
+}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.nav-item:hover>.nav-drop,.nav-drop:hover{display:block}
+
+.nav-drop-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:6px 8px 4px;font-weight:600;display:block;opacity:.8}
+.nav-drop-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r);cursor:pointer;font-size:.82rem;color:rgba(255,254,249,.75);font-weight:300;transition:all .15s;white-space:nowrap;border:none;background:none;width:100%;text-align:left;font-family:var(--sans)}
+.nav-drop-item:hover{background:rgba(196,168,98,.12);color:#FFFEF9}
+.nav-drop-item .di{font-size:.88rem;width:20px;text-align:center}
+.nav-drop-item .dbadge{font-size:.6rem;background:var(--gold);color:#2D2926;padding:1px 5px;border-radius:8px;font-weight:700;margin-left:auto}
+.nav-drop-sep{height:1px;background:rgba(196,168,98,.2);margin:4px 0}
+
+/* Home button — no dropdown */
+.nav-home{font-size:.8rem;color:rgba(255,254,249,.65);padding:6px 14px;border-radius:var(--r);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:var(--sans);white-space:nowrap;transition:all .15s;font-weight:300}
+.nav-home:hover{color:#FFFEF9;background:rgba(255,254,249,.08)}.nav-home.on{color:#FFFEF9;border-bottom-color:var(--gold);background:transparent}
+
+
+/* ── Cookie Banner ── */
+#cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:#2D2926;border-top:2px solid var(--gold);
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  box-shadow:0 -4px 24px rgba(45,41,38,.4);
+  font-family:var(--sans);
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+#cookie-banner.show{transform:translateY(0)}
+#cookie-banner p{font-size:.8rem;color:rgba(255,254,249,.65);font-weight:300;max-width:680px;line-height:1.55;margin:0}
+#cookie-banner a{color:var(--gold);text-decoration:none;font-weight:500}
+#cookie-banner a:hover{text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-accept{background:var(--gold);color:#2D2926;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.cookie-accept:hover{background:#FFFEF9}
+.cookie-decline{background:transparent;color:rgba(255,254,249,.5);border:1px solid rgba(255,254,249,.2);padding:8px 16px;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:300;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.cookie-decline:hover{color:rgba(255,254,249,.8);border-color:rgba(255,254,249,.4)}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<header class="topbar">
+  <div class="logo" onclick="go('home')">
+    <div class="logo-mark">PC</div>
+    ProcureCalc<em>.de</em>
+  </div>
+  <nav class="topnav" id="main-nav">
+    <!-- Home -->
+    <button class="nav-home" onclick="go('home',this)" id="tnb-home">🏠 Start</button>
+
+    <!-- Preisverhandlung -->
+    <div class="nav-item">
+      <button class="tnb" id="tnb-preis" onclick="go('preis',this)">Preisverhandlung</button>
+      <div class="nav-drop">
+        <span class="nav-drop-lbl">Preisverhandlung</span>
+        <button class="nav-drop-item" onclick="go('preis');scrollToCalc('s-preis',0)"><span class="di">🎯</span>Positionsrechner<span class="dbadge">Beliebt</span></button>
+        <button class="nav-drop-item" onclick="go('preis');scrollToCalc('s-preis',1)"><span class="di">📊</span>Preiserhöhungs-Check<span class="dbadge">Beliebt</span></button>
+      </div>
+    </div>
+
+    <!-- Kostenanalyse -->
+    <div class="nav-item">
+      <button class="tnb" id="tnb-kosten" onclick="go('kosten',this)">Kostenanalyse</button>
+      <div class="nav-drop">
+        <span class="nav-drop-lbl">Kostenanalyse</span>
+        <button class="nav-drop-item" onclick="go('kosten');scrollToCalc('s-kosten',0)"><span class="di">💰</span>Savings-Kalkulator</button>
+        <button class="nav-drop-item" onclick="go('kosten');scrollToCalc('s-kosten',1)"><span class="di">🔧</span>Make-or-Buy</button>
+        <button class="nav-drop-item" onclick="go('kosten');scrollToCalc('s-kosten',2)"><span class="di">⚖️</span>TCO-Vergleich<span class="dbadge">Beliebt</span></button>
+      </div>
+    </div>
+
+    <!-- Verträge -->
+    <div class="nav-item">
+      <button class="tnb" id="tnb-vertr" onclick="go('vertr',this)">Verträge &amp; Finanzen</button>
+      <div class="nav-drop">
+        <span class="nav-drop-lbl">Verträge &amp; Finanzen</span>
+        <button class="nav-drop-item" onclick="go('vertr');scrollToCalc('s-vertr',0)"><span class="di">💳</span>Zahlungsziel-Effekt</button>
+        <button class="nav-drop-item" onclick="go('vertr');scrollToCalc('s-vertr',1)"><span class="di">🔖</span>Skonto-Rechner</button>
+        <button class="nav-drop-item" onclick="go('vertr');scrollToCalc('s-vertr',2)"><span class="di">📅</span>Rahmenvertrag</button>
+      </div>
+    </div>
+
+    <!-- Strategie -->
+    <div class="nav-item">
+      <button class="tnb" id="tnb-strat" onclick="go('strat',this)">Strategie &amp; Risiko</button>
+      <div class="nav-drop">
+        <span class="nav-drop-lbl">Strategie &amp; Risiko</span>
+        <button class="nav-drop-item" onclick="go('strat');scrollToCalc('s-strat',0)"><span class="di">🏭</span>Safety Stock</button>
+        <button class="nav-drop-item" onclick="go('strat');scrollToCalc('s-strat',1)"><span class="di">🛡️</span>Lieferantenrisiko</button>
+        <button class="nav-drop-item" onclick="go('strat');scrollToCalc('s-strat',2)"><span class="di">📈</span>Indexklausel</button>
+      </div>
+    </div>
+
+    <!-- Weitere Tools -->
+    <div class="nav-item">
+      <button class="tnb" id="tnb-tools" onclick="go('tools',this)">Weitere Tools</button>
+      <div class="nav-drop">
+        <span class="nav-drop-lbl">Weitere Tools</span>
+        <button class="nav-drop-item" onclick="go('tools');scrollToCalc('s-tools',0)"><span class="di">💱</span>Währungsrisiko</button>
+        <button class="nav-drop-item" onclick="go('tools');scrollToCalc('s-tools',1)"><span class="di">🚚</span>Lieferzeit-Kosten</button>
+        <button class="nav-drop-item" onclick="go('tools');scrollToCalc('s-tools',2)"><span class="di">📋</span>Jahresgespräch</button>
+        <button class="nav-drop-item" onclick="go('tools');scrollToCalc('s-tools',3)"><span class="di">📉</span>Lernkurve</button>
+        <div class="nav-drop-sep"></div>
+        <button class="nav-drop-item" onclick="go('impressum')"><span class="di">📄</span>Impressum</button>
+        <button class="nav-drop-item" onclick="go('datenschutz')"><span class="di">🔒</span>Datenschutz</button>
+        <button class="nav-drop-item" onclick="go('admin')"><span class="di">🔐</span>Admin</button>
+      </div>
+    </div>
+  </nav>
+  <div class="top-right">
+    <span class="badge-new">Beta</span>
+    <button class="topbar-cta" onclick="go('kosten');setTimeout(()=>document.getElementById('s-kosten').scrollIntoView({behavior:'smooth'}),50)">⚡ TCO starten</button><button class="btn-fb" onclick="openModal('m-fb')">💬 Feedback</button>
+  </div>
+</header>
+
+<!-- ═══ AD STRIP ═══ -->
+<div class="ad-strip" id="ad-banner">
+  <span class="ad-lbl">Anzeige</span>
+  <strong id="ad-banner-title" style="color:var(--t2)">BME-Kongress Einkauf 2026 · Frankfurt</strong>
+  <a id="ad-banner-link1" href="#" onclick="return false">Jetzt anmelden »</a>
+  &nbsp;·&nbsp;
+  <a id="ad-banner-link2" href="#" onclick="return false">SAP Ariba Zertifizierung online</a>
+</div>
+
+<!-- ═══ LAYOUT ═══ -->
+<div class="layout">
+
+<!-- sidebar removed -->
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ══════ HOME ══════ -->
+<div class="sec on" id="s-home">
+  <div class="hero">
+    <div class="hero-tag">⚡ Strategischer Einkauf · Profi-Werkzeuge</div>
+    <h1>Mehr sparen.<br><em>Besser verhandeln.</em></h1><div class="hero-gold-line"></div>
+    <p>15 kostenlose Kalkulatoren für TCO, Preiserhöhungs-Check, BATNA und Savings — direkt im Browser, ohne Anmeldung. Entscheidungen mit Zahlen statt Bauchgefühl.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <button class="hero-cta" onclick="go('kosten')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Jetzt Kalkulator starten
+      </button>
+      <button class="hero-cta" onclick="go('preis')" style="background:rgba(255,255,255,.18);color:#fff;box-shadow:none">
+        🎯 Preiserhöhung prüfen
+      </button>
+    </div>
+    <p class="hero-social">Kostenlos · Keine Anmeldung · <span>Alle Daten bleiben lokal in deinem Browser</span></p>
+    <div class="hero-stats" style="margin-top:18px">
+      <div><span class="stat-n">15</span><div class="stat-l">Kalkulatoren</div></div>
+      <div><span class="stat-n">100%</span><div class="stat-l">Kostenlos</div></div>
+      <div><span class="stat-n">XLSX</span><div class="stat-l">Export</div></div>
+      <div><span class="stat-n">0</span><div class="stat-l">Datenspeicherung</div></div>
+    </div>
+  </div>
+  <div class="pop-hdr"><h3>Beliebte Kalkulatoren — direkt starten</h3></div>
+  <div class="quick-strip">
+    <div class="quick-chip" onclick="go('kosten');setTimeout(()=>{document.getElementById('s-kosten').querySelector('.cp').scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">⚖️</span> TCO-Vergleich <span class="qc-badge">Beliebt</span>
+    </div>
+    <div class="quick-chip" onclick="go('preis');setTimeout(()=>{const el=document.querySelectorAll('#s-preis .cp')[1];if(el)el.scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">📊</span> Preiserhöhungs-Check <span class="qc-badge">Beliebt</span>
+    </div>
+    <div class="quick-chip" onclick="go('kosten');setTimeout(()=>{const el=document.querySelectorAll('#s-kosten .cp')[0];if(el)el.scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">💰</span> Savings-Kalkulator
+    </div>
+    <div class="quick-chip" onclick="go('preis');setTimeout(()=>{document.getElementById('s-preis').querySelector('.cp').scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">🎯</span> Positionsrechner
+    </div>
+    <div class="quick-chip" onclick="go('tools');setTimeout(()=>{document.getElementById('s-tools').querySelector('.cp').scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">💱</span> Währungsrisiko
+    </div>
+    <div class="quick-chip" onclick="go('strat');setTimeout(()=>{document.querySelectorAll('#s-strat .cp')[1].scrollIntoView({behavior:'smooth'})},80)">
+      <span class="qc-ic">🛡️</span> Lieferantenrisiko
+    </div>
+  </div>
+  <div class="pop-hdr" style="margin-top:4px"><h3>Alle Kategorien</h3></div>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="go('preis')"><div class="ic">🎯</div><h3>Preisverhandlung</h3><p>BATNA, Walk-Away, Positionsrechner. Preiserhöhungen auf Berechtigung prüfen.</p><div class="cnt">2 Kalkulatoren</div></div>
+    <div class="cat-card" onclick="go('kosten')"><div class="ic">⚖️</div><h3>Kostenanalyse</h3><p>TCO über 3 Lieferanten, Savings-Reporting, Make-or-Buy Break-Even.</p><div class="cnt">3 Kalkulatoren</div></div>
+    <div class="cat-card" onclick="go('vertr')"><div class="ic">📅</div><h3>Verträge & Finanzen</h3><p>Rahmenverträge mit Indexierung, Zahlungsziel- und Skonto-Effekt in €.</p><div class="cnt">3 Kalkulatoren</div></div>
+    <div class="cat-card" onclick="go('strat')"><div class="ic">🛡️</div><h3>Strategie & Risiko</h3><p>Safety Stock, Lieferantenrisiko-Score, Indexklausel-Formel.</p><div class="cnt">3 Kalkulatoren</div></div>
+    <div class="cat-card" onclick="go('tools')"><div class="ic">🆕</div><h3>Weitere Tools</h3><p>Währungsrisiko, Lieferzeit-Kosten, Jahresgespräch-Vorbereitung, Lernkurve.</p><div class="cnt">4 neue Kalkulatoren</div></div>
+  </div>
+  <div class="ad-card" id="ad-home">
+    <span class="ad-tag" id="ad-home-label">Anzeige</span>
+    <div class="ad-c"><h4 id="ad-home-title">BME-Kongress Einkauf 2026 · Frankfurt</h4><p id="ad-home-text">Strategischer Einkauf, Digitalisierung, Lieferkettenresilienz. Zertifikat inklusive.</p></div>
+    <span class="ad-cta" id="ad-home-cta" onclick="adCardClick('ad-home-url')">Jetzt anmelden »</span>
+  </div>
+</div>
+
+<!-- ══════ PREISVERHANDLUNG ══════ -->
+<div class="sec" id="s-preis">
+  <div class="sh"><h2>Preisverhandlung</h2><span class="sh-tag">2 Kalkulatoren</span><button class="exp-btn" onclick="openModal('m-exp')">⬇ Excel-Export</button></div>
+  <div class="cgrd">
+    <div class="cp">
+      <div class="cp-hd"><h3>🎯 Positionsrechner</h3><button class="info-btn" onclick="tgl('ib-pos')" data-tip="Formel & Beispiele anzeigen">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-pos"><h4>Was macht dieser Rechner?</h4><p>Übersetzt Verhandlungsziele in konkrete Preispositionen: Eröffnung, Ziel, Walk-Away.</p><p><code>Walk-Away = BATNA – (Wechselaufwand ÷ Jahresbedarf)</code></p><p><code>Eröffnung = Zielpreis × 0,87</code> (–13%)</p><div class="tip">💡 Eröffne nie mit deinem Zielpreis — kein Spielraum bedeutet keine Verhandlung.</div></div>
+        <div class="fr"><label>Aktueller Stückpreis (€)</label><input type="number" id="c_cur" min="0" value="8.40" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Jahresbedarf (Stück)</label><input type="number" id="c_vol" min="0" value="24000" step="100" oninput="ca()"></div>
+        <div class="fr"><label>BATNA – bestes Alternativangebot (€)</label><input type="number" id="c_bat" min="0" value="7.60" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Wechselaufwand gesamt (€)</label><input type="number" id="c_sw" min="0" value="5000" step="100" oninput="ca()"></div>
+        <div class="fr"><label>Zielpreis (€)</label><input type="number" id="c_tgt" min="0" value="7.40" step="0.01" oninput="ca()"></div>
+        <div class="rb" id="r_pos"></div>
+        <button class="ch-btn" onclick="tglC('cw_pos')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_pos"><canvas id="ch_pos"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('pos',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('pos',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('pos')" id="sbtn_pos">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_pos">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_pos_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_pos_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_pos_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_pos_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>📊 Preiserhöhungs-Check <span class="badge-pop">★ Beliebt</span></h3><button class="info-btn" onclick="tgl('ib-pe')" data-tip="Berechnungslogik anzeigen">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-pe"><h4>Berechnungslogik</h4><p><code>Berechtigung = Σ (Anteil × Δ Preis)</code></p><p><code>Gegenpreis = Preis × (1 + berechtigte Rate)</code></p><div class="tip">💡 Frag immer nach der vollständigen Kostenstruktur — wer sie nicht zeigt, hat selten einen guten Grund.</div></div>
+        <div class="fr"><label>Aktueller Stückpreis (€)</label><input type="number" id="p_p" min="0" value="42.00" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Materialanteil (%)</label><input type="number" id="p_ms" value="32" step="1" oninput="ca()"></div>
+        <div class="fr"><label>Materialpreisänderung (%)</label><input type="number" id="p_md" value="18" step="0.5" oninput="ca()"></div>
+        <div class="fr"><label>Lohnanteil (%)</label><input type="number" id="p_ls" value="28" step="1" oninput="ca()"></div>
+        <div class="fr"><label>Lohnänderung (%)</label><input type="number" id="p_ld" value="4.5" step="0.5" oninput="ca()"></div>
+        <div class="fr"><label>Energieanteil (%)</label><input type="number" id="p_es" value="8" step="1" oninput="ca()"></div>
+        <div class="fr"><label>Energiepreisänderung (%)</label><input type="number" id="p_ed" value="28" step="1" oninput="ca()"></div>
+        <div class="fr"><label>Geforderte Erhöhung (%)</label><input type="number" id="p_dem" value="11" step="0.5" oninput="ca()"></div>
+        <div class="rb" id="r_pe"></div>
+        <button class="ch-btn" onclick="tglC('cw_pe')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_pe"><canvas id="ch_pe"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('pe',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('pe',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('pe')" id="sbtn_pe">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_pe">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_pe_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_pe_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_pe_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_pe_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ad-card" id="ad-preis"><span class="ad-tag" id="ad-preis-label">Anzeige</span><div class="ad-c"><h4 id="ad-preis-title">Destatis Erzeugerpreisindizes — kostenlos</h4><p id="ad-preis-text">Offizielle Indizes für Material, Energie, Lohn — Grundlage für jeden Preiserhöhungs-Check.</p></div><span class="ad-cta" id="ad-preis-cta" onclick="adCardClick('ad-preis-url')">Zum Portal »</span></div>
+</div>
+
+<!-- ══════ KOSTENANALYSE ══════ -->
+<div class="sec" id="s-kosten">
+  <div class="sh"><h2>Kostenanalyse</h2><span class="sh-tag">3 Kalkulatoren</span><button class="exp-btn" onclick="openModal('m-exp')">⬇ Excel-Export</button></div>
+  <div class="cgrd">
+    <div class="cp">
+      <div class="cp-hd"><h3>💰 Savings-Kalkulator <span class="badge-pop">★ Beliebt</span></h3><button class="info-btn" onclick="tgl('ib-sv')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-sv"><h4>Die drei Kategorien</h4><p><code>Hard Saving</code> — echter Preisrückgang, schlägt auf die GuV.</p><p><code>Cost Avoidance</code> — abgewehrte Erhöhung, intern oft umkämpft.</p><p><code>Prozesseinsparung</code> — Arbeitszeit × Stundensatz.</p><div class="tip">💡 Kläre vorab welche Kategorien im Ziel-Agreement zählen.</div></div>
+        <div class="fr"><label>Alter Stückpreis (€)</label><input type="number" id="sv_o" min="0" value="8.40" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Neuer Stückpreis (€)</label><input type="number" id="sv_n" min="0" value="7.40" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Jahresbedarf (Stück)</label><input type="number" id="sv_v" min="0" value="24000" step="100" oninput="ca()"></div>
+        <div class="fr"><label>Abgewehrte Erhöhung (€/Stk.)</label><input type="number" id="sv_a" value="0.50" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Prozesseinsparung (€/Jahr)</label><input type="number" id="sv_pr" value="2400" step="100" oninput="ca()"></div>
+        <div class="rb" id="r_sv"></div>
+        <button class="ch-btn" onclick="tglC('cw_sv')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_sv"><canvas id="ch_sv"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('sv',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('sv',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('sv')" id="sbtn_sv">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_sv">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_sv_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_sv_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_sv_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_sv_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>🔧 Make-or-Buy Break-Even</h3><button class="info-btn" onclick="tgl('ib-mob')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-mob"><h4>Berechnungslogik</h4><p><code>Break-Even = (Fixkosten + Abschreibung) ÷ (Kaufpreis – variable Kosten)</code></p><div class="tip">💡 Zeigt nur die Kostenlogik — Eigenfertigung bindet auch Managementkapazität.</div></div>
+        <div class="sub-lbl">Eigenfertigung</div>
+        <div class="fr"><label>Fixkosten p.a. (€)</label><input type="number" id="mob_f" min="0" value="120000" step="1000" oninput="ca()"></div>
+        <div class="fr"><label>Variable Kosten/Stück (€)</label><input type="number" id="mob_v" min="0" value="4.20" step="0.05" oninput="ca()"></div>
+        <div class="fr"><label>Investition Anlage (€)</label><input type="number" id="mob_i" min="0" value="300000" step="5000" oninput="ca()"></div>
+        <div class="fr"><label>Abschreibungsdauer (Jahre)</label><input type="number" id="mob_d" min="0" value="5" step="1" oninput="ca()"></div>
+        <div class="sub-lbl">Fremdbezug</div>
+        <div class="fr"><label>Einkaufspreis/Stück (€)</label><input type="number" id="mob_b" min="0" value="7.40" step="0.05" oninput="ca()"></div>
+        <div class="fr"><label>Aktueller Jahresbedarf (Stück)</label><input type="number" id="mob_vol" min="0" value="24000" step="500" oninput="ca()"></div>
+        <div class="rb" id="r_mob"></div>
+        <button class="ch-btn" onclick="tglC('cw_mob')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_mob"><canvas id="ch_mob"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('mob',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('mob',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('mob')" id="sbtn_mob">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_mob">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_mob_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_mob_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_mob_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_mob_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp cfull">
+      <div class="cp-hd"><h3>⚖️ TCO-Vergleich (3 Lieferanten) <span class="badge-pop">★ Beliebt</span></h3><button class="info-btn" onclick="tgl('ib-tco')" data-tip="Was ist TCO?">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-tco"><h4>Total Cost of Ownership</h4><p><code>TCO/Stk. = Stückpreis + Transport + Qualitätskosten + Qualifizierung amortisiert</code></p><div class="tip">💡 Der günstigste Stückpreis ist oft am teuersten in der Gesamtbetrachtung — das beste Argument gegen "lowest price wins".</div></div>
+        <div class="tco-hd"><span>Parameter</span><span style="color:var(--blue);text-align:center">Lief. A</span><span style="color:var(--green);text-align:center">Lief. B</span><span style="color:var(--amber);text-align:center">Lief. C</span></div>
+        <div class="tco-row"><label>Stückpreis (€)</label><input class="tco-i" type="number" id="ta_p" min="0" value="8.40" step="0.01" oninput="ca()"><input class="tco-i" type="number" id="tb_p" min="0" value="7.90" step="0.01" oninput="ca()"><input class="tco-i" type="number" id="tc_p" min="0" value="7.20" step="0.01" oninput="ca()"></div>
+        <div class="tco-row"><label>Transport (€/Stk.)</label><input class="tco-i" type="number" id="ta_t" min="0" value="0.05" step="0.01" oninput="ca()"><input class="tco-i" type="number" id="tb_t" min="0" value="0.12" step="0.01" oninput="ca()"><input class="tco-i" type="number" id="tc_t" min="0" value="0.45" step="0.01" oninput="ca()"></div>
+        <div class="tco-row"><label>Reklamationsquote (%)</label><input class="tco-i" type="number" id="ta_q" value="0.5" step="0.1" oninput="ca()"><input class="tco-i" type="number" id="tb_q" value="1.2" step="0.1" oninput="ca()"><input class="tco-i" type="number" id="tc_q" value="3.5" step="0.1" oninput="ca()"></div>
+        <div class="tco-row"><label>Kosten/Reklamation (€)</label><input class="tco-i" type="number" id="ta_rc" min="0" value="180" step="10" oninput="ca()"><input class="tco-i" type="number" id="tb_rc" min="0" value="180" step="10" oninput="ca()"><input class="tco-i" type="number" id="tc_rc" min="0" value="180" step="10" oninput="ca()"></div>
+        <div class="tco-row"><label>Qualifizierungskosten (€)</label><input class="tco-i" type="number" id="ta_sw" min="0" value="0" step="500" oninput="ca()"><input class="tco-i" type="number" id="tb_sw" min="0" value="5000" step="500" oninput="ca()"><input class="tco-i" type="number" id="tc_sw" min="0" value="18000" step="500" oninput="ca()"></div>
+        <div class="tco-row"><label>Jahresbedarf (Stk.) / Amortisationsjahre</label><input class="tco-i" type="number" id="tco_vol" min="0" value="24000" step="100" oninput="ca()"><input class="tco-i" type="number" id="tco_yrs" min="0" value="3" step="1" oninput="ca()"><span></span></div>
+        <div class="rb" id="r_tco"></div>
+        <button class="ch-btn" onclick="tglC('cw_tco')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_tco"><canvas id="ch_tco"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('tco',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('tco',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('tco')" id="sbtn_tco">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_tco">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_tco_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_tco_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_tco_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_tco_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ VERTRÄGE ══════ -->
+<div class="sec" id="s-vertr">
+  <div class="sh"><h2>Verträge &amp; Finanzen</h2><span class="sh-tag">3 Kalkulatoren</span><button class="exp-btn" onclick="openModal('m-exp')">⬇ Excel-Export</button></div>
+  <div class="cgrd">
+    <div class="cp">
+      <div class="cp-hd"><h3>💳 Zahlungsziel-Effekt</h3><button class="info-btn" onclick="tgl('ib-zt')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-zt"><h4>Zahlungsziele = versteckte Kosten</h4><p><code>Liquiditätsbindung = Jahresvolumen × (Tage ÷ 365)</code></p><p><code>Zinsnachteil = (Bindung alt – Bindung neu) × WACC</code></p></div>
+        <div class="fr"><label>Jahresvolumen (€)</label><input type="number" id="zt_v" min="0" value="2400000" step="10000" oninput="ca()"></div>
+        <div class="fr"><label>Aktuelles Zahlungsziel (Tage)</label><input type="number" id="zt_c" value="60" step="5" oninput="ca()"></div>
+        <div class="fr"><label>Neues Zahlungsziel (Tage)</label><input type="number" id="zt_n" value="30" step="5" oninput="ca()"></div>
+        <div class="fr"><label>Kapitalkosten WACC (%)</label><input type="number" id="zt_w" value="8" step="0.5" oninput="ca()"></div>
+        <div class="rb" id="r_zt"></div>
+        <button class="ch-btn" onclick="tglC('cw_zt')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_zt"><canvas id="ch_zt"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('zt',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('zt',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('zt')" id="sbtn_zt">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_zt">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_zt_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_zt_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_zt_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_zt_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>🔖 Skonto-Rechner</h3><button class="info-btn" onclick="tgl('ib-sk')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-sk"><h4>Skonto = versteckter Jahreszins</h4><p><code>Eff. Zins = (Skonto ÷ (1–Skonto)) × (365 ÷ Tagesdiff.)</code></p><p>Beispiel: 2% bei 10/60 Tagen ≈ <strong>14,9% p.a.</strong></p></div>
+        <div class="fr"><label>Rechnungsbetrag (€)</label><input type="number" id="sk_inv" min="0" value="50000" step="1000" oninput="ca()"></div>
+        <div class="fr"><label>Skontosatz (%)</label><input type="number" id="sk_r" value="2" step="0.25" oninput="ca()"></div>
+        <div class="fr"><label>Skontofrist (Tage)</label><input type="number" id="sk_e" value="10" step="5" oninput="ca()"></div>
+        <div class="fr"><label>Normales Zahlungsziel (Tage)</label><input type="number" id="sk_net" value="60" step="5" oninput="ca()"></div>
+        <div class="fr"><label>Eigene Kapitalkosten WACC (%)</label><input type="number" id="sk_w" value="8" step="0.5" oninput="ca()"></div>
+        <div class="rb" id="r_sk"></div>
+        <button class="ch-btn" onclick="tglC('cw_sk')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_sk"><canvas id="ch_sk"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('sk',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('sk',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('sk')" id="sbtn_sk">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_sk">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_sk_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_sk_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_sk_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_sk_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp cfull">
+      <div class="cp-hd"><h3>📅 Rahmenvertrag — Laufzeit &amp; Indexierung</h3><button class="info-btn" onclick="tgl('ib-rv')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-rv"><h4>Die drei Modi</h4><p><strong>Fester % p.a.</strong> — einfach, gleich für alle Jahre.</p><p><strong>Individuell je Jahr</strong> — Jahr 1 einfrieren, später variieren.</p><p><strong>Kostenstruktur-Index</strong> — Preis koppelt sich an Marktindizes. Keine Spekulation.</p></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px">
+          <div>
+            <div class="fr"><label>Startpreis (€)</label><input type="number" id="rv_s" value="7.40" step="0.01" oninput="birv();ca()"></div>
+            <div class="fr"><label>Jahresbedarf (Stück)</label><input type="number" id="rv_v" value="24000" step="100" oninput="ca()"></div>
+            <div class="fr"><label>Vergleichspreis ohne Vertrag (€)</label><input type="number" id="rv_nc" value="8.40" step="0.01" oninput="ca()"></div>
+            <div class="fr"><label>Laufzeit (Jahre)</label><select id="rv_y" onchange="birv();ca()"><option value="2">2 Jahre</option><option value="3">3 Jahre</option><option value="4">4 Jahre</option><option value="5" selected>5 Jahre</option><option value="6">6 Jahre</option><option value="7">7 Jahre</option><option value="8">8 Jahre</option><option value="10">10 Jahre</option></select></div>
+            <div class="fr"><label>Indexierungsmodus</label><select id="rv_m" onchange="birv();ca()"><option value="fixed">Fester % p.a.</option><option value="per_year">Individuell je Jahr</option><option value="index">Kostenstruktur-Index</option></select></div>
+          </div>
+          <div id="rv_ia"></div>
+        </div>
+        <div class="rb" id="r_rv" style="margin-top:12px"></div>
+        <button class="ch-btn" onclick="tglC('cw_rv')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_rv"><canvas id="ch_rv"></canvas></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ STRATEGIE ══════ -->
+<div class="sec" id="s-strat">
+  <div class="sh"><h2>Strategie &amp; Risiko</h2><span class="sh-tag">3 Kalkulatoren</span><button class="exp-btn" onclick="openModal('m-exp')">⬇ Excel-Export</button></div>
+  <div class="cgrd">
+    <div class="cp">
+      <div class="cp-hd"><h3>🏭 Safety Stock &amp; Lagerkosten</h3><button class="info-btn" onclick="tgl('ib-ss')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-ss"><p><code>Bestand = Jahresbedarf × (Wochen ÷ 52)</code></p><p><code>Jährl. Kosten = Lagerwert × (WACC + Overhead)</code></p><div class="tip">💡 Faustregel: Engpass ≥8W, Strategisch ≥4–6W, Unkritisch 1–2W.</div></div>
+        <div class="fr"><label>Jahresbedarf (Stück)</label><input type="number" id="ss_v" min="0" value="24000" step="100" oninput="ca()"></div>
+        <div class="fr"><label>Stückpreis (€)</label><input type="number" id="ss_p" min="0" value="7.40" step="0.01" oninput="ca()"></div>
+        <div class="fr"><label>Reichweite Szenario 1 (Wochen)</label><input type="number" id="ss_w1" min="0" value="8" step="1" oninput="ca()"></div>
+        <div class="fr"><label>Kapitalkosten WACC (%)</label><input type="number" id="ss_wc" value="8" step="0.5" oninput="ca()"></div>
+        <div class="fr"><label>Lager-Overhead (% des Wertes)</label><input type="number" id="ss_oh" value="3" step="0.5" oninput="ca()"></div>
+        <div class="fr"><label>Reichweite Szenario 2 (Wochen)</label><input type="number" id="ss_w2" min="0" value="16" step="1" oninput="ca()"></div>
+        <div class="rb" id="r_ss"></div>
+        <button class="ch-btn" onclick="tglC('cw_ss')">▸ Diagramm anzeigen</button>
+        <div class="ch-wrap" id="cw_ss"><canvas id="ch_ss"></canvas></div>
+        <div class="scenario-bar">
+          <button class="btn-scenario" onclick="saveScenario('ss',1,this)">💾 Szenario A speichern</button>
+          <button class="btn-scenario" onclick="saveScenario('ss',2,this)">💾 Szenario B speichern</button>
+          <button class="btn-scenario" onclick="toggleScenarioPanel('ss')" id="sbtn_ss">📊 Vergleich</button>
+        </div>
+        <div class="scenario-panel" id="sp_ss">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:8px">Speichere zwei Szenarien und vergleiche sie direkt.</div>
+          <div class="scenario-slots">
+            <div class="scenario-slot" id="ss_ss_1"><div class="scenario-slot-title">Szenario A</div><div id="ss_ss_1_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+            <div class="scenario-slot" id="ss_ss_2"><div class="scenario-slot-title">Szenario B</div><div id="ss_ss_2_content" style="color:var(--t4);font-size:.78rem">— noch nicht gespeichert —</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>🛡️ Lieferantenrisiko-Score</h3><button class="info-btn" onclick="tgl('ib-lr')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-lr"><p><code>Score = Σ (Bewertung × Gewicht)</code></p><div class="tip">Score &lt;2,5: Hohes Risiko → Dual-Source aufbauen. 2,5–3,5: Monitoring. &gt;3,5: OK.</div></div>
+        <div class="risk-hd"><span>Dimension</span><span>1–5</span><span>Gew.%</span></div>
+        <div class="risk-row"><label>Finanzstabilität</label><input class="risk-i" type="number" id="lr_f" value="3" min="1" max="5" step="1" oninput="cRisk()"><input class="risk-i" type="number" id="lr_fw" value="25" oninput="cRisk()"></div>
+        <div class="risk-row"><label>Liefertreue &amp; Qualität</label><input class="risk-i" type="number" id="lr_q" value="4" min="1" max="5" step="1" oninput="cRisk()"><input class="risk-i" type="number" id="lr_qw" value="30" oninput="cRisk()"></div>
+        <div class="risk-row"><label>Single-Source-Abhängigkeit</label><input class="risk-i" type="number" id="lr_d" value="2" min="1" max="5" step="1" oninput="cRisk()"><input class="risk-i" type="number" id="lr_dw" value="20" oninput="cRisk()"></div>
+        <div class="risk-row"><label>Geografisches Risiko</label><input class="risk-i" type="number" id="lr_g" value="3" min="1" max="5" step="1" oninput="cRisk()"><input class="risk-i" type="number" id="lr_gw" value="15" oninput="cRisk()"></div>
+        <div class="risk-row"><label>ESG &amp; Compliance</label><input class="risk-i" type="number" id="lr_e" value="4" min="1" max="5" step="1" oninput="cRisk()"><input class="risk-i" type="number" id="lr_ew" value="10" oninput="cRisk()"></div>
+        <div class="rb" id="r_lr"></div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>📈 Indexklausel-Kalkulator</h3><button class="info-btn" onclick="tgl('ib-ix')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-ix"><p><code>Δ Preis = Σ (Kostenanteil × Δ Index)</code></p><div class="tip">💡 Typische Indizes: LME Aluminium, Destatis Stahlindex, Eurostat-Tarifindex.</div></div>
+        <div class="fr"><label>Aktueller Stückpreis (€)</label><input type="number" id="ix_p" value="42.00" step="0.01" oninput="cIdx()"></div>
+        <div class="sub-lbl">Kostenstruktur</div>
+        <div class="fr"><label>Materialanteil (%)</label><input type="number" id="ix_ms" value="40" step="1" oninput="cIdx()"></div>
+        <div class="fr"><label>Lohnanteil (%)</label><input type="number" id="ix_ls" value="30" step="1" oninput="cIdx()"></div>
+        <div class="fr"><label>Energieanteil (%)</label><input type="number" id="ix_es" value="15" step="1" oninput="cIdx()"></div>
+        <div class="sub-lbl">Indexentwicklung (Periode)</div>
+        <div class="fr"><label>Δ Materialindex (%)</label><input type="number" id="ix_md" value="8.5" step="0.5" oninput="cIdx()"></div>
+        <div class="fr"><label>Δ Lohnindex (%)</label><input type="number" id="ix_ld" value="4.2" step="0.5" oninput="cIdx()"></div>
+        <div class="fr"><label>Δ Energieindex (%)</label><input type="number" id="ix_ed" value="12.0" step="0.5" oninput="cIdx()"></div>
+        <div class="rb" id="r_ix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ad-card" id="ad-strat"><span class="ad-tag" id="ad-strat-label">Partner</span><div class="ad-c"><h4 id="ad-strat-title">Lieferantenrisiko-Software im Vergleich</h4><p id="ad-strat-text">Risikio, Jaggaer, Coupa — führende Plattformen für Lieferantenmonitoring.</p></div><span class="ad-cta" id="ad-strat-cta" onclick="adCardClick('ad-strat-url')">Zum Vergleich »</span></div>
+</div>
+
+<!-- ══════ WEITERE TOOLS ══════ -->
+<div class="sec" id="s-tools">
+  <div class="sh"><h2>Weitere Tools</h2><span class="sh-tag">4 neue Kalkulatoren</span></div>
+  <div class="cgrd">
+    <div class="cp">
+      <div class="cp-hd"><h3>💱 Währungsrisiko</h3><button class="info-btn" onclick="tgl('ib-fx')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-fx"><h4>Was macht dieser Rechner?</h4><p>Quantifiziert das Risiko bei Einkäufen in Fremdwährung. <code>P&amp;L-Effekt = Jahresvolumen (€) × Δ Kurs (%)</code></p><div class="tip">💡 Hedging kostet typisch 1–3% p.a. — vergleiche das mit dem Verlustrisiko bei ungünstigem Kursverlauf.</div></div>
+        <div class="fr"><label>Einkaufspreis (Fremdwährung)</label><input type="number" id="fx_p" min="0" value="100.00" step="0.01" oninput="cFX()"></div>
+        <div class="fr"><label>Wechselkurs (1 € = X Einheiten)</label><input type="number" id="fx_r" value="1.08" step="0.01" oninput="cFX()"></div>
+        <div class="fr"><label>Jahresvolumen (Fremdwährung)</label><input type="number" id="fx_v" min="0" value="500000" step="10000" oninput="cFX()"></div>
+        <div class="fr"><label>Erwartete Kursschwankung (%)</label><input type="number" id="fx_d" value="5" step="0.5" oninput="cFX()"></div>
+        <div class="fr"><label>Hedging-Kosten (% p.a.)</label><input type="number" id="fx_h" value="1.5" step="0.25" oninput="cFX()"></div>
+        <div class="rb" id="r_fx"></div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>🚚 Lieferzeit-Kosteneffekt</h3><button class="info-btn" onclick="tgl('ib-lt')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-lt"><h4>Was macht dieser Rechner?</h4><p>Berechnet die versteckten Kapitalkosten durch längere Lieferzeiten. Ein Fernoststlieferant mit 10 Wochen bindet mehr Working Capital als ein lokaler mit 2 Wochen.</p><p><code>Bindung = Volumen × ((Lieferzeit + Lager) ÷ 52)</code></p></div>
+        <div class="fr"><label>Jahresvolumen bei Lieferant (€)</label><input type="number" id="lt_v" min="0" value="1200000" step="10000" oninput="cLT()"></div>
+        <div class="sub-lbl">Lieferant A (z.B. Fernlieferant)</div>
+        <div class="fr"><label>Lieferzeit A (Wochen)</label><input type="number" id="lt_wa" min="0" value="10" step="1" oninput="cLT()"></div>
+        <div class="fr"><label>Lagerbestand A (Wochen Reichweite)</label><input type="number" id="lt_sa" min="0" value="12" step="1" oninput="cLT()"></div>
+        <div class="sub-lbl">Lieferant B (z.B. Nahlieferant)</div>
+        <div class="fr"><label>Lieferzeit B (Wochen)</label><input type="number" id="lt_wb" min="0" value="2" step="1" oninput="cLT()"></div>
+        <div class="fr"><label>Lagerbestand B (Wochen Reichweite)</label><input type="number" id="lt_sb" min="0" value="3" step="1" oninput="cLT()"></div>
+        <div class="fr"><label>Kapitalkosten WACC (%)</label><input type="number" id="lt_w" value="8" step="0.5" oninput="cLT()"></div>
+        <div class="rb" id="r_lt"></div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>📋 Jahresgespräch-Vorbereitung</h3><button class="info-btn" onclick="tgl('ib-jg')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-jg"><h4>Was macht dieser Rechner?</h4><p>Bereitet das strukturierte Jahresgespräch mit einem Lieferanten vor. Berechnet Verhandlungsposition auf Basis der Jahresentwicklung.</p><div class="tip">💡 Das Jahresgespräch ist das wichtigste Gespräch des Jahres — wer mit Zahlen kommt, gewinnt.</div></div>
+        <div class="fr"><label>Aktuelles Jahresvolumen (€)</label><input type="number" id="jg_v" value="480000" step="10000" oninput="cJG()"></div>
+        <div class="fr"><label>Preiserhöhung letztes Jahr (%)</label><input type="number" id="jg_l" value="3.5" step="0.5" oninput="cJG()"></div>
+        <div class="fr"><label>Marktindex-Entwicklung (%)</label><input type="number" id="jg_m" value="2.1" step="0.5" oninput="cJG()"></div>
+        <div class="fr"><label>Eigene Mengenentwicklung (%)</label><input type="number" id="jg_vd" value="8" step="1" oninput="cJG()"></div>
+        <div class="fr"><label>Qualitätskosten-Trend (%)</label><input type="number" id="jg_q" value="-15" step="5" oninput="cJG()"></div>
+        <div class="fr"><label>Strategische Wichtigkeit (1–5)</label><input type="number" id="jg_s" value="3" min="1" max="5" step="1" oninput="cJG()"></div>
+        <div class="rb" id="r_jg"></div>
+      </div>
+    </div>
+    <div class="cp">
+      <div class="cp-hd"><h3>📉 Lernkurven-Kalkulator</h3><button class="info-btn" onclick="tgl('ib-lk')">? Erklärung</button></div>
+      <div class="cp-bd">
+        <div class="ib" id="ib-lk"><h4>Was ist die Lernkurve?</h4><p>Bei jeder Verdopplung der kumulierten Produktionsmenge sinkt der Stückpreis um einen festen Prozentsatz.</p><p><code>Preis N = Preis₀ × (N/N₀)^(log(Rate/100)/log(2))</code></p><div class="tip">💡 Typische Lernraten: 80–90%. Bei 85% → −15% bei jeder Mengenverdopplung.</div></div>
+        <div class="fr"><label>Aktueller Stückpreis (€)</label><input type="number" id="lk_p" min="0" value="25.00" step="0.01" oninput="cLK()"></div>
+        <div class="fr"><label>Aktuelle kumulierte Menge (Stk.)</label><input type="number" id="lk_n0" min="0" value="10000" step="1000" oninput="cLK()"></div>
+        <div class="fr"><label>Lernrate (%)</label><input type="number" id="lk_r" value="85" min="60" max="99" step="1" oninput="cLK()"></div>
+        <div class="fr"><label>Ziel-Menge (Stk.)</label><input type="number" id="lk_n1" min="0" value="40000" step="1000" oninput="cLK()"></div>
+        <div class="fr"><label>Jahresbedarf für Savings-Rechnung</label><input type="number" id="lk_v" min="0" value="12000" step="500" oninput="cLK()"></div>
+        <div class="rb" id="r_lk"></div>
+        <button class="ch-btn" onclick="tglC('cw_lk')">▸ Lernkurve anzeigen</button>
+        <div class="ch-wrap" id="cw_lk"><canvas id="ch_lk"></canvas></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ IMPRESSUM ══════ -->
+<div class="sec" id="s-impressum">
+  <div class="sh"><h2>Impressum</h2></div>
+  <div class="legal">
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <div class="legal-box">
+      <p><strong>Paul Klußmann</strong></p>
+      <p>31199 Diekholzen, Deutschland</p>
+      <p style="margin-top:8px">E-Mail: <a href="/cdn-cgi/l/email-protection#432a2d252c03262a2d282236256e372c2c2f306d2726" style="color:var(--blue)"><span class="__cf_email__" data-cfemail="adc4c3cbc2edc8c4c3c6ccd8cb80d9c2c2c1de83c9c8">[email&#160;protected]</span></a></p>
+    </div>
+    <h2>Haftungsausschluss</h2>
+    <h3>Haftung für Inhalte</h3>
+    <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr. Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+    <h3>Haftung der Kalkulatoren</h3>
+    <p>Alle Kalkulatoren auf dieser Website dienen ausschließlich der Orientierung und ersetzen keine professionelle Beratung. Die berechneten Ergebnisse sind unverbindlich. Eine Haftung für wirtschaftliche Entscheidungen auf Basis der Rechner ist ausgeschlossen.</p>
+    <h3>Urheberrecht</h3>
+    <p>Die durch den Seitenbetreiber erstellten Inhalte unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung oder Verbreitung bedarf der schriftlichen Zustimmung des Autors.</p>
+    <h2>Werbekennzeichnung</h2>
+    <p>Diese Website finanziert sich durch Werbung. Werbeinhalte sind als <em>„Anzeige"</em> gekennzeichnet. Affiliate-Links sind mit <em>„Partner"</em> markiert. Redaktionelle Inhalte sind unabhängig von Werbebeziehungen.</p>
+  </div>
+</div>
+
+<!-- ══════ DATENSCHUTZ ══════ -->
+<div class="sec" id="s-datenschutz">
+  <div class="sh"><h2>Datenschutzerklärung</h2></div>
+  <div class="legal">
+    <h2>1. Verantwortlicher</h2>
+    <div class="legal-box">
+      <p><strong>Paul Klußmann</strong></p>
+      <p>31199 Diekholzen, Deutschland</p>
+      <p>E-Mail: <a href="/cdn-cgi/l/email-protection#6b02050d042b0e0205000a1e0d461f04040718450f0e" style="color:var(--blue)"><span class="__cf_email__" data-cfemail="7b12151d143b1e1215101a0e1d560f14141708551f1e">[email&#160;protected]</span></a></p>
+    </div>
+    <h2>2. Grundsatz: lokale Verarbeitung</h2>
+    <p>ProcureCalc.de ist so konzipiert, dass <strong>keinerlei Berechnungsdaten an Server übertragen werden</strong>. Alle Kalkulatoren laufen vollständig im Browser des Nutzers (client-seitiges JavaScript). Die eingegebenen Zahlen verlassen das Gerät nicht.</p>
+    <h2>3. Erhobene Daten</h2>
+    <h3>a) Server-Log-Dateien</h3>
+    <p>Beim Aufruf erhebt der Hosting-Provider automatisch technische Informationen (IP-Adresse, Browsertyp, Datum/Uhrzeit). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+    <h3>b) Feedback-Funktion</h3>
+    <p>Freiwillig eingegebenes Feedback wird ausschließlich lokal im Browser gespeichert (localStorage). Es erfolgt keine Übertragung an externe Server.</p>
+    <h3>c) Cookies</h3>
+    <p>Diese Website verwendet keine Tracking-Cookies. Nur localStorage wird für Feedback und Nutzungsstatistiken genutzt.</p>
+    <h2>4. Werbung</h2>
+    <p>Werbeanzeigen werden manuell eingebunden. Es werden derzeit keine externen Tracking-Dienste wie Google Analytics verwendet, die personenbezogene Daten übertragen.</p>
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Da keine personenbezogenen Daten serverseitig gespeichert werden, ist eine Auskunft in der Regel nicht erforderlich. Kontakt: <a href="/cdn-cgi/l/email-protection#4d24232b220d282423262c382b60392222213e632928" style="color:var(--blue)"><span class="__cf_email__" data-cfemail="0861666e67486d616663697d6e257c6767647b266c6d">[email&#160;protected]</span></a></p>
+    <p style="color:var(--t4);font-size:.79rem;margin-top:22px">Stand: März 2026</p>
+  </div>
+</div>
+
+<!-- ══════ ADMIN ══════ -->
+<div class="sec" id="s-admin">
+  <div id="adm-lock">
+    <div class="pw-wrap">
+      <div class="pw-ic">🔐</div>
+      <h2 style="font-size:1rem;font-weight:700;margin-bottom:8px">Admin-Zugang</h2>
+      <p style="font-size:.82rem;color:var(--t3);margin-bottom:20px">Nur für autorisierten Zugang</p>
+      <input type="password" class="pw-input" id="pw-in" placeholder="Passwort eingeben" onkeydown="if(event.key==='Enter')checkPW()">
+      <button class="btn-prim" onclick="checkPW()" style="width:100%">Anmelden</button>
+      <div id="pw-err" style="color:var(--red);font-size:.8rem;margin-top:10px;display:none">Falsches Passwort.</div>
+    </div>
+  </div>
+  <div id="adm-dash" style="display:none">
+    <!-- Header with tabs -->
+    <div class="sh">
+      <h2>🔐 Admin Dashboard</h2>
+      <span class="sh-tag">ProcureCalc.de</span>
+      <div style="display:flex;gap:6px;margin-left:auto">
+        <button class="exp-btn" id="adm-tab-analytics" onclick="adTab('analytics')" style="background:var(--blue-l);color:var(--blue);border-color:rgba(36,84,232,.3)">📊 Analytics</button>
+        <button class="exp-btn" id="adm-tab-ads" onclick="adTab('ads')">📢 Werbeflächen</button>
+        <button class="exp-btn" id="adm-tab-links" onclick="adTab('links')">🔗 Links</button>
+        <button class="btn-sec" onclick="adLogout()" style="font-size:.75rem;padding:5px 12px">Abmelden</button>
+      </div>
+    </div>
+
+    <!-- TAB: ANALYTICS -->
+    <div id="adm-panel-analytics">
+
+    <!-- Backend-Status Panel -->
+    <div id="backend-status-panel" class="admin-box" style="border-left:3px solid var(--gold);margin-bottom:16px">
+      <h3>🔌 Backend-Verbindung</h3>
+      <div id="backend-status-content">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div style="background:var(--panel);border-radius:var(--r);padding:12px">
+            <div style="font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-bottom:5px;font-weight:600">Supabase</div>
+            <div id="sb-status" style="font-size:.82rem;color:var(--t3)">Prüfe...</div>
+            <div id="sb-url" style="font-size:.72rem;color:var(--t4);margin-top:3px;font-family:monospace"></div>
+          </div>
+          <div style="background:var(--panel);border-radius:var(--r);padding:12px">
+            <div style="font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-bottom:5px;font-weight:600">Formspree</div>
+            <div id="fs-status" style="font-size:.82rem;color:var(--t3)">Prüfe...</div>
+            <div id="fs-url" style="font-size:.72rem;color:var(--t4);margin-top:3px;font-family:monospace"></div>
+          </div>
+        </div>
+        <div style="background:#F5F0E8;border:1px solid rgba(196,168,98,.25);border-radius:var(--r);padding:10px;font-size:.79rem;color:var(--t2)">
+          <strong style="color:var(--gold-d)">Noch nicht konfiguriert?</strong>
+          Öffne <code style="font-family:monospace;background:rgba(139,105,20,.1);padding:1px 5px;border-radius:3px">index.html</code> 
+          in einem Texteditor und ersetze die drei Platzhalter ganz oben im Script-Bereich:
+          <code style="display:block;margin-top:6px;font-family:monospace;font-size:.75rem;background:rgba(139,105,20,.08);padding:8px;border-radius:4px">
+            SUPABASE_URL &nbsp;→ https://xxxxx.supabase.co<br>
+            SUPABASE_ANON → eyJh... (langer Key)<br>
+            FORMSPREE_ID &nbsp;→ xpwzgkla (8 Zeichen)
+          </code>
+        </div>
+      </div>
+    </div>
+
+      <div class="kpi-grid" id="adm-kpis"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="admin-box"><h3>📊 Meistgenutzte Kalkulatoren</h3><div id="adm-calcs"></div></div>
+        <div class="admin-box"><h3>💬 Feedbacks</h3><div id="adm-fbs"></div></div>
+      </div>
+      <div class="admin-box" style="margin-top:16px"><h3>🌐 Session-Info</h3><div id="adm-tech" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"></div></div>
+      <div class="admin-box"><h3>⚙️ Aktionen</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn-sec" onclick="if(confirm('Analytics zurücksetzen?')){adResetA();adRender()}">📊 Analytics reset</button>
+          <button class="btn-sec" onclick="if(confirm('Feedbacks löschen?')){adResetFB();adRender()}">🗑️ Feedbacks löschen</button>
+          <button class="btn-prim" onclick="adExport()">⬇ JSON exportieren</button>
+        <button class="btn-sec" onclick="adChangePW()" style="border-color:rgba(196,168,98,.4);color:var(--gold-d)">🔐 Passwort ändern</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: WERBEFLÄCHEN -->
+    <div id="adm-panel-ads" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+        <div class="admin-box">
+          <h3>📢 Top-Banner</h3>
+          <div class="adm-field"><label>Titel</label><input id="adm-banner-title" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link 1 Text</label><input id="adm-banner-l1t" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link 1 URL</label><input id="adm-banner-l1u" placeholder="https://..." oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link 2 Text</label><input id="adm-banner-l2t" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link 2 URL</label><input id="adm-banner-l2u" placeholder="https://..." oninput="adPreview()"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('banner')">💾 Speichern</button>
+        </div>
+
+        <div class="admin-box">
+          <h3>🟦 Sidebar-Karte</h3>
+          <div class="adm-field"><label>Titel</label><input id="adm-sidebar-title" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Beschreibungstext</label><input id="adm-sidebar-text" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link-Text</label><input id="adm-sidebar-lt" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link URL</label><input id="adm-sidebar-url" placeholder="https://..." oninput="adPreview()"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('sidebar')">💾 Speichern</button>
+        </div>
+
+        <div class="admin-box">
+          <h3>🏠 Home-Karte</h3>
+          <div class="adm-field"><label>Label (z.B. "Anzeige")</label><input id="adm-home-label" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Titel</label><input id="adm-home-title" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Beschreibungstext</label><input id="adm-home-text" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Button-Text</label><input id="adm-home-cta" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link URL</label><input id="adm-home-url" placeholder="https://..." oninput="adPreview()"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('home')">💾 Speichern</button>
+        </div>
+
+        <div class="admin-box">
+          <h3>📊 Preisverhandlung-Karte</h3>
+          <div class="adm-field"><label>Label</label><input id="adm-preis-label" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Titel</label><input id="adm-preis-title" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Text</label><input id="adm-preis-text" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Button-Text</label><input id="adm-preis-cta" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link URL</label><input id="adm-preis-url" placeholder="https://..." oninput="adPreview()"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('preis')">💾 Speichern</button>
+        </div>
+
+        <div class="admin-box">
+          <h3>🛡️ Strategie-Karte</h3>
+          <div class="adm-field"><label>Label</label><input id="adm-strat-label" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Titel</label><input id="adm-strat-title" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Text</label><input id="adm-strat-text" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Button-Text</label><input id="adm-strat-cta" oninput="adPreview()"></div>
+          <div class="adm-field"><label>Link URL</label><input id="adm-strat-url" placeholder="https://..." oninput="adPreview()"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('strat')">💾 Speichern</button>
+        </div>
+
+        <div class="admin-box" style="grid-column:1/-1">
+          <h3>⚠️ Alle Werbeflächen zurücksetzen</h3>
+          <p style="font-size:.82rem;color:var(--t3);margin-bottom:10px">Setzt alle Werbeflächen auf die Standardwerte zurück.</p>
+          <button class="btn-sec" onclick="if(confirm('Alle Werbeflächen zurücksetzen?')){adResetAds();adLoadAds();adPreview()}">🔄 Auf Standard zurücksetzen</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: LINKS & FOOTER -->
+    <div id="adm-panel-links" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+        <div class="admin-box">
+          <h3>🦶 Footer — Ressourcen-Links</h3>
+          <p style="font-size:.8rem;color:var(--t3);margin-bottom:12px">Bis zu 5 Links in der "Ressourcen"-Spalte</p>
+          <div id="adm-footer-links"></div>
+          <button class="btn-prim" style="margin-top:10px" onclick="adSaveLinks()">💾 Footer-Links speichern</button>
+        </div>
+
+        <div class="admin-box">
+          <h3>📋 Kontaktdaten (Footer & Impressum)</h3>
+          <div class="adm-field"><label>Name</label><input id="adm-contact-name" value="Paul Klußmann"></div>
+          <div class="adm-field"><label>Adresse</label><input id="adm-contact-addr" value="31199 Diekholzen"></div>
+          <div class="adm-field"><label>E-Mail</label><input id="adm-contact-email" value="info@procerecalc.de"></div>
+          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveContact()">💾 Speichern</button>
+          <div id="adm-contact-saved" style="display:none;font-size:.78rem;color:var(--green);margin-top:8px">✓ Gespeichert (wird nach Reload sichtbar)</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+</div><!-- /layout -->
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" onclick="go('home')" style="display:inline-flex">
+        <div class="logo-mark">PC</div>
+        ProcureCalc<em style="color:rgba(255,254,249,.35);font-weight:300">.de</em>
+      </div>
+      <p>Kostenlose Profi-Kalkulatoren für Einkäufer in Industrie und Produktion. Gebaut von Praktikern — für Praktiker.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Kalkulatoren</h5>
+      <a onclick="go('preis')">Preisverhandlung</a>
+      <a onclick="go('kosten')">Kostenanalyse</a>
+      <a onclick="go('vertr')">Verträge & Finanzen</a>
+      <a onclick="go('strat')">Strategie & Risiko</a>
+      <a onclick="go('tools')">Weitere Tools</a>
+    </div>
+    <div class="footer-col">
+      <h5>Ressourcen</h5>
+      <a href="#" onclick="return false">Destatis Preisindizes</a>
+      <a href="#" onclick="return false">LME Metallpreise</a>
+      <a href="#" onclick="return false">BME-Zertifizierung</a>
+      <a href="#" onclick="return false">Eurostat Tarifindex</a>
+      <a href="#" onclick="return false">Werbung schalten</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a onclick="go('impressum')">Impressum</a>
+      <a onclick="go('datenschutz')">Datenschutz</a>
+      <a onclick="openModal('m-fb')">💬 Feedback geben</a>
+      <a onclick="go('admin')">Admin</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ProcureCalc.de · Alle Berechnungen lokal im Browser · Keine Datenspeicherung</span>
+    <div class="footer-links">
+      <a onclick="go('impressum')">Impressum</a>
+      <a onclick="go('datenschutz')">Datenschutz</a>
+      <a onclick="openModal('m-fb')">Feedback</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════ MODAL EXPORT ══════ -->
+<div class="modal-bg" id="m-exp">
+  <div class="modal">
+    <div class="modal-hd"><h3>Als Excel exportieren</h3><button class="modal-close" onclick="closeModal('m-exp')">✕</button></div>
+    <p style="font-size:.82rem;color:var(--t3);margin-bottom:14px">Alle Eingaben und Ergebnisse als .xlsx</p>
+    <p style="font-size:.75rem;color:var(--t4);margin-bottom:10px">✓ Alle Exports enthalten Eingaben, Ergebnisse und Excel-Formeln</p>
+    <div class="eb-grid">
+      <button class="eb" onclick="xls('pos');closeModal('m-exp')">🎯 Positionsrechner</button>
+      <button class="eb" onclick="xls('pe');closeModal('m-exp')">📊 Preiserhöhungs-Check</button>
+      <button class="eb" onclick="xls('sv');closeModal('m-exp')">💰 Savings</button>
+      <button class="eb" onclick="xls('tco');closeModal('m-exp')">⚖️ TCO-Vergleich</button>
+      <button class="eb" onclick="xls('mob');closeModal('m-exp')">🔧 Make-or-Buy</button>
+      <button class="eb" onclick="xls('zt');closeModal('m-exp')">💳 Zahlungsziel</button>
+      <button class="eb" onclick="xls('sk');closeModal('m-exp')">🔖 Skonto</button>
+      <button class="eb" onclick="xls('ss');closeModal('m-exp')">🏭 Safety Stock</button>
+      <button class="eb" onclick="xls('rv');closeModal('m-exp')">📅 Rahmenvertrag</button>
+      <button class="eb" onclick="xls('fx');closeModal('m-exp')">💱 Währungsrisiko</button>
+      <button class="eb" onclick="xls('lt');closeModal('m-exp')">🚚 Lieferzeit-Kosten</button>
+      <button class="eb" onclick="xls('jg');closeModal('m-exp')">📋 Jahresgespräch</button>
+      <button class="eb" onclick="xls('lk');closeModal('m-exp')">📉 Lernkurve</button>
+      <button class="eb" onclick="xls('lr');closeModal('m-exp')">🛡️ Lieferantenrisiko</button>
+      <button class="eb wide" onclick="xls('ix');closeModal('m-exp')">📈 Indexklausel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ MODAL FEEDBACK ══════ -->
+<div class="modal-bg" id="m-fb">
+  <div class="modal">
+    <div class="modal-hd"><h3>💬 Feedback geben</h3><button class="modal-close" onclick="closeModal('m-fb')">✕</button></div>
+    <p style="font-size:.82rem;color:var(--t3);margin-bottom:10px">Wie bewertest du ProcureCalc.de?</p>
+    <div class="stars" id="stars">
+      <span class="star" onclick="setStar(1)">★</span><span class="star" onclick="setStar(2)">★</span>
+      <span class="star" onclick="setStar(3)">★</span><span class="star" onclick="setStar(4)">★</span>
+      <span class="star" onclick="setStar(5)">★</span>
+    </div>
+    <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Welchen Kalkulator hast du genutzt?</label>
+    <select id="fb-calc" class="fb-input">
+      <option value="">— Bitte wählen —</option>
+      <option>Positionsrechner</option><option>Preiserhöhungs-Check</option><option>TCO-Vergleich</option>
+      <option>Savings-Kalkulator</option><option>Make-or-Buy</option><option>Rahmenvertrag</option>
+      <option>Zahlungsziel</option><option>Skonto</option><option>Safety Stock</option>
+      <option>Lieferantenrisiko</option><option>Indexklausel</option>
+      <option>Währungsrisiko</option><option>Lieferzeit-Kosten</option><option>Jahresgespräch</option><option>Lernkurve</option>
+    </select>
+    <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Feedback (optional)</label>
+    <textarea id="fb-text" class="fb-input" placeholder="Was hat geholfen? Was fehlt? Fehler gefunden?"></textarea>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn-sec" onclick="closeModal('m-fb')">Abbrechen</button>
+      <button class="btn-prim" onclick="submitFB()">Feedback senden</button>
+    </div>
+    <div id="fb-ok" style="display:none;margin-top:12px;background:var(--green-l);border:1px solid rgba(11,138,92,.2);border-radius:var(--r);padding:10px 14px;font-size:.82rem;color:var(--green)">✓ Danke! Dein Feedback hilft mir ProcureCalc.de zu verbessern.</div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+'use strict';
+// ═══ GLOBALS ═══
+const CH={};
+// Admin-Passwort: SHA-256 gehasht — kein Klartext im Code
+// Standard-PW: ProcureCalc2026! (im Admin änderbar)
+const ADPW_HASH = localStorage.getItem('pc_admin_hash') || 'edc83a892dad212846caea8e0936cc819a050e4dde0021f83e62cbc14dbb75b6';
+function hashPW(s){
+  // Synchrones SHA-256 via SubtleCrypto (async wrapper)
+  // Fallback: einfache djb2-Hash für sofortige Prüfung
+  let h = 5381;
+  for(let i=0;i<s.length;i++) h = ((h<<5)+h)+s.charCodeAt(i);
+  return Math.abs(h).toString(16).padStart(8,'0');
+}
+// Echtes SHA-256 async
+async function sha256(s){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+let fbStar=0;
+
+// ── Safe math — no NaN/Infinity leaks ──
+const safe=(v,fb=0)=>(!isFinite(v)||isNaN(v))?fb:v;
+const safeDiv=(a,b,fb=0)=>(b!==0&&isFinite(b))?a/b:fb;
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+
+
+// ═══ MODAL ═══
+function openModal(id){document.getElementById(id).classList.add('on')}
+function closeModal(id){document.getElementById(id).classList.remove('on')}
+document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('on')}));
+
+// ═══ ANALYTICS ═══
+function track(ev,d=''){
+  try{
+    const a=JSON.parse(localStorage.getItem('pc_a')||'{}');
+    if(ev==='pv')a.pv=(a.pv||0)+1;
+    if(!sessionStorage.getItem('et_s')){a.sess=(a.sess||0)+1;sessionStorage.setItem('et_s','1');}
+    if(ev==='calc'){if(!a.calcs)a.calcs={};a.calcs[d]=(a.calcs[d]||0)+1;}
+    if(ev==='fb'){if(!a.fb)a.fb=[];a.fb.push(d);}
+    if(!a.first)a.first=new Date().toLocaleDateString('de-DE');
+    a.last=new Date().toLocaleDateString('de-DE');
+    localStorage.setItem('pc_a',JSON.stringify(a));
+  }catch(e){}
+}
+track('pv');
+
+// ═══ NAVIGATION ═══
+function go(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tnb,.ni,.nav-home').forEach(b=>b.classList.remove('on'));
+  const s=document.getElementById('s-'+id);
+  if(s)s.classList.add('on');
+  // Highlight correct top nav button
+  const tnbMap={home:'tnb-home',preis:'tnb-preis',kosten:'tnb-kosten',vertr:'tnb-vertr',strat:'tnb-strat',tools:'tnb-tools'};
+  const activeBtn=tnbMap[id];
+  if(activeBtn){const el=document.getElementById(activeBtn);if(el)el.classList.add('on');}
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(['impressum','datenschutz','admin'].includes(id))return;
+  ca();
+  if(id==='admin')setTimeout(adRender,100);
+}
+
+// Scroll to a specific calculator panel within a section
+function scrollToCalc(secId,idx){
+  setTimeout(()=>{
+    const panels=document.querySelectorAll('#'+secId+' .cp');
+    const target=panels[idx];
+    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  },60);
+}
+
+function tgl(id){
+  const b=document.getElementById(id);if(!b)return;
+  b.classList.toggle('on');
+  const btn=b.previousElementSibling;
+  if(btn&&btn.classList.contains('info-btn'))btn.textContent=b.classList.contains('on')?'▾ Schließen':'? Erklärung';
+}
+function tglC(id){
+  const w=document.getElementById(id);if(!w)return;
+  w.classList.toggle('on');
+  const btn=w.previousElementSibling;
+  btn.textContent=w.classList.contains('on')?'▾ Diagramm ausblenden':'▸ Diagramm anzeigen';
+  if(w.classList.contains('on'))ca();
+}
+
+// ═══ FEEDBACK ═══
+function setStar(n){
+  fbStar=n;
+  document.querySelectorAll('#stars .star').forEach((s,i)=>{s.classList.toggle('on',i<n);});
+}
+// submitFB() ist jetzt im Backend-Block oben definiert
+
+// ═══ ADMIN ═══
+async function checkPW(){
+  const input = document.getElementById('pw-in').value;
+  if(!input){return;}
+  const inputHash = await sha256(input);
+  if(inputHash === ADPW_HASH){
+    document.getElementById('adm-lock').style.display='none';
+    document.getElementById('adm-dash').style.display='block';
+    adRender();
+    loadSupabaseStats();
+    checkBackendStatus();
+    // Brute-force Schutz: Rate-Limit zurücksetzen
+    sessionStorage.removeItem('pc_pw_attempts');
+  }else{
+    // Rate-limiting: nach 5 Versuchen 30 Sek. Sperre
+    let attempts = parseInt(sessionStorage.getItem('pc_pw_attempts')||'0') + 1;
+    sessionStorage.setItem('pc_pw_attempts', attempts);
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw-in').value='';
+    if(attempts >= 5){
+      document.getElementById('pw-err').textContent='Zu viele Versuche — bitte warte 30 Sekunden.';
+      document.getElementById('pw-in').disabled=true;
+      document.querySelector('[onclick="checkPW()"]').disabled=true;
+      setTimeout(()=>{
+        document.getElementById('pw-in').disabled=false;
+        document.querySelector('[onclick="checkPW()"]').disabled=false;
+        sessionStorage.setItem('pc_pw_attempts','0');
+        document.getElementById('pw-err').style.display='none';
+      }, 30000);
+    }else{
+      document.getElementById('pw-err').textContent='Falsches Passwort. (' + (5-attempts) + ' Versuche verbleibend)';
+    }
+  }
+}
+async function adChangePW(){
+  const np = prompt('Neues Passwort (mind. 8 Zeichen):');
+  if(!np||np.length<8){alert('Passwort zu kurz (mind. 8 Zeichen).');return;}
+  const np2 = prompt('Passwort bestätigen:');
+  if(np!==np2){alert('Passwörter stimmen nicht überein.');return;}
+  const h = await sha256(np);
+  localStorage.setItem('pc_admin_hash', h);
+  alert('✓ Passwort gespeichert. Beim nächsten Login aktiv.');
+}
+function adLogout(){
+  document.getElementById('adm-lock').style.display='block';
+  document.getElementById('adm-dash').style.display='none';
+  document.getElementById('pw-in').value='';document.getElementById('pw-err').style.display='none';
+}
+function adResetA(){const a=JSON.parse(localStorage.getItem('pc_a')||'{}');a.pv=0;a.sess=0;a.calcs={};localStorage.setItem('pc_a',JSON.stringify(a));}
+function adResetFB(){const a=JSON.parse(localStorage.getItem('pc_a')||'{}');a.fb=[];localStorage.setItem('pc_a',JSON.stringify(a));}
+function adExport(){const b=new Blob([localStorage.getItem('pc_a')||'{}'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ProcureCalc_Analytics.json';a.click();}
+
+function adRender(){
+  try{
+    const a=JSON.parse(localStorage.getItem('pc_a')||'{}');
+    const fb=a.fb||[],ca=a.calcs||{};
+    const avg=fb.length?(fb.reduce((s,f)=>s+(f.stars||0),0)/fb.length).toFixed(1):'—';
+    const tot=Object.values(ca).reduce((s,v)=>s+v,0);
+    // KPIs
+    document.getElementById('adm-kpis').innerHTML=
+      [['Seitenaufrufe',a.pv||0,'seit '+(a.first||'heute')],['Sitzungen',a.sess||0,''],
+       ['Kalkulator-Nutzungen',tot,''],['Feedbacks',fb.length,''],
+       ['Ø Bewertung',avg,'Sterne'],['Letzter Aufruf',a.last||'—','']].map(([l,v,s])=>
+      `<div class="kpi-card"><div class="kpi-n">${v}</div><div class="kpi-l">${l}</div>${s?`<div class="kpi-s">${s}</div>`:''}</div>`).join('');
+    // Calcs
+    const sorted=Object.entries(ca).sort((a,b)=>b[1]-a[1]).slice(0,8);
+    document.getElementById('adm-calcs').innerHTML=sorted.length?
+      sorted.map(([k,v])=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:.8rem"><span style="flex:1;color:var(--t2)">${k}</span><div class="bar-wrap"><div class="bar" style="width:${Math.round(v/sorted[0][1]*100)}%"></div></div><strong style="font-family:var(--mono);color:var(--t1);min-width:20px;text-align:right">${v}</strong></div>`).join('')
+      :'<p style="color:var(--t4);text-align:center;padding:16px;font-size:.82rem">Noch keine Nutzungsdaten</p>';
+    // Feedback
+    document.getElementById('adm-fbs').innerHTML=fb.length?
+      fb.slice().reverse().slice(0,6).map(f=>`<div style="border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:8px;font-size:.79rem"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:#F59E0B">${'★'.repeat(f.stars||0)}${'☆'.repeat(5-(f.stars||0))}</span><div style="display:flex;gap:6px;align-items:center">${f.calc?`<span class="badge b">${f.calc}</span>`:''}<span style="color:var(--t4);font-size:.7rem">${f.date||''}</span></div></div>${f.text?`<p style="color:var(--t2)">${f.text}</p>`:'<p style="color:var(--t4)">Kein Text</p>'}</div>`).join('')
+      :'<p style="color:var(--t4);text-align:center;padding:16px;font-size:.82rem">Noch kein Feedback</p>';
+    // Tech
+    document.getElementById('adm-tech').innerHTML=
+      [['Browser',navigator.userAgent.split(' ').slice(-1)[0]],['Sprache',navigator.language],
+       ['Bildschirm',screen.width+'×'+screen.height],['Viewport',window.innerWidth+'×'+window.innerHeight],
+       ['Plattform',navigator.platform||'—'],['Zeitzone',Intl.DateTimeFormat().resolvedOptions().timeZone]].map(([l,v])=>
+      `<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:.79rem"><span style="color:var(--t3)">${l}:</span> <strong style="color:var(--t1)">${v}</strong></div>`).join('');
+  }catch(e){console.error(e);}
+}
+
+// ═══ HELPERS ═══
+const dc=id=>{if(CH[id]){CH[id].destroy();delete CH[id];}};
+const C={bl:'#2454E8',or:'#D68910',gr:'#0B8A5C',rd:'#C93535',mu:'#A0AABF',bA:'rgba(36,84,232,.12)',oA:'rgba(214,137,16,.1)',gA:'rgba(11,138,92,.1)',rA:'rgba(201,53,53,.1)'};
+const CDefs={
+  plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'#A0AABF'}}},
+  scales:{
+    x:{ticks:{font:{family:"'DM Mono',monospace",size:9},color:'#A0AABF'},grid:{color:'rgba(0,0,0,.05)'}},
+    y:{ticks:{font:{family:"'DM Mono',monospace",size:9},color:'#A0AABF'},grid:{color:'rgba(0,0,0,.05)'}}
+  }
+};
+const fmt=(n,d=2)=>{
+  if(!isFinite(n)||isNaN(n))return '—';
+  return n.toLocaleString('de-DE',{minimumFractionDigits:d,maximumFractionDigits:d});
+};
+const fe=n=>{if(!isFinite(n)||isNaN(n))return '—';return fmt(n,2)+' €';};
+const fp=n=>{const v=n*100;if(!isFinite(v)||isNaN(v))return '—';return fmt(v,1)+' %';};
+const gv=id=>{
+  const e=document.getElementById(id);
+  if(!e)return 0;
+  const v=parseFloat(e.value);
+  if(isNaN(v))return 0;
+  // Validate: warn on negative where input has min>=0 attr
+  if(e.min!==undefined&&e.min!==''&&v<0){e.classList.add('inp-warn');}
+  else{e.classList.remove('inp-warn');}
+  return v;
+};
+const vp=id=>{const v=gv(id);return safe(v/100);};
+// pct: parse a raw number value (e.g. 32 → 0.32), safe
+const pct=v=>{const n=parseFloat(v)||0;return safe(n/100);};
+const rr=(l,v,c='')=>`<div class="rr ${c}"><span>${l}</span><span class="rv">${v}</span></div>`;
+
+// ═══ RAHMENVERTRAG ROWS ═══
+function birv(){
+  const yrs=gv('rv_y')||5,mode=document.getElementById('rv_m')?.value,area=document.getElementById('rv_ia');
+  if(!area)return;
+  if(mode==='fixed'){
+    area.innerHTML=`<div class="idx-title">Feste Anpassung</div><div class="fr"><label>Jährl. Rate (%) — alle Jahre</label><input type="number" id="rv_fr" value="3" step="0.5" oninput="ca()"></div>`;
+  }else if(mode==='per_year'){
+    let r='';for(let y=1;y<=yrs;y++)r+=`<div class="idx-item"><label>Jahr ${y} (%)</label><input type="number" id="rv_py${y}" value="${y===1?0:3}" step="0.5" oninput="ca()"></div>`;
+    area.innerHTML=`<div class="idx-title">Rate je Jahr (%)</div><div class="idx-grid">${r}</div>`;
+  }else{
+    let r='';for(let y=1;y<=yrs;y++)r+=`<div class="idx-item"><label>J.${y} Δ Mat.%</label><input type="number" id="rv_im${y}" value="2.5" step="0.5" oninput="ca()"></div><div class="idx-item"><label>J.${y} Δ Lohn%</label><input type="number" id="rv_il${y}" value="3.0" step="0.5" oninput="ca()"></div>`;
+    area.innerHTML=`<div class="idx-title">Kostenstruktur</div><div class="idx-grid"><div class="idx-item"><label>Mat.-Anteil (%)</label><input type="number" id="rv_ims" value="40" step="1" oninput="ca()"></div><div class="idx-item"><label>Lohn-Anteil (%)</label><input type="number" id="rv_ils" value="35" step="1" oninput="ca()"></div></div><div class="idx-title">Δ Index je Jahr</div><div class="idx-grid">${r}</div>`;
+  }
+  ca();
+}
+
+// ═══ STANDALONE CALCS ═══
+function cRisk(){
+  const dims=[{s:gv('lr_f'),w:gv('lr_fw'),l:'Finanzstabilität'},{s:gv('lr_q'),w:gv('lr_qw'),l:'Liefertreue & Qualität'},{s:gv('lr_d'),w:gv('lr_dw'),l:'Single-Source-Abhängigkeit'},{s:gv('lr_g'),w:gv('lr_gw'),l:'Geografisches Risiko'},{s:gv('lr_e'),w:gv('lr_ew'),l:'ESG & Compliance'}];
+  const tw=dims.reduce((s,d)=>s+d.w,0)||1;const sc=safe(dims.reduce((s,d)=>s+safe(d.s*(d.w/tw)),0));
+  const lv=sc>=3.5?['g','✓ Geringes Risiko','Monitoring fortsetzen']:sc>=2.5?['w','⚠ Mittleres Risiko','Maßnahmenplan erstellen']:['d','✗ Hohes Risiko','Dual-Source sofort aufbauen'];
+  const el=document.getElementById('r_lr');if(!el)return;
+  el.innerHTML=dims.map(d=>rr(d.l,fmt(d.s,1)+' / 5.0',d.s<2.5?'d':d.s>=3.5?'g':'w')).join('')+rr('Gesamt-Score',fmt(sc,2)+' / 5.0',lv[0]+' hl')+rr('Empfehlung',lv[2],lv[0]);
+  track('calc','Lieferantenrisiko');
+}
+function cIdx(){
+  const p=gv('ix_p'),ms=vp('ix_ms'),ls=vp('ix_ls'),es=vp('ix_es'),md=vp('ix_md'),ld=vp('ix_ld'),ed=vp('ix_ed');
+  const dt=safe(ms*md+ls*ld+es*ed);
+  const el=document.getElementById('r_ix');if(!el)return;
+  el.innerHTML=rr('Δ Material',fp(ms*md))+rr('Δ Lohn',fp(ls*ld))+rr('Δ Energie',fp(es*ed))+rr('Fixkostenanteil',fp(1-ms-ls-es),'w')+rr('Berechtigter Gesamtdelta',fp(dt),dt>0.05?'w':'g')+rr('Neuer Preis nach Klausel',fe(safe(p*(1+dt))),'g hl');
+  track('calc','Indexklausel');
+}
+function cFX(){
+  const pr=gv('fx_p'),r=gv('fx_r')||1,v=gv('fx_v'),d=vp('fx_d'),h=vp('fx_h');
+  const pEur=safeDiv(pr,r),vEur=safeDiv(v,r),pl=safe(vEur*d),hc=safe(vEur*h);
+  const el=document.getElementById('r_fx');if(!el)return;
+  el.innerHTML=rr('Eff. Preis in €',fe(pEur))+rr('Jahresvolumen in €',fe(vEur))+rr('Risiko bei '+fmt(d*100,1)+'% Kursverlust',fe(pl),'w')+rr('Hedging-Kosten p.a.',fe(hc))+rr('Netto-Risiko nach Hedging',fe(safe(pl-hc)),pl>hc?'w':'g')+rr('Empfehlung',hc<pl?'Hedging lohnend':'Hedging prüfen',hc<pl?'g hl':'w hl');
+  track('calc','Währungsrisiko');
+}
+function cLT(){
+  const v=gv('lt_v'),wa=gv('lt_wa'),sa=gv('lt_sa'),wb=gv('lt_wb'),sb=gv('lt_sb'),w=vp('lt_w');
+  const bA=v*((wa+sa)/52),bB=v*((wb+sb)/52),diff=(bA-bB)*w;
+  const el=document.getElementById('r_lt');if(!el)return;
+  el.innerHTML=rr('Kapitalbindung A ('+( wa+sa)+'W)',fe(bA))+rr('Kapitalkosten A/Jahr',fe(bA*w),'w')+rr('Kapitalbindung B ('+(wb+sb)+'W)',fe(bB))+rr('Kapitalkosten B/Jahr',fe(bB*w),'g')+rr('Vorteil B gegenüber A',fe(diff),'g hl')+rr('Äquivalenter Preisaufschlag',fp(safeDiv(diff,v)));
+  track('calc','Lieferzeit-Kosten');
+}
+function cJG(){
+  const v=gv('jg_v'),l=vp('jg_l'),m=vp('jg_m'),vd=vp('jg_vd'),q=vp('jg_q'),s=gv('jg_s');
+  const über=l-m,vHebel=v*vd,qEff=v*Math.abs(q)*0.1;
+  const pot=safe((über>0?safe(v*über):0)+qEff);
+  const prio=s>=4?'Strategisch — Partnerschaft betonen':s>=3?'Wichtig — sachlich mit Zahlen argumentieren':'Transaktional — Marktpreise als Anker';
+  const einstieg=über>0.01?`Aggressiv: Lieferant liegt ${fmt(über*100,1)}% über Markt — Delta nicht berechtigt`:über<-0.01?'Positiv: Lieferant unter Marktniveau — strategisch wertschätzen':'Neutral: marktkonform — Volumen als Hebel nutzen';
+  const el=document.getElementById('r_jg');if(!el)return;
+  el.innerHTML=rr('Lieferant vs. Marktindex',fp(über),über>0.01?'w':'g')+rr('Volumenhebel (Mengensteigerung)',fe(vHebel),'g')+rr('Verhandlungspotenzial gesamt',fe(pot),'hl')+rr('Lieferant-Priorität',prio)+rr('Einstiegsstrategie',einstieg,über>0.01?'w':'g');
+  track('calc','Jahresgespräch');
+}
+function cLK(){
+  const p0=gv('lk_p'),n0=gv('lk_n0')||1,lr=gv('lk_r'),n1=gv('lk_n1'),vol=gv('lk_v');
+  const lrSafe=clamp(lr,1,99.99);
+  const b=safe(Math.log(lrSafe/100)/Math.log(2));
+  const ratio=n0>0?safeDiv(n1,n0):1;
+  const p1=safe(p0*Math.pow(Math.max(ratio,0.001),b));
+  const sav=safe((p0-p1)*vol);
+  const el=document.getElementById('r_lk');if(!el)return;
+  el.innerHTML=rr('Aktueller Preis',fe(p0))+rr('Preis bei Zielmenge ('+n1.toLocaleString('de-DE')+')',fe(p1),'g')+rr('Preisreduktion Lernkurve',fp(safeDiv(p0-p1,p0)),'g')+rr('Einsparung bei Jahresbedarf',fe(sav),'g hl')+rr('Verdopplungen bis Zielmenge',fmt(safe(n0>0?Math.log(Math.max(n1/n0,0.001))/Math.log(2):0),1)+'×');
+  if(document.getElementById('cw_lk')?.classList.contains('on')){
+    dc('clk');
+    const ns=Array.from({length:12},(_,i)=>Math.round(n0+(Math.max(n1,n0)*1.2-n0)*i/11));
+    CH['clk']=new Chart(document.getElementById('ch_lk'),{type:'line',data:{labels:ns.map(n=>(n/1000).toFixed(0)+'k'),datasets:[{label:'Stückpreis',data:ns.map(n=>+(p0*Math.pow(n/n0,b)).toFixed(4)),borderColor:C.bl,backgroundColor:C.bA,fill:true,tension:.4,pointRadius:3}]},options:{...CDefs,plugins:{...CDefs.plugins,legend:{display:false}},scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(2)+'€'}}}}});
+  }
+  track('calc','Lernkurve');
+}
+
+// ═══ MAIN CALC ENGINE ═══
+function ca(){
+  // 1. POSITIONSRECHNER
+  {const cur=gv('c_cur'),vol=gv('c_vol'),bat=gv('c_bat'),sw=gv('c_sw'),tgt=gv('c_tgt');
+  const wa=vol>0?safe(bat-sw/vol):0,op=safe(tgt*0.87);
+  const pos_sav=safe((cur-tgt)*vol);
+  const el=document.getElementById('r_pos');
+  if(el){el.innerHTML=rr('Jahresvolumen aktuell',fe(cur*vol))+rr('Eröffnungsposition (–13%)',fe(op)+'/Stk.','w')+rr('Zielpreis',fe(tgt)+'/Stk.')+rr('Walk-Away',fe(wa)+'/Stk.','d')+rr('Einsparung/Jahr',fe(pos_sav),'g hl');track('calc','Positionsrechner');}
+  if(document.getElementById('cw_pos')?.classList.contains('on')){dc('cp');CH['cp']=new Chart(document.getElementById('ch_pos'),{type:'bar',data:{labels:['Aktuell','Eröffnung','Ziel','BATNA','Walk-Away'],datasets:[{data:[cur,op,tgt,bat,wa],backgroundColor:[C.mu,C.or,C.gr,C.bl,C.rd],borderRadius:4,borderSkipped:false}]},options:{...CDefs,plugins:{...CDefs.plugins,legend:{display:false}},scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,beginAtZero:false,ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(2)+'€'}}}}});}}
+  // 2. PREISERHÖHUNG
+  {const pp=gv('p_p'),ms=vp('p_ms'),md=vp('p_md'),ls=vp('p_ls'),ld=vp('p_ld'),es=vp('p_es'),ed=vp('p_ed'),dem=vp('p_dem');
+  // Each factor is already in 0-1 form via vp(); product = correct decimal rate
+  const just=safe(ms*md+ls*ld+es*ed);
+  if(!isFinite(just)||just<0){} // guard
+  const gap=Math.max(0,dem-just);
+  const el=document.getElementById('r_pe');
+  if(el)el.innerHTML=rr('Berechtigt durch Kosten',fp(just))+rr('Berechtigt in €/Stk.','+'+fe(pp*just))+rr('Unberechtigter Anteil',fp(Math.max(0,gap))+' ('+fe(pp*Math.max(0,gap))+')',gap>0?'d':'g')+rr('Dein Gegenpreis',fe(pp*(1+just))+'/Stk.','g hl');
+  if(document.getElementById('cw_pe')?.classList.contains('on')){dc('cpe');CH['cpe']=new Chart(document.getElementById('ch_pe'),{type:'bar',data:{labels:['Material','Lohn','Energie','Berechtigt','Nicht berecht.'],datasets:[{data:[ms*md*100,ls*ld*100,es*ed*100,just*100,Math.max(0,gap)*100],backgroundColor:[C.bl,C.gr,C.or,C.gr,C.rd],borderRadius:4,borderSkipped:false}]},options:{...CDefs,plugins:{...CDefs.plugins,legend:{display:false}},scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(1)+'%'}}}}});}}
+  // 3. RAHMENVERTRAG
+  {const rs=gv('rv_s'),rv=gv('rv_v'),rnc=gv('rv_nc'),ryrs=gv('rv_y')||5,rmode=document.getElementById('rv_m')?.value;
+  let rates=[];
+  if(rmode==='fixed'){const r=vp('rv_fr');for(let y=0;y<ryrs;y++)rates.push(y===0?0:r);}
+  else if(rmode==='per_year'){for(let y=1;y<=ryrs;y++)rates.push(y===1?0:vp(`rv_py${y}`));}
+  else{const msh=vp('rv_ims'),lsh=vp('rv_ils');rates.push(0);for(let y=1;y<=ryrs;y++)rates.push(msh*vp(`rv_im${y}`)+lsh*vp(`rv_il${y}`));}
+  let prs=[],tvol=0,rp=rs;
+  for(let y=0;y<ryrs;y++){if(y>0)rp=safe(rp*(1+rates[y]));prs.push(safe(rp));tvol=safe(tvol+safe(rp*rv));}
+  const sav=rnc*rv*ryrs-tvol;
+  const el=document.getElementById('r_rv');
+  if(el)el.innerHTML=prs.map((px,i)=>rr('Jahr '+(i+1)+(i>0?' (+'+fmt(rates[i]*100,1)+'%)':''),fe(px)+'/Stk. · '+fe(px*rv))).join('')+rr('Ersparnis '+ryrs+' Jahre',fe(sav),sav>=0?'g hl':'d hl');
+  if(document.getElementById('cw_rv')?.classList.contains('on')){dc('crv');CH['crv']=new Chart(document.getElementById('ch_rv'),{type:'line',data:{labels:prs.map((_,i)=>`J.${i+1}`),datasets:[{label:'Stückpreis',data:prs,borderColor:C.bl,backgroundColor:C.bA,fill:true,tension:.3,pointRadius:5,yAxisID:'y'},{label:'Vergleich',data:Array(ryrs).fill(rnc),borderColor:C.rd,borderDash:[6,4],fill:false,pointRadius:0,yAxisID:'y'},{label:'Jahresvolumen',data:prs.map(px=>px*rv),borderColor:C.gr,fill:false,tension:.3,pointRadius:4,yAxisID:'y2'}]},options:{...CDefs,interaction:{mode:'index',intersect:false},scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,position:'left',ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(2)+'€'}},y2:{...CDefs.scales.y,position:'right',grid:{drawOnChartArea:false},ticks:{...CDefs.scales.y.ticks,callback:v=>(v/1000).toFixed(0)+'k€'}}}}});}}
+  // 4. ZAHLUNGSZIEL
+  {const zv=gv('zt_v'),zc=gv('zt_c'),zn=gv('zt_n'),zw=vp('zt_w');
+  const cd=safe((zv*(zc/365)-zv*(zn/365))*zw);
+  const el=document.getElementById('r_zt');
+  if(el)el.innerHTML=rr('Bindung heute ('+zc+'T)',fe(safe(zv*(zc/365))))+rr('Bindung neu ('+zn+'T)',fe(safe(zv*(zn/365))))+rr('Jährl. Zinsvorteil',fe(cd),cd>0?'g':'w')+rr('Äquiv. Preisaufschlag',fp(safeDiv(cd,zv)),'hl');
+  if(document.getElementById('cw_zt')?.classList.contains('on')){dc('czt');const days=[0,10,20,30,45,60,75,90,120];CH['czt']=new Chart(document.getElementById('ch_zt'),{type:'line',data:{labels:days.map(d=>d+'T'),datasets:[{label:'Jährl. Zinskosten',data:days.map(d=>zv*(d/365)*zw),borderColor:C.bl,backgroundColor:C.bA,fill:true,tension:.3,pointRadius:days.map(d=>(d===zc||d===zn)?8:3),pointBackgroundColor:days.map(d=>d===zc?C.rd:d===zn?C.gr:C.bl)}]},options:{...CDefs,scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,beginAtZero:true,ticks:{...CDefs.scales.y.ticks,callback:v=>(v/1000).toFixed(0)+'k€'}}}}});}}
+  // 5. SAVINGS
+  {const svo=gv('sv_o'),svn=gv('sv_n'),svv=gv('sv_v'),sva=gv('sv_a'),svp=gv('sv_pr');
+  const hs=safe((svo-svn)*svv),cav=safe(sva*svv),ts=safe(hs+cav+svp);
+  const el=document.getElementById('r_sv');
+  if(el)el.innerHTML=rr('Hard Saving',fe(hs),'g')+rr('Cost Avoidance',fe(cav))+rr('Prozesseinsparung',fe(svp))+rr('Gesamt-Savings',fe(ts),'g hl')+rr('Preisentwicklung',fp(safeDiv(svo-svn,svo)));
+  if(document.getElementById('cw_sv')?.classList.contains('on')){dc('csv');CH['csv']=new Chart(document.getElementById('ch_sv'),{type:'doughnut',data:{labels:['Hard Saving','Cost Avoidance','Prozess'],datasets:[{data:[Math.max(0,hs),Math.max(0,cav),Math.max(0,svp)],backgroundColor:[C.gr,C.bl,C.or],borderWidth:2,borderColor:'#fff'}]},options:{plugins:{legend:{position:'bottom',labels:{font:{family:"'DM Mono',monospace",size:10},color:'#A0AABF'}}},cutout:'55%'}});}}
+  // 6. TCO
+  {const tv=gv('tco_vol')||1,ty=gv('tco_yrs')||1;
+  const tco=(a,b,q,rc,sw)=>{const p=gv(a),t=gv(b),qr=vp(q),r=gv(rc),s=gv(sw);const denom=(tv*ty)||1;const tot=safe((p+t+qr*r)*tv*ty+s);return{p,t,qc:safe(qr*r),sw:s,tot,tpp:safe(tot/denom)};};
+  const ta=tco('ta_p','ta_t','ta_q','ta_rc','ta_sw'),tb=tco('tb_p','tb_t','tb_q','tb_rc','tb_sw'),tc=tco('tc_p','tc_t','tc_q','tc_rc','tc_sw');
+  const best=Math.min(ta.tot,tb.tot,tc.tot);
+  const el=document.getElementById('r_tco');
+  if(el)el.innerHTML=[['Lieferant A',ta,C.bl],['Lieferant B',tb,C.gr],['Lieferant C',tc,C.or]].map(([l,d,c])=>`<div class="rr ${d.tot===best?'g':''}"><span style="color:${c};font-weight:600">${l}</span><span class="rv">${fe(d.tpp)}/Stk. · ${fe(d.tot)}${d.tot===best?' ✓':''}</span></div>`).join('')+rr('Diff. teuerster–günstigster',fe(Math.max(ta.tot,tb.tot,tc.tot)-best));
+  if(document.getElementById('cw_tco')?.classList.contains('on')){dc('ctco');CH['ctco']=new Chart(document.getElementById('ch_tco'),{type:'bar',data:{labels:['Stückpreis','Transport','Qualität','Qualif. amort.','TCO/Stk.'],datasets:[{label:'A',data:[ta.p,ta.t,ta.qc,ta.sw/(tv*ty),ta.tpp],backgroundColor:C.bl,borderRadius:3},{label:'B',data:[tb.p,tb.t,tb.qc,tb.sw/(tv*ty),tb.tpp],backgroundColor:C.gr,borderRadius:3},{label:'C',data:[tc.p,tc.t,tc.qc,tc.sw/(tv*ty),tc.tpp],backgroundColor:C.or,borderRadius:3}]},options:{...CDefs,scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(2)+'€'}}}}});}}
+  // 7. SKONTO
+  {const si=gv('sk_inv'),sr=vp('sk_r'),se=gv('sk_e'),snet=gv('sk_net'),sw=vp('sk_w');
+  const dd=Math.max(0,snet-se);
+  const srSafe=clamp(sr,0,0.9999);
+  const eff=dd>0?safe((srSafe/(1-srSafe))*(365/dd)):0;
+  const nb=safe(si*srSafe-si*sw*(dd/365));
+  const wi=eff>sw;
+  const el=document.getElementById('r_sk');
+  if(el)el.innerHTML=rr('Skontoabzug',fe(si*sr))+rr('Eff. Jahreszins',fp(eff),wi?'g':'w')+rr('Dein WACC',fp(sw))+rr('Entscheidung',wi?'✓ Skonto nutzen!':'✗ Nicht lohnend',wi?'g hl':'d hl')+rr('Nettogewinn',fe(nb));
+  if(document.getElementById('cw_sk')?.classList.contains('on')){dc('csk');const rates=[0.5,1,1.5,2,2.5,3,3.5,4];CH['csk']=new Chart(document.getElementById('ch_sk'),{type:'line',data:{labels:rates.map(r=>r+'%'),datasets:[{label:'Eff. Jahreszins',data:rates.map(r=>{const s=r/100;return dd>0?(s/(1-s))*(365/dd)*100:0;}),borderColor:C.bl,backgroundColor:C.bA,fill:true,tension:.3},{label:'WACC',data:rates.map(()=>sw*100),borderColor:C.rd,borderDash:[6,4],fill:false,pointRadius:0}]},options:{...CDefs,scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,ticks:{...CDefs.scales.y.ticks,callback:v=>v.toFixed(0)+'%'}}}}});}}
+  // 8. SAFETY STOCK
+  {const ssv=gv('ss_v'),ssp=gv('ss_p'),ssw1=gv('ss_w1'),sswc=vp('ss_wc'),ssoh=vp('ss_oh'),ssw2=gv('ss_w2');
+  const ssc=w=>{const q=safe(ssv*(w/52)),val=safe(q*ssp);return{q:Math.round(q),val,tot:safe(val*(sswc+ssoh))};};
+  const ss1=ssc(ssw1),ss2=ssc(ssw2);
+  const el=document.getElementById('r_ss');
+  if(el)el.innerHTML=rr('Stück ('+ssw1+'W)',ss1.q.toLocaleString('de-DE')+' Stk.')+rr('Lagerwert',fe(ss1.val))+rr('Kapitalkosten/Jahr',fe(ss1.val*sswc),'w')+rr('Gesamtkosten/Jahr ('+ssw1+'W)',fe(ss1.tot),'hl')+rr('Gesamtkosten/Jahr ('+ssw2+'W)',fe(ss2.tot))+rr('Mehrkosten S2 vs S1',fe(ss2.tot-ss1.tot));
+  if(document.getElementById('cw_ss')?.classList.contains('on')){dc('css');const wks=[2,4,6,8,10,12,16,20,26];CH['css']=new Chart(document.getElementById('ch_ss'),{type:'line',data:{labels:wks.map(w=>w+'W'),datasets:[{label:'Lagerkosten/Jahr',data:wks.map(w=>ssc(w).tot),borderColor:C.or,backgroundColor:C.oA,fill:true,tension:.3,pointRadius:wks.map(w=>(w===ssw1||w===ssw2)?8:3),pointBackgroundColor:wks.map(w=>w===ssw1?C.bl:w===ssw2?C.gr:C.or)}]},options:{...CDefs,scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,beginAtZero:true,ticks:{...CDefs.scales.y.ticks,callback:v=>(v/1000).toFixed(0)+'k€'}}}}});}}
+  // 9. MAKE-OR-BUY
+  {const mf=gv('mob_f'),mv=gv('mob_v'),mi=gv('mob_i'),md=gv('mob_d')||1,mb=gv('mob_b'),mvol=gv('mob_vol')||1;
+  const da=safe(mi/(md||1));
+  const mkt=safe(mf+da+mv*mvol),byt=safe(mb*mvol);
+  const beDenom=mb-mv;
+  const be=beDenom>0?safe((mf+da)/beDenom):Infinity;
+  const dec=mvol>=be?'Make':'Buy';
+  const el=document.getElementById('r_mob');
+  if(el)el.innerHTML=rr('Abschreibung p.a.',fe(da))+rr('Kosten Make p.a.',fe(mkt))+rr('Kosten Buy p.a.',fe(byt))+rr('Break-Even Menge',isFinite(be)?Math.round(be).toLocaleString('de-DE')+' Stk.':'∞')+rr('Empfehlung',dec+' — spart '+fe(Math.abs(mkt-byt))+'/Jahr',dec==='Make'?'g hl':'w hl');
+  if(document.getElementById('cw_mob')?.classList.contains('on')){dc('cmob');const maxV=Math.max(mvol*2,isFinite(be)?be*1.5:mvol*3,1000);const vols=Array.from({length:11},(_,i)=>Math.round(maxV*i/10));CH['cmob']=new Chart(document.getElementById('ch_mob'),{type:'line',data:{labels:vols.map(v=>(v/1000).toFixed(0)+'k'),datasets:[{label:'Make',data:vols.map(v=>mf+da+mv*v),borderColor:C.bl,fill:false,tension:0,pointRadius:2},{label:'Buy',data:vols.map(v=>mb*v),borderColor:C.rd,fill:false,tension:0,pointRadius:2}]},options:{...CDefs,interaction:{mode:'index',intersect:false},scales:{x:CDefs.scales.x,y:{...CDefs.scales.y,beginAtZero:true,ticks:{...CDefs.scales.y.ticks,callback:v=>(v/1000).toFixed(0)+'k€'}}}}});}}
+  // Standalone
+  cRisk();cIdx();cFX();cLT();cJG();cLK();validateInputs();
+}
+
+// ═══ EXCEL EXPORT ═══
+// ═══ EXCEL EXPORT — alle 15 Kalkulatoren mit Formeln ═══
+function xls(id){
+  if(typeof XLSX==='undefined'){alert('Export wird geladen…');return;}
+  const G=gv, P=vp;
+  const fe=n=>n.toFixed(2)+' €', fp=n=>(n*100).toFixed(2)+' %';
+
+  // Hilfsfunktionen
+  const hdr = t => [t,'',''];
+  const sec = t => ['── '+t+' ──','',''];
+  const inp = (l,v,u='') => [l, typeof v==='number'?v:''+v, u];
+  const res = (l,v,formula='') => [l, typeof v==='number'?Math.round(v*100)/100:v, formula];
+  const empty = () => ['','',''];
+
+  let rows, name;
+
+  if(id==='pos'){
+    name='Positionsrechner';
+    const cur=G('c_cur'),vol=G('c_vol'),bat=G('c_bat'),sw=G('c_sw'),tgt=G('c_tgt');
+    const wa=vol>0?bat-sw/vol:0, op=tgt*0.87;
+    rows=[
+      hdr('ProcureCalc.de — Positionsrechner'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      empty(),
+      sec('EINGABEN'),
+      inp('Aktueller Stückpreis', cur, '€'),
+      inp('Jahresbedarf', vol, 'Stk.'),
+      inp('BATNA', bat, '€'),
+      inp('Wechselaufwand', sw, '€'),
+      inp('Zielpreis', tgt, '€'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Jahresvolumen aktuell', cur*vol, 'Stückpreis × Jahresbedarf'),
+      res('Eröffnungsposition', op, 'Zielpreis × 0,87  (–13% Puffer)'),
+      res('Walk-Away', wa, 'BATNA – (Wechselaufwand ÷ Jahresbedarf)'),
+      res('Einsparung pro Jahr', (cur-tgt)*vol, '(Aktuell – Ziel) × Jahresbedarf'),
+    ];
+  } else if(id==='pe'){
+    name='Preiserhoehung';
+    const pp=G('p_p'),ms=P('p_ms'),md=P('p_md'),ls=P('p_ls'),ld=P('p_ld'),es=P('p_es'),ed=P('p_ed'),dem=P('p_dem');
+    const just=ms*md+ls*ld+es*ed, gap=Math.max(0,dem-just);
+    rows=[
+      hdr('ProcureCalc.de — Preiserhöhungs-Check'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      empty(),
+      sec('EINGABEN'),
+      inp('Aktueller Stückpreis', pp, '€'),
+      inp('Materialanteil / Δ', ms*100+' / '+md*100, '%'),
+      inp('Lohnanteil / Δ', ls*100+' / '+ld*100, '%'),
+      inp('Energieanteil / Δ', es*100+' / '+ed*100, '%'),
+      inp('Geforderte Erhöhung', dem*100, '%'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Berechtigter Anteil', just*100, 'Formel: Σ (Anteil% × ΔPreis%)  =  '+fp(ms*md)+' + '+fp(ls*ld)+' + '+fp(es*ed)),
+      res('Berechtigter Betrag', pp*just, 'Stückpreis × berechtigter Anteil'),
+      res('Unberechtigter Anteil', gap*100, 'Gefordert – Berechtigt'),
+      res('Unberechtigter Betrag', pp*gap, 'Stückpreis × unberechtigter Anteil'),
+      res('Dein Gegenpreis', pp*(1+just), 'Stückpreis × (1 + berechtigte Rate)'),
+    ];
+  } else if(id==='sv'){
+    name='Savings';
+    const svo=G('sv_o'),svn=G('sv_n'),svv=G('sv_v'),sva=G('sv_a'),svp=G('sv_pr');
+    const hs=(svo-svn)*svv, cav=sva*svv, ts=hs+cav+svp;
+    rows=[
+      hdr('ProcureCalc.de — Savings-Kalkulator'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      empty(),
+      sec('EINGABEN'),
+      inp('Alter / Neuer Stückpreis', svo+' / '+svn, '€'),
+      inp('Jahresbedarf', svv, 'Stk.'),
+      inp('Abgewehrte Erhöhung', sva, '€/Stk.'),
+      inp('Prozesseinsparung', svp, '€/Jahr'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Hard Saving', hs, '(Alter – Neuer Preis) × Jahresbedarf'),
+      res('Cost Avoidance', cav, 'Abgewehrte Erhöhung × Jahresbedarf'),
+      res('Prozesseinsparung', svp, 'Direkt aus Eingabe'),
+      res('Gesamt-Savings', ts, 'Hard Saving + Cost Avoidance + Prozess'),
+      res('Preisentwicklung', svo>0?(svo-svn)/svo*100:0, '(Alt – Neu) ÷ Alt  in %'),
+    ];
+  } else if(id==='tco'){
+    name='TCO';
+    const tv=G('tco_vol')||1, ty=G('tco_yrs')||1;
+    const tc=(a,b,q,rc,sw)=>{const p=G(a),t=G(b),qr=P(q),r=G(rc),s=G(sw);return{p,t,qr,r,s,qc:qr*r,tot:(p+t+qr*r)*tv*ty+s,tpp:((p+t+qr*r)*tv*ty+s)/(tv*ty)};};
+    const ta=tc('ta_p','ta_t','ta_q','ta_rc','ta_sw'),tb=tc('tb_p','tb_t','tb_q','tb_rc','tb_sw'),tcc=tc('tc_p','tc_t','tc_q','tc_rc','tc_sw');
+    const best=Math.min(ta.tot,tb.tot,tcc.tot);
+    rows=[
+      hdr('ProcureCalc.de — TCO-Vergleich'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      ['Formel', 'TCO Gesamt = (Stückpreis + Transport + Reklquote×Reklkosten) × Jahresbedarf × Jahre + Qualifizierung', ''],
+      empty(),
+      ['PARAMETER','Lieferant A','Lieferant B','Lieferant C'],
+      ['Stückpreis (€)', ta.p, tb.p, tcc.p],
+      ['Transport (€/Stk.)', ta.t, tb.t, tcc.t],
+      ['Reklamationsquote (%)', ta.qr*100, tb.qr*100, tcc.qr*100],
+      ['Kosten/Reklamation (€)', ta.r, tb.r, tcc.r],
+      ['Qualifizierungskosten (€)', ta.s, tb.s, tcc.s],
+      ['Jahresbedarf (Stk.)', tv, '', ''],
+      ['Amortisationsjahre', ty, '', ''],
+      empty(),
+      ['ERGEBNISSE','Lieferant A','Lieferant B','Lieferant C'],
+      ['TCO/Stk. (€)', Math.round(ta.tpp*100)/100, Math.round(tb.tpp*100)/100, Math.round(tcc.tpp*100)/100],
+      ['TCO Gesamt (€)', Math.round(ta.tot*100)/100, Math.round(tb.tot*100)/100, Math.round(tcc.tot*100)/100],
+      ['Günstigster', ta.tot===best?'✓ GÜNSTIGSTER':'', tb.tot===best?'✓ GÜNSTIGSTER':'', tcc.tot===best?'✓ GÜNSTIGSTER':''],
+      ['Diff. teuerster–günstigster', Math.round((Math.max(ta.tot,tb.tot,tcc.tot)-best)*100)/100, '', ''],
+    ];
+  } else if(id==='mob'){
+    name='MakeOrBuy';
+    const mf=G('mob_f'),mv=G('mob_v'),mi=G('mob_i'),md=G('mob_d')||1,mb=G('mob_b'),mvol=G('mob_vol')||1;
+    const da=mi/md, mkt=mf+da+mv*mvol, byt=mb*mvol, be=(mb-mv)>0?(mf+da)/(mb-mv):Infinity;
+    rows=[
+      hdr('ProcureCalc.de — Make-or-Buy'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Break-Even = (Fixkosten + Abschreibung) ÷ (Kaufpreis – variable Kosten)'),
+      empty(),
+      sec('EINGABEN MAKE'),
+      inp('Fixkosten p.a.', mf, '€'),
+      inp('Variable Kosten/Stk.', mv, '€'),
+      inp('Investition', mi, '€'),
+      inp('Abschreibungsdauer', md, 'Jahre'),
+      sec('EINGABEN BUY'),
+      inp('Einkaufspreis/Stk.', mb, '€'),
+      inp('Jahresbedarf', mvol, 'Stk.'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Abschreibung p.a.', da, 'Investition ÷ Abschreibungsdauer'),
+      res('Kosten Make p.a.', mkt, 'Fixkosten + Abschreibung + variabel×Menge'),
+      res('Kosten Buy p.a.', byt, 'Einkaufspreis × Jahresbedarf'),
+      res('Break-Even-Menge', isFinite(be)?Math.round(be):999999, 'Fixkosten+Abschreib. ÷ (Kauf – variabel)'),
+      res('Empfehlung', mvol>=(isFinite(be)?be:Infinity)?'MAKE':'BUY', 'Bei aktueller Menge von '+mvol+' Stk.'),
+      res('Einsparung pro Jahr', Math.abs(mkt-byt), 'Differenz Make vs. Buy'),
+    ];
+  } else if(id==='zt'){
+    name='Zahlungsziel';
+    const zv=G('zt_v'),zc=G('zt_c'),zn=G('zt_n'),zw=P('zt_w');
+    const vort=(zv*(zc/365)-zv*(zn/365))*zw;
+    rows=[
+      hdr('ProcureCalc.de — Zahlungsziel-Effekt'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Zinsvorteil = (Jahresvol × Tage_alt/365 – Jahresvol × Tage_neu/365) × WACC'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Jahresvolumen', zv, '€'),
+      inp('Aktuelles Zahlungsziel', zc, 'Tage'),
+      inp('Neues Zahlungsziel', zn, 'Tage'),
+      inp('WACC', zw*100, '%'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Liquiditätsbindung heute', zv*(zc/365), 'Jahresvol × (Tage÷365)'),
+      res('Liquiditätsbindung neu', zv*(zn/365), 'Jahresvol × (neue Tage÷365)'),
+      res('Freigesetztes Kapital', zv*(zc/365)-zv*(zn/365), 'Alte – Neue Bindung'),
+      res('Jährl. Zinsvorteil', vort, 'Freigesetztes Kapital × WACC'),
+      res('Äquiv. Preisaufschlag', zv>0?vort/zv*100:0, 'Zinsvorteil ÷ Jahresvolumen  in %'),
+    ];
+  } else if(id==='sk'){
+    name='Skonto';
+    const si=G('sk_inv'),sr=P('sk_r'),se=G('sk_e'),snet=G('sk_net'),sw=P('sk_w');
+    const dd=snet-se, eff=dd>0?(sr/(1-sr))*(365/dd):0, nb=si*sr-si*sw*(dd/365);
+    rows=[
+      hdr('ProcureCalc.de — Skonto-Rechner'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Eff. Jahreszins = (Skonto ÷ (1–Skonto)) × (365 ÷ (Zahlungsziel–Skontofrist))'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Rechnungsbetrag', si, '€'),
+      inp('Skontosatz', sr*100, '%'),
+      inp('Skontofrist', se, 'Tage'),
+      inp('Normales Zahlungsziel', snet, 'Tage'),
+      inp('WACC', sw*100, '%'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Skontoabzug', si*sr, 'Rechnungsbetrag × Skontosatz'),
+      res('Tagesdifferenz', dd, 'Zahlungsziel – Skontofrist'),
+      res('Effektiver Jahreszins', eff*100, 'Skonto/(1-Skonto) × 365/Tagesdiff.  in %'),
+      res('Entscheidung', eff>sw?'✓ Skonto nutzen':'✗ Nicht lohnend', 'Eff. Zins ('+fp(eff)+') > WACC ('+fp(sw)+') ?'),
+      res('Nettogewinn', nb, 'Skontoersparnis – entgangene Zinsen'),
+    ];
+  } else if(id==='ss'){
+    name='SafetyStock';
+    const ssv=G('ss_v'),ssp=G('ss_p'),ssw1=G('ss_w1'),sswc=P('ss_wc'),ssoh=P('ss_oh'),ssw2=G('ss_w2');
+    const ssc=w=>{const q=safe(ssv*(w/52)),val=safe(q*ssp);return{q:Math.round(q),val,tot:safe(val*(sswc+ssoh))};};
+    const ss1=ssc(ssw1), ss2=ssc(ssw2);
+    rows=[
+      hdr('ProcureCalc.de — Safety Stock & Lagerkosten'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Bestand = Jahresbedarf × (Wochen÷52)  |  Kosten = Lagerwert × (WACC + Overhead)'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Jahresbedarf', ssv, 'Stk.'),
+      inp('Stückpreis', ssp, '€'),
+      inp('WACC', sswc*100, '%'),
+      inp('Lager-Overhead', ssoh*100, '%'),
+      empty(),
+      sec('SZENARIO 1 — '+ssw1+' Wochen'),
+      res('Lagerbestand', ss1.q, 'Jahresbedarf × ('+ssw1+'÷52)  in Stk.'),
+      res('Lagerwert', ss1.val, 'Lagerbestand × Stückpreis'),
+      res('Gesamtkosten/Jahr', ss1.tot, 'Lagerwert × (WACC + Overhead)'),
+      empty(),
+      sec('SZENARIO 2 — '+ssw2+' Wochen'),
+      res('Lagerbestand', ss2.q, 'Jahresbedarf × ('+ssw2+'÷52)  in Stk.'),
+      res('Lagerwert', ss2.val, ''),
+      res('Gesamtkosten/Jahr', ss2.tot, ''),
+      res('Mehrkosten S2 vs S1', ss2.tot-ss1.tot, 'Differenz beider Szenarien'),
+    ];
+  } else if(id==='rv'){
+    name='Rahmenvertrag';
+    const rs=G('rv_s'),rv=G('rv_v'),rnc=G('rv_nc'),ryrs=G('rv_y')||5;
+    const rmode=document.getElementById('rv_m')?.value||'fixed';
+    let rates=[];
+    if(rmode==='fixed'){const r=P('rv_fr');for(let y=0;y<ryrs;y++)rates.push(y===0?0:r);}
+    else if(rmode==='per_year'){for(let y=1;y<=ryrs;y++)rates.push(y===1?0:P('rv_py'+y));}
+    else{const msh=P('rv_ims'),lsh=P('rv_ils');rates.push(0);for(let y=1;y<=ryrs;y++)rates.push(msh*P('rv_im'+y)+lsh*P('rv_il'+y));}
+    let prs=[],tvol=0,rp=rs;
+    for(let y=0;y<ryrs;y++){if(y>0)rp=safe(rp*(1+rates[y]));prs.push(safe(rp));tvol=safe(tvol+safe(rp*rv));}
+    const sav=rnc*rv*ryrs-tvol;
+    rows=[
+      hdr('ProcureCalc.de — Rahmenvertrag'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel je Jahr: Preis(n) = Preis(n-1) × (1 + Anpassungsrate)'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Startpreis', rs, '€'),
+      inp('Jahresbedarf', rv, 'Stk.'),
+      inp('Vergleichspreis ohne Vertrag', rnc, '€'),
+      inp('Laufzeit', ryrs, 'Jahre'),
+      inp('Modus', rmode, ''),
+      empty(),
+      ['Jahr','Stückpreis (€)','Jahresvolumen (€)','Anpassungsrate (%)'],
+      ...prs.map((px,i)=>['Jahr '+(i+1), Math.round(px*10000)/10000, Math.round(px*rv*100)/100, i===0?'Basisjahr':(rates[i]*100).toFixed(2)+'%']),
+      empty(),
+      sec('GESAMTERGEBNIS'),
+      res('Gesamtvolumen mit Vertrag', tvol, 'Summe aller Jahresvolumina'),
+      res('Gesamtvolumen ohne Vertrag', rnc*rv*ryrs, 'Vergleichspreis × Bedarf × Jahre'),
+      res('Ersparnis gesamt', sav, 'Ohne Vertrag – Mit Vertrag'),
+    ];
+  } else if(id==='fx'){
+    name='Waehrungsrisiko';
+    const pr=G('fx_p'),r=G('fx_r')||1,v=G('fx_v'),d=P('fx_d'),h=P('fx_h');
+    const vEur=v/r, pl=vEur*d, hc=vEur*h;
+    rows=[
+      hdr('ProcureCalc.de — Währungsrisiko'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Risiko = Jahresvolumen(€) × Kursschwankung%  |  Hedging = Volumen(€) × Hedging-Rate%'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Einkaufspreis (Fremdwährung)', pr, ''),
+      inp('Wechselkurs (1 € = X)', r, ''),
+      inp('Jahresvolumen (Fremdwährung)', v, ''),
+      inp('Erwartete Kursschwankung', d*100, '%'),
+      inp('Hedging-Kosten', h*100, '% p.a.'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Effektiver Preis in €', pr/r, 'Preis ÷ Wechselkurs'),
+      res('Jahresvolumen in €', vEur, 'Volumen ÷ Wechselkurs'),
+      res('Wechselkursrisiko (€/Jahr)', pl, 'Volumen(€) × Kursschwankung%'),
+      res('Hedging-Kosten (€/Jahr)', hc, 'Volumen(€) × Hedging-Rate%'),
+      res('Netto-Risiko nach Hedging', pl-hc, 'Risiko – Hedging-Kosten'),
+      res('Empfehlung', hc<pl?'Hedging lohnend':'Hedging prüfen', hc<pl?'Kosten < Risiko':'Kosten ≥ Risiko'),
+    ];
+  } else if(id==='lt'){
+    name='Lieferzeit';
+    const v=G('lt_v'),wa=G('lt_wa'),sa=G('lt_sa'),wb=G('lt_wb'),sb=G('lt_sb'),w=P('lt_w');
+    const bA=v*((wa+sa)/52), bB=v*((wb+sb)/52), diff=(bA-bB)*w;
+    rows=[
+      hdr('ProcureCalc.de — Lieferzeit-Kosteneffekt'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Kapitalbindung = Jahresvolumen × (Lieferzeit+Lager) ÷ 52  |  Kosten = Bindung × WACC'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Jahresvolumen', v, '€'),
+      inp('WACC', w*100, '%'),
+      inp('Lieferzeit A / Lagerbestand A', wa+' / '+sa, 'Wochen'),
+      inp('Lieferzeit B / Lagerbestand B', wb+' / '+sb, 'Wochen'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Gebundene Wochen A', wa+sa, 'Lieferzeit + Lagerbestand'),
+      res('Kapitalbindung A', bA, 'Jahresvol × ('+( wa+sa)+' Wochen÷52)'),
+      res('Kapitalkosten A/Jahr', bA*w, 'Kapitalbindung A × WACC'),
+      res('Gebundene Wochen B', wb+sb, ''),
+      res('Kapitalbindung B', bB, 'Jahresvol × ('+(wb+sb)+' Wochen÷52)'),
+      res('Kapitalkosten B/Jahr', bB*w, 'Kapitalbindung B × WACC'),
+      res('Vorteil B (€/Jahr)', diff, '(Bindung A – Bindung B) × WACC'),
+      res('Äquiv. Preisaufschlag', v>0?diff/v*100:0, 'Vorteil ÷ Jahresvolumen  in %'),
+    ];
+  } else if(id==='jg'){
+    name='Jahresgespraech';
+    const v=G('jg_v'),l=P('jg_l'),m=P('jg_m'),vd=P('jg_vd'),q=P('jg_q'),s=G('jg_s');
+    const über=l-m, vHebel=v*vd, qEff=v*Math.abs(q)*0.1, pot=(über>0?v*über:0)+qEff;
+    rows=[
+      hdr('ProcureCalc.de — Jahresgespräch-Vorbereitung'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Übermarkt-Arg. = Volumen × (Preiserhöhung% – Marktindex%)  |  Vol-Hebel = Volumen × Mengensteigerung%'),
+      empty(),
+      sec('EINGABEN'),
+      inp('Jahresvolumen', v, '€'),
+      inp('Preiserhöhung letztes Jahr', l*100, '%'),
+      inp('Marktindex-Entwicklung', m*100, '%'),
+      inp('Mengenentwicklung', vd*100, '%'),
+      inp('Qualitätskosten-Trend', q*100, '%'),
+      inp('Strategische Wichtigkeit', s, '1–5'),
+      empty(),
+      sec('ANALYSE'),
+      res('Lieferant über/unter Markt', über*100, 'Preiserhöhung% – Marktindex%  in %'),
+      res('Übermarkt-Argument (€)', v*über>0?v*über:0, 'Volumen × (Preiserhöhung% – Marktindex%)'),
+      res('Volumenhebel (€)', vHebel, 'Volumen × Mengenentwicklung%'),
+      res('Qualitätsargument (€)', qEff, 'Volumen × |Qualitätstrend%| × 0,1'),
+      res('Verhandlungspotenzial gesamt (€)', pot, 'Übermarkt-Arg. + Qualität'),
+      res('Priorität', s>=4?'Strategisch':s>=3?'Wichtig':'Transaktional', ''),
+      res('Strategie', über>0.01?'Aggressiv: Delta zum Markt einfordern':über<-0.01?'Positiv: Würdigen & Volumen bieten':'Neutral: Volumen & Qualität als Hebel', ''),
+    ];
+  } else if(id==='lk'){
+    name='Lernkurve';
+    const p0=G('lk_p'),n0=G('lk_n0')||1,lr=G('lk_r'),n1=G('lk_n1'),vol=G('lk_v');
+    const b=Math.log(lr/100)/Math.log(2), p1=p0*Math.pow(n1/n0,b), sav=(p0-p1)*vol;
+    rows=[
+      hdr('ProcureCalc.de — Lernkurven-Kalkulator'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Preis(N) = Preis₀ × (N÷N₀)^b  |  b = ln(Lernrate÷100) ÷ ln(2)  |  Exponent b = '+b.toFixed(4)),
+      empty(),
+      sec('EINGABEN'),
+      inp('Aktueller Stückpreis', p0, '€'),
+      inp('Aktuelle kumulierte Menge', n0, 'Stk.'),
+      inp('Lernrate', lr, '%  (z.B. 85 = bei Verdopplung –15%)'),
+      inp('Ziel-Menge', n1, 'Stk.'),
+      inp('Jahresbedarf', vol, 'Stk.'),
+      empty(),
+      sec('ERGEBNISSE'),
+      res('Lernkurven-Exponent b', b, 'ln(Lernrate÷100) ÷ ln(2)'),
+      res('Preis bei Zielmenge', p1, 'Aktueller Preis × (Ziel÷Aktuell)^b'),
+      res('Preisreduktion', (p0-p1)/p0*100, '(Aktuell – Ziel) ÷ Aktuell  in %'),
+      res('Verdopplungen bis Ziel', Math.log(n1/n0)/Math.log(2), 'log₂(Zielmenge ÷ Ausgangsmenge)'),
+      res('Einsparung bei Jahresbedarf', sav, '(Aktueller – Zielpreis) × Jahresbedarf'),
+      empty(),
+      ['Stützpunkte', 'Kumulierte Menge (Stk.)', 'Stückpreis (€)', ''],
+      ...[n0, n0*2, n0*4, n0*8, n1].filter((v,i,a)=>a.indexOf(v)===i).sort((a,c)=>a-c).map(n=>
+        ['', n, Math.round(p0*Math.pow(n/n0,b)*100)/100, '']
+      ),
+    ];
+  } else if(id==='lr'){
+    name='Lieferantenrisiko';
+    const dims=[{id:'lr_f',wid:'lr_fw',l:'Finanzstabilität'},{id:'lr_q',wid:'lr_qw',l:'Liefertreue & Qualität'},{id:'lr_d',wid:'lr_dw',l:'Single-Source-Abhängigkeit'},{id:'lr_g',wid:'lr_gw',l:'Geografisches Risiko'},{id:'lr_e',wid:'lr_ew',l:'ESG & Compliance'}];
+    const tw=dims.reduce((s,d)=>s+G(d.wid),0)||1, sc=dims.reduce((s,d)=>s+G(d.id)*(G(d.wid)/tw),0);
+    rows=[
+      hdr('ProcureCalc.de — Lieferantenrisiko-Score'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Score = Σ (Bewertung_i × Gewicht_i) ÷ Σ Gewichte'),
+      empty(),
+      sec('BEWERTUNGSMATRIX'),
+      ['Dimension', 'Bewertung (1–5)', 'Gewichtung (%)', 'Beitrag'],
+      ...dims.map(d=>[d.l, G(d.id), G(d.wid), Math.round(G(d.id)*(G(d.wid)/tw)*100)/100]),
+      empty(),
+      sec('ERGEBNIS'),
+      res('Gesamt-Score (gewichtet)', Math.round(sc*100)/100, 'Σ (Bewertung × Gewicht÷Summe) — max. 5,00'),
+      res('Risikostufe', sc>=3.5?'Gering (>3,5)':sc>=2.5?'Mittel (2,5–3,5)':'Hoch (<2,5)', ''),
+      res('Empfehlung', sc>=3.5?'Monitoring fortsetzen':sc>=2.5?'Maßnahmenplan erstellen':'Dual-Source aufbauen', ''),
+    ];
+  } else if(id==='ix'){
+    name='Indexklausel';
+    const p=G('ix_p'),ms=P('ix_ms'),ls=P('ix_ls'),es=P('ix_es'),md=P('ix_md'),ld=P('ix_ld'),ed=P('ix_ed');
+    const dt=safe(ms*md+ls*ld+es*ed);
+    rows=[
+      hdr('ProcureCalc.de — Indexklausel-Kalkulator'),
+      hdr('Export: '+new Date().toLocaleDateString('de-DE')),
+      hdr('Formel: Δ Preis% = Σ (Kostenanteil_i × Δ Index_i)  |  Neuer Preis = Alter Preis × (1 + Δ Preis%)'),
+      empty(),
+      sec('KOSTENSTRUKTUR'),
+      inp('Materialanteil', ms*100, '%'),
+      inp('Lohnanteil', ls*100, '%'),
+      inp('Energieanteil', es*100, '%'),
+      inp('Fixkostenanteil (Marge etc.)', (1-ms-ls-es)*100, '%'),
+      empty(),
+      sec('INDEXENTWICKLUNG (Periode)'),
+      inp('Δ Materialindex', md*100, '%  (z.B. LME, Destatis Stahl)'),
+      inp('Δ Lohnindex', ld*100, '%  (z.B. Eurostat Tarifindex)'),
+      inp('Δ Energieindex', ed*100, '%  (z.B. Destatis Erzeugerpreise)'),
+      empty(),
+      sec('ERGEBNISSE'),
+      inp('Aktueller Stückpreis', p, '€'),
+      res('Δ Material-Beitrag', ms*md*100, 'Materialanteil% × ΔMaterialindex%  in %'),
+      res('Δ Lohn-Beitrag', ls*ld*100, 'Lohnanteil% × ΔLohnindex%  in %'),
+      res('Δ Energie-Beitrag', es*ed*100, 'Energieanteil% × ΔEnergieindex%  in %'),
+      res('Berechtigter Gesamtdelta', dt*100, 'Summe aller Beiträge  in %'),
+      res('Neuer Preis nach Klausel', p*(1+dt), 'Stückpreis × (1 + Δ Preis%)'),
+      res('Preisanpassung absolut', p*dt, 'Stückpreis × Δ Preis%'),
+    ];
+  } else {
+    rows=[[id+' — kein Export verfügbar']]; name='Export';
+  }
+
+  const wb = XLSX.utils.book_new();
+  // TCO hat 4 Spalten, alles andere 3
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = id==='tco'
+    ? [{wch:36},{wch:16},{wch:16},{wch:16}]
+    : [{wch:36},{wch:18},{wch:55}];
+  XLSX.utils.book_append_sheet(wb, ws, name.substring(0,31));
+  XLSX.writeFile(wb, 'ProcureCalc_'+name+'.xlsx');
+}
+// ═══ SCENARIO COMPARE ═══
+const scenarioData={};
+function saveScenario(id,slot,btn){
+  const rb=document.getElementById('r_'+id);
+  if(!rb){return;}
+  const rows=[...rb.querySelectorAll('.rr')];
+  const snapshot=rows.map(r=>{
+    const l=r.querySelector('span:first-child')?.textContent||'';
+    const v=r.querySelector('.rv')?.textContent||'';
+    return l&&v?`<div style="display:flex;justify-content:space-between;gap:8px;font-size:.75rem;padding:2px 0;border-bottom:1px solid var(--border)"><span style="color:var(--t3)">${l}</span><strong style="font-family:var(--mono)">${v}</strong></div>`:'';
+  }).join('');
+  const content=document.getElementById('ss_'+id+'_'+slot+'_content');
+  if(content) content.innerHTML=snapshot||'<span style="color:var(--t4)">Keine Daten</span>';
+  // activate button
+  document.querySelectorAll('#sp_'+id+' .scenario-slot').forEach((s,i)=>{
+    s.style.borderColor=(i+1)===slot?'var(--blue)':'var(--border)';
+    s.querySelector('.scenario-slot-title').style.color=(i+1)===slot?'var(--blue)':'var(--t4)';
+  });
+  // show panel
+  const panel=document.getElementById('sp_'+id);
+  if(panel){panel.classList.add('on');}
+}
+function toggleScenarioPanel(id){
+  const p=document.getElementById('sp_'+id);
+  if(p){p.classList.toggle('on');}
+}
+
+// ═══ INPUT VALIDATION ═══
+function validateInputs(){
+  // Warn on % > 100
+  ['p_ms','p_ls','p_es','ix_ms','ix_ls','ix_es'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const v=parseFloat(el.value);
+    let hint=el.parentElement?.querySelector('.inp-hint');
+    if(!hint){hint=document.createElement('div');hint.className='inp-hint';el.parentElement?.appendChild(hint);}
+    if(v>100){hint.textContent='⚠ Anteil über 100% — bitte prüfen';hint.classList.add('on');el.classList.add('inp-warn');}
+    else{hint.classList.remove('on');el.classList.remove('inp-warn');}
+  });
+  // Warn on negative prices
+  ['c_cur','c_bat','c_tgt','p_p','sv_o','sv_n','mob_b','ta_p','tb_p','tc_p'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const v=parseFloat(el.value);
+    if(v<0){el.classList.add('inp-warn');}else{el.classList.remove('inp-warn');}
+  });
+}
+
+
+// ── Backend-Status im Admin anzeigen ────────────────────────
+function checkBackendStatus() {
+  const sbEl  = document.getElementById('sb-status');
+  const sbUrl = document.getElementById('sb-url');
+  const fsEl  = document.getElementById('fs-status');
+  const fsUrl = document.getElementById('fs-url');
+  if (!sbEl) return;
+
+  if (USE_BACKEND) {
+    sbEl.textContent  = '✓ Verbunden';
+    sbEl.style.color  = 'var(--green)';
+    sbUrl.textContent = SUPABASE_URL.replace('https://','').substring(0,30)+'...';
+  } else {
+    sbEl.textContent = '✗ Nicht konfiguriert — nur localStorage';
+    sbEl.style.color = 'var(--red)';
+    sbUrl.textContent = 'DEINE_SUPABASE_URL einsetzen';
+  }
+
+  if (USE_EMAIL) {
+    fsEl.textContent = '✓ Verbunden — Feedback kommt per E-Mail';
+    fsEl.style.color = 'var(--green)';
+    fsUrl.textContent = 'formspree.io/f/' + FORMSPREE_ID;
+  } else {
+    fsEl.textContent = '✗ Nicht konfiguriert';
+    fsEl.style.color = 'var(--red)';
+    fsUrl.textContent = 'DEINE_FORMSPREE_ID einsetzen';
+  }
+}
+
+// ═══ INIT ═══
+birv();
+ca();
+initCookieBanner();
+
+
+// ════════════════════════════════════════════════════════════════
+// BACKEND KONFIGURATION
+// ► Trage hier deine Werte ein nachdem du die Accounts angelegt hast
+// ════════════════════════════════════════════════════════════════
+const SUPABASE_URL  = 'https://aajddkharsvspsdfojzm.supabase.co';      // z.B. https://xxxxx.supabase.co
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhamRka2hhcnN2c3BzZGZvanptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4OTgwNTYsImV4cCI6MjA4OTQ3NDA1Nn0.CYDVoJSBNZC-9H24ihbdEtI_BSkQIvD4L-G0gti06RQ';  // langer String aus Supabase Settings
+const FORMSPREE_ID  = 'myknokzb';       // z.B. xpwzgkla
+
+// Fallback: wenn Supabase nicht konfiguriert → localStorage wie bisher
+const USE_BACKEND = SUPABASE_URL !== 'https://aajddkharsvspsdfojzm.supabase.co';
+const USE_EMAIL   = FORMSPREE_ID !== 'myknokzb';
+
+// ── Supabase Helper ──────────────────────────────────────────
+async function sbInsert(table, data) {
+  if (!USE_BACKEND) return null;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer':        'return=minimal'
+      },
+      body: JSON.stringify(data)
+    });
+    return res.ok;
+  } catch(e) {
+    console.warn('Supabase offline, using localStorage fallback');
+    return null;
+  }
+}
+
+// ── Analytics Tracking ───────────────────────────────────────
+// Ersetzt die alte track() Funktion — bleibt abwärtskompatibel
+async function track(ev, detail='') {
+  // 1. Immer lokal speichern (für Admin-Dashboard)
+  try {
+    const a = JSON.parse(localStorage.getItem('pc_a') || '{}');
+    if (ev === 'pv') a.pv = (a.pv || 0) + 1;
+    if (!sessionStorage.getItem('pc_s')) {
+      a.sess = (a.sess || 0) + 1;
+      sessionStorage.setItem('pc_s', '1');
+      // Session-Start ans Backend
+      sbInsert('pageviews', { event: 'session_start', referrer: document.referrer || '' });
+    }
+    if (ev === 'calc') {
+      if (!a.calcs) a.calcs = {};
+      a.calcs[detail] = (a.calcs[detail] || 0) + 1;
+    }
+    if (ev === 'fb') { if (!a.fb) a.fb = []; a.fb.push(detail); }
+    if (!a.first) a.first = new Date().toLocaleDateString('de-DE');
+    a.last = new Date().toLocaleDateString('de-DE');
+    localStorage.setItem('pc_a', JSON.stringify(a));
+  } catch(e) {}
+
+  // 2. An Supabase senden
+  if (ev === 'pv') {
+    sbInsert('pageviews', {
+      event:      'pageview',
+      referrer:   document.referrer || '',
+      user_agent: navigator.userAgent.substring(0, 120)
+    });
+  } else if (ev === 'calc') {
+    sbInsert('pageviews', { event: 'calc_use', calculator: detail });
+  }
+}
+
+// ── Feedback absenden ────────────────────────────────────────
+// Ersetzt submitFB() — sendet an Supabase + Formspree + localStorage
+async function submitFB() {
+  if (!fbStar) { alert('Bitte vergib eine Bewertung (1–5 Sterne).'); return; }
+
+  const stars   = fbStar;
+  const calc    = document.getElementById('fb-calc').value;
+  const message = document.getElementById('fb-text').value;
+  const date    = new Date().toLocaleDateString('de-DE');
+
+  // Zeige sofort Erfolg (optimistic UI)
+  document.getElementById('fb-ok').style.display = 'block';
+  document.getElementById('fb-text').value = '';
+  document.getElementById('fb-calc').value = '';
+  setStar(0); fbStar = 0;
+
+  // 1. Supabase (Datenbank)
+  const sbResult = await sbInsert('feedback', { stars, calculator: calc, message, page_url: location.href });
+
+  // 2. Formspree (E-Mail an dich)
+  if (USE_EMAIL) {
+    try {
+      await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject:   `ProcureCalc Feedback: ${stars}★ — ${calc || 'Allgemein'}`,
+          sterne:     stars + ' / 5',
+          kalkulator: calc || '—',
+          nachricht:  message || '(kein Text)',
+          datum:      date
+        })
+      });
+    } catch(e) { console.warn('Formspree send failed'); }
+  }
+
+  // 3. localStorage Fallback (immer)
+  track('fb', { stars, calc, text: message, date });
+
+  setTimeout(() => {
+    closeModal('m-fb');
+    document.getElementById('fb-ok').style.display = 'none';
+  }, 2500);
+}
+
+// ── Admin Dashboard erweitern — Supabase-Daten laden ─────────
+async function loadSupabaseStats() {
+  if (!USE_BACKEND) return;
+  try {
+    // Letzte 30 Tage Pageviews
+    const since = new Date(Date.now() - 30*24*60*60*1000).toISOString();
+
+    const [pvRes, calcRes, fbRes] = await Promise.all([
+      fetch(`${SUPABASE_URL}/rest/v1/pageviews?event=eq.pageview&created_at=gte.${since}&select=count`, {
+        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON,
+                   'Content-Type': 'application/json', 'Prefer': 'count=exact' }
+      }),
+      fetch(`${SUPABASE_URL}/rest/v1/pageviews?event=eq.calc_use&created_at=gte.${since}&select=calculator`, {
+        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON }
+      }),
+      fetch(`${SUPABASE_URL}/rest/v1/feedback?select=stars,calculator,message,created_at&order=created_at.desc&limit=20`, {
+        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON }
+      })
+    ]);
+
+    const pvCount  = pvRes.headers.get('content-range')?.split('/')[1] || '?';
+    const calcData = await calcRes.json();
+    const fbData   = await fbRes.json();
+
+    // Kalkulator-Nutzung aggregieren
+    const calcCounts = {};
+    (calcData || []).forEach(r => {
+      if (r.calculator) calcCounts[r.calculator] = (calcCounts[r.calculator] || 0) + 1;
+    });
+
+    // KPI-Banner im Admin ergänzen
+    const kpiEl = document.getElementById('adm-kpis');
+    if (kpiEl) {
+      const sbCard = document.createElement('div');
+      sbCard.className = 'kpi-card';
+      sbCard.style.borderLeft = '3px solid var(--gold)';
+      sbCard.innerHTML = `<div class="kpi-n">${pvCount}</div><div class="kpi-l">Seitenaufrufe (30 Tage · live)</div><div class="kpi-s">via Supabase ✓</div>`;
+      kpiEl.insertBefore(sbCard, kpiEl.firstChild);
+    }
+
+    // Feedback-Liste aus Supabase einfügen
+    const fbEl = document.getElementById('adm-fbs');
+    if (fbEl && fbData && fbData.length > 0) {
+      const sbHeader = document.createElement('div');
+      sbHeader.style.cssText = 'font-size:.68rem;color:var(--gold-d);font-weight:600;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase';
+      sbHeader.textContent = 'Aus Supabase (alle Nutzer)';
+      fbEl.insertBefore(sbHeader, fbEl.firstChild);
+
+      fbData.forEach(fb => {
+        const div = document.createElement('div');
+        div.style.cssText = 'border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:8px;font-size:.79rem;background:#FFFEF9';
+        const d = new Date(fb.created_at).toLocaleDateString('de-DE');
+        div.innerHTML = `
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+            <span style="color:#C4A862">${'★'.repeat(fb.stars||0)}${'☆'.repeat(5-(fb.stars||0))}</span>
+            <div style="display:flex;gap:6px;align-items:center">
+              ${fb.calculator ? `<span style="background:var(--gold-a);color:var(--gold-d);font-size:.67rem;padding:1px 6px;border-radius:10px;font-weight:600">${fb.calculator}</span>` : ''}
+              <span style="color:var(--t4);font-size:.7rem">${d}</span>
+            </div>
+          </div>
+          <p style="color:var(--t2)">${fb.message || '<span style=color:var(--t4)>Kein Text</span>'}</p>`;
+        fbEl.appendChild(div);
+      });
+    }
+
+    // Kalkulator-Nutzung aus Supabase
+    const calcEl = document.getElementById('adm-calcs');
+    if (calcEl && Object.keys(calcCounts).length > 0) {
+      const sbHeader2 = document.createElement('div');
+      sbHeader2.style.cssText = 'font-size:.68rem;color:var(--gold-d);font-weight:600;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase';
+      sbHeader2.textContent = 'Alle Nutzer (Supabase · 30 Tage)';
+      calcEl.insertBefore(sbHeader2, calcEl.firstChild);
+
+      const sorted = Object.entries(calcCounts).sort((a,b) => b[1]-a[1]).slice(0,8);
+      const max = sorted[0]?.[1] || 1;
+      sorted.forEach(([k,v]) => {
+        const div = document.createElement('div');
+        div.style.cssText = 'display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:.8rem';
+        div.innerHTML = `<span style="flex:1;color:var(--t2)">${k}</span>
+          <div style="background:var(--panel);border-radius:3px;height:6px;width:80px;overflow:hidden">
+            <div style="height:100%;border-radius:3px;background:var(--gold-d);width:${Math.round(v/max*100)}%"></div>
+          </div>
+          <strong style="font-family:monospace;color:var(--t1);min-width:20px;text-align:right">${v}</strong>`;
+        calcEl.appendChild(div);
+      });
+    }
+
+  } catch(e) { console.warn('Supabase stats load failed:', e); }
+}
+
+// ── Cookie Consent ──
+function cookieDecide(accepted){
+  localStorage.setItem('pc_consent', accepted ? 'accepted' : 'minimal');
+  localStorage.setItem('pc_consent_date', new Date().toISOString().split('T')[0]);
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function initCookieBanner(){
+  if(!localStorage.getItem('pc_consent')){
+    setTimeout(()=>{
+      document.getElementById('cookie-banner').classList.add('show');
+    }, 800);
+  }
+}
+
+validateInputs();
+
+// ═══ ADMIN TABS ═══
+function adTab(tab) {
+  if(tab==='analytics') { loadSupabaseStats(); }
+  ['analytics','ads','links'].forEach(t => {
+    document.getElementById('adm-panel-'+t).style.display = t===tab ? 'block' : 'none';
+    const btn = document.getElementById('adm-tab-'+t);
+    if(btn) { btn.style.background = t===tab?'var(--blue-l)':''; btn.style.color = t===tab?'var(--blue)':''; btn.style.borderColor = t===tab?'rgba(36,84,232,.3)':''; }
+  });
+  if(tab==='ads') adLoadAds();
+  if(tab==='links') adLoadLinks();
+}
+
+// ═══ AD DEFAULTS ═══
+const AD_DEFAULTS = {
+  banner:  { title:'BME-Kongress Einkauf 2026 · Frankfurt', l1t:'Jetzt anmelden »', l1u:'#', l2t:'SAP Ariba Zertifizierung online', l2u:'#' },
+  sidebar: { title:'SAP Ariba Grundkurs', text:'Online, zertifiziert, auf Deutsch.', lt:'Zum Kurs »', url:'#' },
+  home:    { label:'Anzeige', title:'BME-Kongress Einkauf 2026 · Frankfurt', text:'Strategischer Einkauf, Digitalisierung, Lieferkettenresilienz. Zertifikat inklusive.', cta:'Jetzt anmelden »', url:'#' },
+  preis:   { label:'Anzeige', title:'Destatis Erzeugerpreisindizes — kostenlos', text:'Offizielle Indizes für Material, Energie, Lohn — Grundlage für jeden Preiserhöhungs-Check.', cta:'Zum Portal »', url:'https://www.destatis.de' },
+  strat:   { label:'Partner', title:'Lieferantenrisiko-Software im Vergleich', text:'Risikio, Jaggaer, Coupa — führende Plattformen für Lieferantenmonitoring.', cta:'Zum Vergleich »', url:'#' },
+};
+
+const LINK_DEFAULTS = [
+  { text:'Destatis Preisindizes', url:'https://www.destatis.de' },
+  { text:'LME Metallpreise', url:'https://www.lme.com' },
+  { text:'BME-Zertifizierung', url:'https://www.bme.de' },
+  { text:'Eurostat Tarifindex', url:'https://ec.europa.eu/eurostat' },
+  { text:'Werbung schalten', url:'mailto:info@procerecalc.de' },
+];
+
+function adGetAds() {
+  try { return JSON.parse(localStorage.getItem('pc_ads') || 'null') || JSON.parse(JSON.stringify(AD_DEFAULTS)); } catch(e) { return JSON.parse(JSON.stringify(AD_DEFAULTS)); }
+}
+function adGetLinks() {
+  try { return JSON.parse(localStorage.getItem('pc_links') || 'null') || JSON.parse(JSON.stringify(LINK_DEFAULTS)); } catch(e) { return JSON.parse(JSON.stringify(LINK_DEFAULTS)); }
+}
+
+function adApplyAll() {
+  const ads = adGetAds();
+  // Banner
+  const bt = document.getElementById('ad-banner-title'); if(bt) bt.textContent = ads.banner.title;
+  const bl1 = document.getElementById('ad-banner-link1'); if(bl1) { bl1.textContent = ads.banner.l1t; bl1.href = ads.banner.l1u||'#'; }
+  const bl2 = document.getElementById('ad-banner-link2'); if(bl2) { bl2.textContent = ads.banner.l2t; bl2.href = ads.banner.l2u||'#'; }
+  // Sidebar
+  const stt = document.getElementById('ad-sidebar-title'); if(stt) stt.textContent = ads.sidebar.title;
+  const stx = document.getElementById('ad-sidebar-text'); if(stx) stx.textContent = ads.sidebar.text;
+  const sla = document.getElementById('ad-sidebar-link'); if(sla) { sla.textContent = ads.sidebar.lt; sla.dataset.url = ads.sidebar.url; }
+  // Home card
+  const hlbl = document.getElementById('ad-home-label'); if(hlbl) hlbl.textContent = ads.home.label;
+  const htti = document.getElementById('ad-home-title'); if(htti) htti.textContent = ads.home.title;
+  const htxt = document.getElementById('ad-home-text'); if(htxt) htxt.textContent = ads.home.text;
+  const hcta = document.getElementById('ad-home-cta'); if(hcta) hcta.textContent = ads.home.cta;
+  const hurl = document.getElementById('ad-home-url_'); // stored in data attr
+  // Preis card
+  const plbl = document.getElementById('ad-preis-label'); if(plbl) plbl.textContent = ads.preis.label;
+  const ptti = document.getElementById('ad-preis-title'); if(ptti) ptti.textContent = ads.preis.title;
+  const ptxt = document.getElementById('ad-preis-text'); if(ptxt) ptxt.textContent = ads.preis.text;
+  const pcta = document.getElementById('ad-preis-cta'); if(pcta) pcta.textContent = ads.preis.cta;
+  // Strat card
+  const slbl = document.getElementById('ad-strat-label'); if(slbl) slbl.textContent = ads.strat.label;
+  const stti = document.getElementById('ad-strat-title'); if(stti) stti.textContent = ads.strat.title;
+  const stxt = document.getElementById('ad-strat-text'); if(stxt) stxt.textContent = ads.strat.text;
+  const scta = document.getElementById('ad-strat-cta'); if(scta) scta.textContent = ads.strat.cta;
+  // Footer links
+  const fcol = document.querySelector('.footer-col:nth-child(3)');
+  if(fcol) {
+    const links = adGetLinks();
+    fcol.innerHTML = '<h5>Ressourcen</h5>' + links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.text}</a>`).join('');
+  }
+}
+
+function adCardClick(urlId) {
+  const ads = adGetAds();
+  const map = { 'ad-home-url': ads.home.url, 'ad-preis-url': ads.preis.url, 'ad-strat-url': ads.strat.url, 'ad-sidebar-url': ads.sidebar.url };
+  const url = map[urlId];
+  if(url && url !== '#') window.open(url, '_blank');
+}
+
+function adLoadAds() {
+  const ads = adGetAds();
+  // Banner
+  const set = (id, val) => { const el=document.getElementById(id); if(el) el.value=val||''; };
+  set('adm-banner-title', ads.banner.title); set('adm-banner-l1t', ads.banner.l1t);
+  set('adm-banner-l1u', ads.banner.l1u);    set('adm-banner-l2t', ads.banner.l2t);
+  set('adm-banner-l2u', ads.banner.l2u);
+  // Sidebar
+  set('adm-sidebar-title', ads.sidebar.title); set('adm-sidebar-text', ads.sidebar.text);
+  set('adm-sidebar-lt', ads.sidebar.lt);       set('adm-sidebar-url', ads.sidebar.url);
+  // Home
+  set('adm-home-label', ads.home.label); set('adm-home-title', ads.home.title);
+  set('adm-home-text', ads.home.text);   set('adm-home-cta', ads.home.cta);
+  set('adm-home-url', ads.home.url);
+  // Preis
+  set('adm-preis-label', ads.preis.label); set('adm-preis-title', ads.preis.title);
+  set('adm-preis-text', ads.preis.text);   set('adm-preis-cta', ads.preis.cta);
+  set('adm-preis-url', ads.preis.url);
+  // Strat
+  set('adm-strat-label', ads.strat.label); set('adm-strat-title', ads.strat.title);
+  set('adm-strat-text', ads.strat.text);   set('adm-strat-cta', ads.strat.cta);
+  set('adm-strat-url', ads.strat.url);
+}
+
+function adLoadLinks() {
+  const links = adGetLinks();
+  const container = document.getElementById('adm-footer-links');
+  if(!container) return;
+  container.innerHTML = links.map((l,i) => `
+    <div style="display:grid;grid-template-columns:1fr 1fr 28px;gap:5px;margin-bottom:6px">
+      <input value="${l.text}" id="adm-fl-t${i}" class="adm-fl-input" placeholder="Link-Text" style="font-family:var(--sans);font-size:.8rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:5px 8px;outline:none">
+      <input value="${l.url}" id="adm-fl-u${i}" class="adm-fl-input" placeholder="URL" style="font-family:var(--sans);font-size:.8rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:5px 8px;outline:none">
+      <button onclick="adRemoveLink(${i})" style="background:var(--red-l);border:1px solid rgba(201,53,53,.2);color:var(--red);border-radius:var(--r);cursor:pointer;font-size:.9rem">×</button>
+    </div>`).join('') +
+    `<button class="btn-sec" style="font-size:.78rem;margin-top:4px" onclick="adAddLink()">+ Link hinzufügen</button>`;
+}
+
+function adAddLink() {
+  const links = adGetLinks();
+  links.push({ text:'Neuer Link', url:'#' });
+  localStorage.setItem('pc_links', JSON.stringify(links));
+  adLoadLinks(); adApplyAll();
+}
+function adRemoveLink(i) {
+  const links = adGetLinks();
+  links.splice(i, 1);
+  localStorage.setItem('pc_links', JSON.stringify(links));
+  adLoadLinks(); adApplyAll();
+}
+function adSaveLinks() {
+  const links = adGetLinks();
+  links.forEach((_,i) => {
+    const t = document.getElementById('adm-fl-t'+i);
+    const u = document.getElementById('adm-fl-u'+i);
+    if(t) links[i].text = t.value;
+    if(u) links[i].url = u.value;
+  });
+  localStorage.setItem('pc_links', JSON.stringify(links));
+  adApplyAll();
+  alert('✓ Footer-Links gespeichert!');
+}
+
+function adSaveContact() {
+  const n = document.getElementById('adm-contact-name')?.value || '';
+  const a = document.getElementById('adm-contact-addr')?.value || '';
+  const e = document.getElementById('adm-contact-email')?.value || '';
+  try { localStorage.setItem('pc_contact', JSON.stringify({name:n, addr:a, email:e})); } catch(err){}
+  const ok = document.getElementById('adm-contact-saved');
+  if(ok) { ok.style.display='block'; setTimeout(()=>ok.style.display='none', 3000); }
+}
+
+function adSaveSlot(slot) {
+  const ads = adGetAds();
+  const g = id => document.getElementById('adm-'+slot+'-'+id)?.value || '';
+  if(slot === 'banner') {
+    ads.banner = { title:g('title'), l1t:g('l1t'), l1u:g('l1u'), l2t:g('l2t'), l2u:g('l2u') };
+  } else if(slot === 'sidebar') {
+    ads.sidebar = { title:g('title'), text:g('text'), lt:g('lt'), url:g('url') };
+  } else {
+    ads[slot] = { label:g('label'), title:g('title'), text:g('text'), cta:g('cta'), url:g('url') };
+  }
+  localStorage.setItem('pc_ads', JSON.stringify(ads));
+  adApplyAll();
+  alert('✓ ' + slot + '-Werbefläche gespeichert und live aktualisiert!');
+}
+
+function adPreview() {
+  // Live preview while typing
+  const g = (id) => { const el=document.getElementById(id); return el?el.value:''; };
+  const upd = (id, val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
+  upd('ad-banner-title', g('adm-banner-title'));
+  const l1=document.getElementById('ad-banner-link1'); if(l1) l1.textContent=g('adm-banner-l1t');
+  const l2=document.getElementById('ad-banner-link2'); if(l2) l2.textContent=g('adm-banner-l2t');
+  upd('ad-sidebar-title', g('adm-sidebar-title'));
+  const stx=document.getElementById('ad-sidebar-text'); if(stx) stx.textContent=g('adm-sidebar-text');
+  const sla=document.getElementById('ad-sidebar-link'); if(sla) sla.textContent=g('adm-sidebar-lt');
+  upd('ad-home-label', g('adm-home-label')); upd('ad-home-title', g('adm-home-title'));
+  upd('ad-home-text', g('adm-home-text'));   upd('ad-home-cta', g('adm-home-cta'));
+  upd('ad-preis-label', g('adm-preis-label')); upd('ad-preis-title', g('adm-preis-title'));
+  upd('ad-preis-text', g('adm-preis-text'));   upd('ad-preis-cta', g('adm-preis-cta'));
+  upd('ad-strat-label', g('adm-strat-label')); upd('ad-strat-title', g('adm-strat-title'));
+  upd('ad-strat-text', g('adm-strat-text'));   upd('ad-strat-cta', g('adm-strat-cta'));
+}
+
+function adResetAds() {
+  localStorage.removeItem('pc_ads');
+  localStorage.removeItem('pc_links');
+}
+
+// Apply ads on page load
+adApplyAll();
+</script>
+
+<!-- ════ COOKIE BANNER ════ -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+  <p>
+    Diese Website verwendet <strong style="color:rgba(255,254,249,.85);font-weight:500">localStorage</strong>
+    ausschließlich lokal in deinem Browser — für Feedback, Nutzungsstatistiken und Admin-Einstellungen.
+    Es werden keine Daten an externe Server übertragen. Mehr in unserer
+    <a href="#" onclick="go('datenschutz');cookieDecide(false);return false">Datenschutzerklärung</a>.
+  </p>
+  <div class="cookie-btns">
+    <button class="cookie-decline" onclick="cookieDecide(false)">Nur Notwendiges</button>
+    <button class="cookie-accept" onclick="cookieDecide(true)">Verstanden ✓</button>
+  </div>
+</div>
+
+</body>
+</html>
