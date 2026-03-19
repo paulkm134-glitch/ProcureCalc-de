@@ -439,6 +439,13 @@ footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24p
 .cookie-decline:hover{color:rgba(255,254,249,.8);border-color:rgba(255,254,249,.4)}
 
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2742PMDCZV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date());
+gtag('config', 'G-2742PMDCZV');
+</script>
 </head>
 <body>
 
@@ -521,9 +528,9 @@ footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24p
 <div class="ad-strip" id="ad-banner">
   <span class="ad-lbl">Anzeige</span>
   <strong id="ad-banner-title" style="color:var(--t2)">BME-Kongress Einkauf 2026 · Frankfurt</strong>
-  <a id="ad-banner-link1" href="#" onclick="return false">Jetzt anmelden »</a>
+  <a id="ad-banner-link1" href="#" onclick="return adBannerClick(1)">Jetzt anmelden »</a>
   &nbsp;·&nbsp;
-  <a id="ad-banner-link2" href="#" onclick="return false">SAP Ariba Zertifizierung online</a>
+  <a id="ad-banner-link2" href="#" onclick="return adBannerClick(2)">SAP Ariba Zertifizierung online</a>
 </div>
 
 <!-- ═══ LAYOUT ═══ -->
@@ -1381,7 +1388,7 @@ function track(ev,d=''){
     const a=JSON.parse(localStorage.getItem('pc_a')||'{}');
     if(ev==='pv')a.pv=(a.pv||0)+1;
     if(!sessionStorage.getItem('et_s')){a.sess=(a.sess||0)+1;sessionStorage.setItem('et_s','1');}
-    if(ev==='calc'){if(!a.calcs)a.calcs={};a.calcs[d]=(a.calcs[d]||0)+1;}
+    if(ev==='calc'){if(!a.calcs)a.calcs={};a.calcs[d]=(a.calcs[d]||0)+1;gaEvent('tool_used',{tool:d||'unknown'});}
     if(ev==='fb'){if(!a.fb)a.fb=[];a.fb.push(d);}
     if(!a.first)a.first=new Date().toLocaleDateString('de-DE');
     a.last=new Date().toLocaleDateString('de-DE');
@@ -1389,6 +1396,12 @@ function track(ev,d=''){
   }catch(e){}
 }
 track('pv');
+
+function gaEvent(name, params={}){
+  if(typeof window !== 'undefined' && typeof window.gtag === 'function'){
+    window.gtag('event', name, params);
+  }
+}
 
 // ═══ NAVIGATION ═══
 function go(id,btn){
@@ -2583,9 +2596,22 @@ async function adApplyAll() {
 
 function adCardClick(urlId) {
   const ads = adGetAds();
-  const map = { 'ad-home-url': ads.home.url, 'ad-preis-url': ads.preis.url, 'ad-strat-url': ads.strat.url, 'ad-sidebar-url': ads.sidebar.url };
-  const url = map[urlId];
-  if(url && url !== '#') window.open(url, '_blank');
+  const map = { 'ad-home-url': {url: ads.home.url, slot: 'home_card'}, 'ad-preis-url': {url: ads.preis.url, slot: 'preis_card'}, 'ad-strat-url': {url: ads.strat.url, slot: 'strat_card'}, 'ad-sidebar-url': {url: ads.sidebar.url, slot: 'sidebar_card'} };
+  const target = map[urlId];
+  if(!target || !target.url || target.url === '#') return;
+  gaEvent('ad_click', { slot: target.slot });
+  window.open(target.url, '_blank');
+}
+
+function adBannerClick(idx) {
+  const ads = adGetAds();
+  const target = idx === 1
+    ? { url: ads.banner.l1u, slot: 'banner_link_1' }
+    : { url: ads.banner.l2u, slot: 'banner_link_2' };
+  if(!target.url || target.url === '#') return false;
+  gaEvent('ad_click', { slot: target.slot });
+  window.open(target.url, '_blank');
+  return false;
 }
 
 function adLoadAds() {
