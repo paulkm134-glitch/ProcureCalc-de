@@ -2226,12 +2226,6 @@ function checkBackendStatus() {
   }
 }
 
-// ═══ INIT ═══
-birv();
-ca();
-initCookieBanner();
-
-
 // ════════════════════════════════════════════════════════════════
 // BACKEND KONFIGURATION
 // ► Trage hier deine Werte ein nachdem du die Accounts angelegt hast
@@ -2472,14 +2466,12 @@ function initCookieBanner(){
   try { savedConsent = localStorage.getItem(CONSENT_STORAGE_KEY); } catch(e) {}
 
   if (!savedConsent) {
-    openCookieSettings();
+    setTimeout(() => openCookieSettings(), 800);
     return;
   }
 
   applyTrackingConsent(savedConsent);
 }
-
-validateInputs();
 
 // ═══ ADMIN TABS ═══
 function adTab(tab) {
@@ -2812,8 +2804,20 @@ function adResetAds() {
   localStorage.removeItem('pc_links');
 }
 
-// Apply ads on page load
-loadAdsFromBackend().then(()=>adApplyAll());
+// ═══ INIT (am absoluten Ende des Scripts) ═══
+function runAppInit(){
+  birv();
+  ca();
+  validateInputs();
+  initCookieBanner();
+  loadAdsFromBackend().then(()=>adApplyAll());
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runAppInit, { once: true });
+} else {
+  runAppInit();
+}
 </script>
 
 <!-- ════ COOKIE BANNER ════ -->
