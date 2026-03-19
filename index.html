@@ -432,11 +432,11 @@ footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24p
 #cookie-banner p{font-size:.8rem;color:rgba(255,254,249,.65);font-weight:300;max-width:680px;line-height:1.55;margin:0}
 #cookie-banner a{color:var(--gold);text-decoration:none;font-weight:500}
 #cookie-banner a:hover{text-decoration:underline}
-.cookie-btns{display:flex;gap:8px;flex-shrink:0}
-.cookie-accept{background:var(--gold);color:#2D2926;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:var(--sans);transition:all .15s;white-space:nowrap}
-.cookie-accept:hover{background:#FFFEF9}
-.cookie-decline{background:transparent;color:rgba(255,254,249,.5);border:1px solid rgba(255,254,249,.2);padding:8px 16px;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:300;font-family:var(--sans);transition:all .15s;white-space:nowrap}
-.cookie-decline:hover{color:rgba(255,254,249,.8);border-color:rgba(255,254,249,.4)}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.cookie-btn{min-width:170px;background:transparent;color:#FFFEF9;border:1px solid rgba(255,254,249,.45);padding:9px 16px;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:500;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.cookie-btn:hover{border-color:var(--gold);background:var(--gold-a);color:#FFFEF9}
+.cookie-btn.primary{background:var(--gold);color:#2D2926;border-color:var(--gold);font-weight:600}
+.cookie-btn.primary:hover{background:#FFFEF9;border-color:#FFFEF9;color:#2D2926}
 
 </style>
 <script>
@@ -1056,28 +1056,33 @@ function applyTrackingConsent(consentValue){
     <p>Ihre Auswahl wird lokal im Browser gespeichert (localStorage), damit sie bei weiteren Besuchen berücksichtigt werden kann. Diese Einwilligungsinformation wird nicht an Dritte weitergegeben.</p>
     <p>Sie können Ihre Auswahl jederzeit ändern: <a href="#" onclick="openCookieSettings();return false" style="color:var(--gold-d)">Cookie-Einstellungen öffnen</a>.</p>
 
-    <h2>5. Google Analytics 4</h2>
+    <h2>5. Cookies und Google Analytics</h2>
+    <p>Wir nutzen notwendige technische Speicherungen im Browser, um die Funktionsfähigkeit der Seite und Ihre Cookie-Auswahl zu sichern.</p>
+    <p>Google Analytics wird ausschließlich nach Ihrer ausdrücklichen Einwilligung über den Button <strong>„Alle akzeptieren“</strong> aktiviert. Ohne Einwilligung bleibt Google Analytics deaktiviert.</p>
+    <p>Rechtsgrundlage für die Analyse ist Art. 6 Abs. 1 lit. a DSGVO. Ihre Einwilligung können Sie jederzeit über den Link <a href="#" onclick="openCookieSettings();return false" style="color:var(--gold-d)">Cookie-Einstellungen</a> widerrufen.</p>
+
+    <h2>6. Google Analytics 4</h2>
     <p>Wir nutzen Google Analytics 4 (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland), um die Nutzung unserer Website statistisch auszuwerten und unser Angebot zu verbessern.</p>
     <p>Google Analytics wird <strong>erst nach Ihrer ausdrücklichen Einwilligung („Alle akzeptieren“)</strong> geladen. Ohne Einwilligung erfolgt keine Einbindung von Google Analytics.</p>
     <p>Bei aktivierter Analyse können Informationen über Ihre Nutzung der Website verarbeitet und an Google-Server übermittelt werden. Dabei kann eine Übermittlung in die USA nicht ausgeschlossen werden.</p>
     <p>Rechtsgrundlage für die Verarbeitung über Google Analytics ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
 
-    <h2>6. Formspree (Kontakt- und Feedback-Formulare)</h2>
+    <h2>7. Formspree (Kontakt- und Feedback-Formulare)</h2>
     <p>Für Kontakt- bzw. Feedback-Formulare verwenden wir Formspree (Formspree, Inc., 1 Chestnut St, Suite 200, Nashua, NH 03060, USA), Endpoint: <code>https://formspree.io/f/myknokzb</code>.</p>
     <p>Wenn Sie ein Formular absenden, werden die von Ihnen eingegebenen Daten an Formspree übertragen und zur Bearbeitung der Anfrage an uns weitergeleitet.</p>
     <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage) bzw. Art. 6 Abs. 1 lit. a DSGVO bei freiwilligen Angaben.</p>
     <p>Weitere Informationen: <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--gold-d)">Formspree Privacy Policy</a>.</p>
 
-    <h2>7. Supabase (technische Verarbeitung und Speicherung)</h2>
+    <h2>8. Supabase (technische Verarbeitung und Speicherung)</h2>
     <p>Für technische Funktionen und die Speicherung von Anwendungs- bzw. Formulardaten nutzen wir Supabase (Supabase Inc.), bereitgestellt unter: <code>https://aajddkharsvspsdfojzm.supabase.co</code>.</p>
     <p>Dabei können je nach Funktion technische Metadaten und übermittelte Formulardaten verarbeitet werden, soweit dies für den Betrieb der Anwendung erforderlich ist.</p>
     <p>Weitere Informationen: <a href="https://supabase.com/privacy" target="_blank" rel="noopener" style="color:var(--gold-d)">Supabase Privacy Policy</a>.</p>
 
-    <h2>8. Widerruf Ihrer Einwilligung</h2>
+    <h2>9. Widerruf Ihrer Einwilligung</h2>
     <p>Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen erneut öffnen und Ihre Auswahl ändern.</p>
     <p>Link: <a href="#" onclick="openCookieSettings();return false" style="color:var(--gold-d)">Cookie-Einstellungen</a>.</p>
 
-    <h2>9. Ihre Rechte</h2>
+    <h2>10. Ihre Rechte</h2>
     <p>Sie haben im Rahmen der DSGVO insbesondere folgende Rechte: Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung.</p>
     <p>Außerdem haben Sie das Recht, eine erteilte Einwilligung jederzeit zu widerrufen und sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
 
@@ -2441,7 +2446,9 @@ async function loadSupabaseStats() {
 // ── Cookie Consent ──
 function openCookieSettings(){
   const banner = document.getElementById('cookie-banner');
-  if (banner) banner.classList.add('show');
+  if (!banner) return;
+  banner.classList.add('show');
+  banner.setAttribute('aria-hidden', 'false');
 }
 
 function cookieDecide(accepted){
@@ -2454,7 +2461,10 @@ function cookieDecide(accepted){
   applyTrackingConsent(consentValue);
 
   const banner = document.getElementById('cookie-banner');
-  if (banner) banner.classList.remove('show');
+  if (banner) {
+    banner.classList.remove('show');
+    banner.setAttribute('aria-hidden', 'true');
+  }
 }
 
 function initCookieBanner(){
@@ -2462,7 +2472,7 @@ function initCookieBanner(){
   try { savedConsent = localStorage.getItem(CONSENT_STORAGE_KEY); } catch(e) {}
 
   if (!savedConsent) {
-    setTimeout(openCookieSettings, 800);
+    openCookieSettings();
     return;
   }
 
@@ -2807,15 +2817,15 @@ loadAdsFromBackend().then(()=>adApplyAll());
 </script>
 
 <!-- ════ COOKIE BANNER ════ -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+<div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-Hinweis" aria-hidden="true">
   <p>
     Wir verwenden notwendige Browser-Speicherung für die Funktion der Website.
     Google Analytics 4 laden wir nur, wenn Sie <strong style="color:rgba(255,254,249,.85);font-weight:500">„Alle akzeptieren“</strong> wählen.
     Details finden Sie in der <a href="#" onclick="go('datenschutz');return false">Datenschutzerklärung</a>.
   </p>
   <div class="cookie-btns">
-    <button class="cookie-decline" onclick="cookieDecide(false)">Nur notwendige</button>
-    <button class="cookie-accept" onclick="cookieDecide(true)">Alle akzeptieren</button>
+    <button class="cookie-btn" onclick="cookieDecide(false)">Nur notwendige</button>
+    <button class="cookie-btn primary" onclick="cookieDecide(true)">Alle akzeptieren</button>
   </div>
 </div>
 
