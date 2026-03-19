@@ -1310,28 +1310,34 @@ footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24p
 <div class="modal-bg" id="m-fb">
   <div class="modal">
     <div class="modal-hd"><h3>💬 Feedback geben</h3><button class="modal-close" onclick="closeModal('m-fb')">✕</button></div>
-    <p style="font-size:.82rem;color:var(--t3);margin-bottom:10px">Wie bewertest du ProcureCalc.de?</p>
-    <div class="stars" id="stars">
-      <span class="star" onclick="setStar(1)">★</span><span class="star" onclick="setStar(2)">★</span>
-      <span class="star" onclick="setStar(3)">★</span><span class="star" onclick="setStar(4)">★</span>
-      <span class="star" onclick="setStar(5)">★</span>
-    </div>
-    <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Welchen Kalkulator hast du genutzt?</label>
-    <select id="fb-calc" class="fb-input">
-      <option value="">— Bitte wählen —</option>
-      <option>Positionsrechner</option><option>Preiserhöhungs-Check</option><option>TCO-Vergleich</option>
-      <option>Savings-Kalkulator</option><option>Make-or-Buy</option><option>Rahmenvertrag</option>
-      <option>Zahlungsziel</option><option>Skonto</option><option>Safety Stock</option>
-      <option>Lieferantenrisiko</option><option>Indexklausel</option>
-      <option>Währungsrisiko</option><option>Lieferzeit-Kosten</option><option>Jahresgespräch</option><option>Lernkurve</option>
-    </select>
-    <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Feedback (optional)</label>
-    <textarea id="fb-text" class="fb-input" placeholder="Was hat geholfen? Was fehlt? Fehler gefunden?"></textarea>
-    <div style="display:flex;gap:10px;justify-content:flex-end">
-      <button class="btn-sec" onclick="closeModal('m-fb')">Abbrechen</button>
-      <button class="btn-prim" onclick="submitFB()">Feedback senden</button>
-    </div>
-    <div id="fb-ok" style="display:none;margin-top:12px;background:var(--green-l);border:1px solid rgba(11,138,92,.2);border-radius:var(--r);padding:10px 14px;font-size:.82rem;color:var(--green)">✓ Danke! Dein Feedback hilft mir ProcureCalc.de zu verbessern.</div>
+    <form id="fb-form" onsubmit="submitFB(event)">
+      <p style="font-size:.82rem;color:var(--t3);margin-bottom:10px">Wie bewertest du ProcureCalc.de?</p>
+      <div class="stars" id="stars">
+        <span class="star" onclick="setStar(1)">★</span><span class="star" onclick="setStar(2)">★</span>
+        <span class="star" onclick="setStar(3)">★</span><span class="star" onclick="setStar(4)">★</span>
+        <span class="star" onclick="setStar(5)">★</span>
+      </div>
+      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Name</label>
+      <input id="fb-name" name="name" type="text" class="fb-input" placeholder="Max Mustermann" required>
+      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Deine E-Mail</label>
+      <input id="fb-email" name="email" type="email" class="fb-input" placeholder="max@firma.de" required>
+      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Welchen Kalkulator hast du genutzt?</label>
+      <select id="fb-calc" name="calculator" class="fb-input">
+        <option value="">— Bitte wählen —</option>
+        <option>Positionsrechner</option><option>Preiserhöhungs-Check</option><option>TCO-Vergleich</option>
+        <option>Savings-Kalkulator</option><option>Make-or-Buy</option><option>Rahmenvertrag</option>
+        <option>Zahlungsziel</option><option>Skonto</option><option>Safety Stock</option>
+        <option>Lieferantenrisiko</option><option>Indexklausel</option>
+        <option>Währungsrisiko</option><option>Lieferzeit-Kosten</option><option>Jahresgespräch</option><option>Lernkurve</option>
+      </select>
+      <label style="font-size:.79rem;color:var(--t3);display:block;margin-bottom:5px">Dein Feedback</label>
+      <textarea id="fb-text" name="message" class="fb-input" placeholder="Was hat geholfen? Was fehlt? Fehler gefunden?" required></textarea>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button type="button" class="btn-sec" onclick="closeModal('m-fb')">Abbrechen</button>
+        <button type="submit" class="btn-prim">Feedback senden</button>
+      </div>
+      <div id="fb-ok" style="display:none;margin-top:12px;background:var(--green-l);border:1px solid rgba(11,138,92,.2);border-radius:var(--r);padding:10px 14px;font-size:.82rem;color:var(--green)">✓ Danke! Dein Feedback hilft mir ProcureCalc.de zu verbessern.</div>
+    </form>
   </div>
 </div>
 
@@ -2208,7 +2214,7 @@ const FORMSPREE_ID  = 'myknokzb';       // z.B. xpwzgkla
 
 // Fallback: wenn Supabase nicht konfiguriert → localStorage wie bisher
 const USE_BACKEND = !!SUPABASE_URL && !!SUPABASE_ANON;
-const USE_EMAIL   = FORMSPREE_ID !== 'myknokzb';
+const USE_EMAIL   = true;
 
 // ── Supabase Helper ──────────────────────────────────────────
 async function sbInsert(table, data) {
@@ -2268,42 +2274,50 @@ async function track(ev, detail='') {
 
 // ── Feedback absenden ────────────────────────────────────────
 // Ersetzt submitFB() — sendet an Supabase + Formspree + localStorage
-async function submitFB() {
+async function submitFB(e) {
+  if (e) e.preventDefault();
   if (!fbStar) { alert('Bitte vergib eine Bewertung (1–5 Sterne).'); return; }
 
   const stars   = fbStar;
+  const name    = document.getElementById('fb-name').value.trim();
+  const email   = document.getElementById('fb-email').value.trim();
   const calc    = document.getElementById('fb-calc').value;
-  const message = document.getElementById('fb-text').value;
+  const message = document.getElementById('fb-text').value.trim();
   const date    = new Date().toLocaleDateString('de-DE');
+
+  if (!name || !email || !message) {
+    alert('Bitte Name, E-Mail und Feedback ausfüllen.');
+    return;
+  }
 
   // Zeige sofort Erfolg (optimistic UI)
   document.getElementById('fb-ok').style.display = 'block';
-  document.getElementById('fb-text').value = '';
-  document.getElementById('fb-calc').value = '';
-  setStar(0); fbStar = 0;
 
   // 1. Supabase (Datenbank)
-  const sbResult = await sbInsert('feedback', { stars, calculator: calc, message, page_url: location.href });
+  await sbInsert('feedback', { stars, name, email, calculator: calc, message, page_url: location.href });
 
   // 2. Formspree (E-Mail an dich)
-  if (USE_EMAIL) {
-    try {
-      await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject:   `ProcureCalc Feedback: ${stars}★ — ${calc || 'Allgemein'}`,
-          sterne:     stars + ' / 5',
-          kalkulator: calc || '—',
-          nachricht:  message || '(kein Text)',
-          datum:      date
-        })
-      });
-    } catch(e) { console.warn('Formspree send failed'); }
-  }
+  try {
+    await fetch('https://formspree.io/f/myknokzb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        calculator: calc || '—',
+        stars,
+        _subject: `ProcureCalc Feedback: ${stars}★ — ${calc || 'Allgemein'}`,
+        datum: date
+      })
+    });
+  } catch(e2) { console.warn('Formspree send failed'); }
 
   // 3. localStorage Fallback (immer)
-  track('fb', { stars, calc, text: message, date });
+  track('fb', { stars, name, email, calc, text: message, date });
+
+  document.getElementById('fb-form').reset();
+  setStar(0); fbStar = 0;
 
   setTimeout(() => {
     closeModal('m-fb');
