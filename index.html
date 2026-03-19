@@ -2188,7 +2188,7 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 const FORMSPREE_ID  = 'myknokzb';       // z.B. xpwzgkla
 
 // Fallback: wenn Supabase nicht konfiguriert → localStorage wie bisher
-const USE_BACKEND = SUPABASE_URL !== 'https://aajddkharsvspsdfojzm.supabase.co';
+const USE_BACKEND = !!SUPABASE_URL && !!SUPABASE_ANON;
 const USE_EMAIL   = FORMSPREE_ID !== 'myknokzb';
 
 // ── Supabase Helper ──────────────────────────────────────────
@@ -2427,15 +2427,95 @@ const LINK_DEFAULTS = [
   { text:'Werbung schalten', url:'mailto:info@procerecalc.de' },
 ];
 
+let AD_CACHE = null;
+
+function adMergeDefaults(src) {
+  const base = JSON.parse(JSON.stringify(AD_DEFAULTS));
+  if (!src || typeof src !== 'object') return base;
+  Object.keys(base).forEach(slot => {
+    if (src[slot] && typeof src[slot] === 'object') {
+      base[slot] = { ...base[slot], ...src[slot] };
+    }
+  });
+  return base;
+}
+
+async function loadAdsFromBackend() {
+  const localAds = (() => {
+    try { return JSON.parse(localStorage.getItem('pc_ads') || 'null'); } catch(e) { return null; }
+  })();
+
+  if (!USE_BACKEND) {
+    AD_CACHE = adMergeDefaults(localAds);
+    return AD_CACHE;
+  }
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/ads?select=*`, {
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!res.ok) throw new Error('ads fetch failed');
+
+    const rows = await res.json();
+    let backendAds = null;
+
+    if (Array.isArray(rows) && rows.length > 0) {
+      backendAds = {};
+      rows.forEach(row => {
+        if (!row || typeof row !== 'object') return;
+        const slot = row.slot;
+        const payload = row.data ?? row.payload ?? row.content;
+
+        if (slot && payload && typeof payload === 'object') {
+          backendAds[slot] = payload;
+          return;
+        }
+
+        if (slot) {
+          const copy = { ...row };
+          delete copy.id; delete copy.slot; delete copy.created_at; delete copy.updated_at;
+          if (Object.keys(copy).length) backendAds[slot] = copy;
+          return;
+        }
+
+        if (row.banner || row.sidebar || row.home || row.preis || row.strat) {
+          backendAds = row;
+        }
+      });
+    }
+
+    const merged = adMergeDefaults(backendAds || localAds);
+    AD_CACHE = merged;
+    localStorage.setItem('pc_ads', JSON.stringify(merged));
+    return merged;
+  } catch(e) {
+    AD_CACHE = adMergeDefaults(localAds);
+    return AD_CACHE;
+  }
+}
+
 function adGetAds() {
-  try { return JSON.parse(localStorage.getItem('pc_ads') || 'null') || JSON.parse(JSON.stringify(AD_DEFAULTS)); } catch(e) { return JSON.parse(JSON.stringify(AD_DEFAULTS)); }
+  if (AD_CACHE) return AD_CACHE;
+  try {
+    const localAds = JSON.parse(localStorage.getItem('pc_ads') || 'null');
+    AD_CACHE = adMergeDefaults(localAds);
+    return AD_CACHE;
+  } catch(e) {
+    AD_CACHE = JSON.parse(JSON.stringify(AD_DEFAULTS));
+    return AD_CACHE;
+  }
 }
 function adGetLinks() {
   try { return JSON.parse(localStorage.getItem('pc_links') || 'null') || JSON.parse(JSON.stringify(LINK_DEFAULTS)); } catch(e) { return JSON.parse(JSON.stringify(LINK_DEFAULTS)); }
 }
 
-function adApplyAll() {
-  const ads = adGetAds();
+async function adApplyAll() {
+  const ads = await loadAdsFromBackend();
   // Banner
   const bt = document.getElementById('ad-banner-title'); if(bt) bt.textContent = ads.banner.title;
   const bl1 = document.getElementById('ad-banner-link1'); if(bl1) { bl1.textContent = ads.banner.l1t; bl1.href = ads.banner.l1u||'#'; }
@@ -2546,7 +2626,7 @@ function adSaveContact() {
   if(ok) { ok.style.display='block'; setTimeout(()=>ok.style.display='none', 3000); }
 }
 
-function adSaveSlot(slot) {
+async function adSaveSlot(slot) {
   const ads = adGetAds();
   const g = id => document.getElementById('adm-'+slot+'-'+id)?.value || '';
   if(slot === 'banner') {
@@ -2556,7 +2636,25 @@ function adSaveSlot(slot) {
   } else {
     ads[slot] = { label:g('label'), title:g('title'), text:g('text'), cta:g('cta'), url:g('url') };
   }
-  localStorage.setItem('pc_ads', JSON.stringify(ads));
+
+  AD_CACHE = adMergeDefaults(ads);
+  localStorage.setItem('pc_ads', JSON.stringify(AD_CACHE));
+
+  if (USE_BACKEND) {
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/ads?on_conflict=slot`, {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Prefer':        'resolution=merge-duplicates,return=minimal'
+        },
+        body: JSON.stringify({ slot, data: AD_CACHE[slot] })
+      });
+    } catch(e) {}
+  }
+
   adApplyAll();
   alert('✓ ' + slot + '-Werbefläche gespeichert und live aktualisiert!');
 }
@@ -2585,7 +2683,7 @@ function adResetAds() {
 }
 
 // Apply ads on page load
-adApplyAll();
+loadAdsFromBackend().then(()=>adApplyAll());
 </script>
 
 <!-- ════ COOKIE BANNER ════ -->
