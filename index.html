@@ -102,11 +102,6 @@ body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--t1
 .btn-fb:hover{background:var(--gold);color:#2D2926}
 .badge-new{font-size:.65rem;background:var(--amber-a);color:var(--amber);border:1px solid rgba(214,137,16,.25);padding:2px 7px;border-radius:12px;font-weight:600}
 
-/* ══ AD STRIP ══ */
-.ad-strip{background:#F5F0E8;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:6px 20px;gap:10px;font-size:.77rem;color:var(--stone);flex-wrap:wrap}
-.ad-lbl{font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(139,105,20,.3);padding:1px 6px;border-radius:3px;color:var(--gold-d);font-weight:600;flex-shrink:0}
-.ad-strip a{color:var(--gold-d);text-decoration:none;font-weight:500}
-.ad-strip a:hover{text-decoration:underline}
 
 /* ══ LAYOUT ══ */
 .layout{display:block;min-height:calc(100vh - 80px)}
@@ -225,13 +220,6 @@ body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--t1
 .idx-item input:focus{border-color:var(--gold)}
 .idx-title{font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-d);margin:9px 0 5px;font-weight:600}
 
-/* ══ AD CARD ══ */
-.ad-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:14px 18px;display:flex;align-items:center;gap:14px;margin:18px 0;flex-wrap:wrap;box-shadow:var(--shadow-sm)}
-.ad-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--border2);padding:2px 7px;border-radius:3px;flex-shrink:0;font-weight:600}
-.ad-c h4{font-size:.88rem;font-weight:700;margin-bottom:2px}
-.ad-c p{font-size:.78rem;color:var(--t3)}
-.ad-cta{display:inline-block;padding:6px 14px;background:var(--gold-a);border:1px solid rgba(196,168,98,.4);color:var(--gold-d);border-radius:var(--r);font-size:.78rem;font-weight:500;text-decoration:none;cursor:pointer;flex-shrink:0;transition:all .15s}
-.ad-cta:hover{background:var(--gold);color:#2D2926}
 
 /* ══ LEGAL PAGES ══ */
 .legal{max-width:720px}
@@ -242,33 +230,11 @@ body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--t1
 .legal-box{background:var(--panel);border:1px solid rgba(196,168,98,.2);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 16px;margin-bottom:14px}
 .legal-box p{margin-bottom:4px;font-size:.85rem;color:var(--t2)}
 
-/* ══ ADMIN ══ */
-.pw-wrap{max-width:320px;margin:70px auto;text-align:center}
-.pw-wrap .pw-ic{font-size:2.5rem;margin-bottom:16px}
-.pw-input{width:100%;font-family:var(--sans);font-size:.88rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:10px 14px;outline:none;margin-bottom:10px}
-.pw-input:focus{border-color:var(--gold);background:#fff}
+/* ══ BUTTONS ══ */
 .btn-prim{background:var(--charcoal);color:#FFFEF9;border:none;padding:9px 20px;border-radius:var(--r);cursor:pointer;font-size:.85rem;font-weight:500;font-family:var(--sans);transition:all .15s}
 .btn-prim:hover{background:var(--gold);color:#2D2926}
 .btn-sec{background:var(--panel);color:var(--t2);border:1px solid var(--border);padding:8px 16px;border-radius:var(--r);cursor:pointer;font-size:.83rem;font-family:var(--sans);font-weight:500;transition:all .15s}
 .btn-sec:hover{border-color:var(--border2);background:var(--panel2)}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:20px}
-.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:16px;box-shadow:var(--shadow-sm)}
-.kpi-n{font-family:var(--mono);font-size:1.6rem;font-weight:500;color:var(--gold-d)}
-.kpi-l{font-size:.74rem;color:var(--t3);margin-top:3px}
-.kpi-s{font-size:.7rem;color:var(--green);margin-top:2px;font-weight:500}
-.admin-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
-.admin-box h3{font-size:.88rem;font-weight:700;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--border)}
-.admin-tbl{width:100%;border-collapse:collapse;font-size:.8rem}
-.admin-tbl th{background:var(--panel);padding:8px 10px;text-align:left;font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);font-weight:600;border-bottom:1px solid var(--border)}
-.admin-tbl td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--t2)}
-.admin-tbl tr:hover td{background:var(--panel)}
-.badge{display:inline-block;font-size:.67rem;padding:2px 7px;border-radius:10px;font-weight:600}
-.badge.g{background:var(--green-a);color:var(--green)}
-.badge.w{background:var(--amber-a);color:var(--amber)}
-.badge.d{background:var(--red-a);color:var(--red)}
-.badge.b{background:var(--blue-a);color:var(--blue)}
-.bar-wrap{background:var(--panel);border-radius:3px;height:6px;overflow:hidden;flex:1;min-width:60px}
-.bar{height:100%;border-radius:3px;background:var(--gold-d);transition:width .4s ease}
 
 /* ══ MODALS ══ */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
@@ -304,10 +270,6 @@ footer{background:#2D2926;border-top:2px solid var(--gold);padding:36px 24px 24p
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.main{padding:14px}.hero{padding:20px}.hero h1{font-size:1.3rem}.footer-grid{grid-template-columns:1fr}.nav-item>.nav-drop{position:fixed;left:8px;right:8px;top:60px;min-width:unset}}
 
-.adm-field{margin-bottom:8px}
-.adm-field label{display:block;font-size:.72rem;color:var(--t3);margin-bottom:3px;font-weight:500;letter-spacing:.04em}
-.adm-field input{width:100%;font-family:var(--sans);font-size:.82rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:6px 9px;outline:none;transition:border-color .15s}
-.adm-field input:focus{border-color:var(--gold);background:#fff}
 
 /* ── CONVERSION + UX IMPROVEMENTS ── */
 
@@ -547,7 +509,6 @@ function applyTrackingConsent(consentValue){
         <div class="nav-drop-sep"></div>
         <button class="nav-drop-item" onclick="go('impressum')"><span class="di">📄</span>Impressum</button>
         <button class="nav-drop-item" onclick="go('datenschutz')"><span class="di">🔒</span>Datenschutz</button>
-        <button class="nav-drop-item" onclick="go('admin')"><span class="di">🔐</span>Admin</button>
       </div>
     </div>
   </nav>
@@ -557,14 +518,6 @@ function applyTrackingConsent(consentValue){
   </div>
 </header>
 
-<!-- ═══ AD STRIP ═══ -->
-<div class="ad-strip" id="ad-banner">
-  <span class="ad-lbl">Anzeige</span>
-  <strong id="ad-banner-title" style="color:var(--t2)">BME-Kongress Einkauf 2026 · Frankfurt</strong>
-  <a id="ad-banner-link1" href="#" onclick="return adBannerClick(1)">Jetzt anmelden »</a>
-  &nbsp;·&nbsp;
-  <a id="ad-banner-link2" href="#" onclick="return adBannerClick(2)">SAP Ariba Zertifizierung online</a>
-</div>
 
 <!-- ═══ LAYOUT ═══ -->
 <div class="layout">
@@ -625,11 +578,6 @@ function applyTrackingConsent(consentValue){
     <div class="cat-card" onclick="go('vertr')"><div class="ic">📅</div><h3>Verträge & Finanzen</h3><p>Rahmenverträge mit Indexierung, Zahlungsziel- und Skonto-Effekt in €.</p><div class="cnt">3 Kalkulatoren</div></div>
     <div class="cat-card" onclick="go('strat')"><div class="ic">🛡️</div><h3>Strategie & Risiko</h3><p>Safety Stock, Lieferantenrisiko-Score, Indexklausel-Formel.</p><div class="cnt">3 Kalkulatoren</div></div>
     <div class="cat-card" onclick="go('tools')"><div class="ic">🆕</div><h3>Weitere Tools</h3><p>Währungsrisiko, Lieferzeit-Kosten, Jahresgespräch-Vorbereitung, Lernkurve.</p><div class="cnt">4 neue Kalkulatoren</div></div>
-  </div>
-  <div class="ad-card" id="ad-home">
-    <span class="ad-tag" id="ad-home-label">Anzeige</span>
-    <div class="ad-c"><h4 id="ad-home-title">BME-Kongress Einkauf 2026 · Frankfurt</h4><p id="ad-home-text">Strategischer Einkauf, Digitalisierung, Lieferkettenresilienz. Zertifikat inklusive.</p></div>
-    <span class="ad-cta" id="ad-home-cta" onclick="adCardClick('ad-home-url')">Jetzt anmelden »</span>
   </div>
 </div>
 
@@ -693,7 +641,6 @@ function applyTrackingConsent(consentValue){
       </div>
     </div>
   </div>
-  <div class="ad-card" id="ad-preis"><span class="ad-tag" id="ad-preis-label">Anzeige</span><div class="ad-c"><h4 id="ad-preis-title">Destatis Erzeugerpreisindizes — kostenlos</h4><p id="ad-preis-text">Offizielle Indizes für Material, Energie, Lohn — Grundlage für jeden Preiserhöhungs-Check.</p></div><span class="ad-cta" id="ad-preis-cta" onclick="adCardClick('ad-preis-url')">Zum Portal »</span></div>
 </div>
 
 <!-- ══════ KOSTENANALYSE ══════ -->
@@ -924,7 +871,6 @@ function applyTrackingConsent(consentValue){
       </div>
     </div>
   </div>
-  <div class="ad-card" id="ad-strat"><span class="ad-tag" id="ad-strat-label">Partner</span><div class="ad-c"><h4 id="ad-strat-title">Lieferantenrisiko-Software im Vergleich</h4><p id="ad-strat-text">Risikio, Jaggaer, Coupa — führende Plattformen für Lieferantenmonitoring.</p></div><span class="ad-cta" id="ad-strat-cta" onclick="adCardClick('ad-strat-url')">Zum Vergleich »</span></div>
 </div>
 
 <!-- ══════ WEITERE TOOLS ══════ -->
@@ -1021,9 +967,6 @@ function applyTrackingConsent(consentValue){
     <h3>Urheberrecht</h3>
     <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
 
-    <h2>Werbekennzeichnung</h2>
-    <p>Diese Website finanziert sich teilweise durch Werbung und Partnerlinks. Werbeinhalte sind mit <em>„Anzeige"</em> gekennzeichnet. Affiliate-Links oder Partnerempfehlungen sind mit <em>„Partner"</em> markiert. Redaktionelle Inhalte werden unabhängig von Werbebeziehungen erstellt.</p>
-
     <h2>Streitschlichtung</h2>
     <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--gold-d)">https://ec.europa.eu/consumers/odr</a>. Meine E-Mail-Adresse finden Sie oben im Impressum. Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
@@ -1091,167 +1034,6 @@ function applyTrackingConsent(consentValue){
   </div>
 </div>
 
-<!-- ══════ ADMIN ══════ -->
-<div class="sec" id="s-admin">
-  <div id="adm-lock">
-    <div class="pw-wrap">
-      <div class="pw-ic">🔐</div>
-      <h2 style="font-size:1rem;font-weight:700;margin-bottom:8px">Admin-Zugang</h2>
-      <p style="font-size:.82rem;color:var(--t3);margin-bottom:20px">Nur für autorisierten Zugang</p>
-      <input type="password" class="pw-input" id="pw-in" placeholder="Passwort eingeben" onkeydown="if(event.key==='Enter')checkPW()">
-      <button class="btn-prim" onclick="checkPW()" style="width:100%">Anmelden</button>
-      <div id="pw-err" style="color:var(--red);font-size:.8rem;margin-top:10px;display:none">Falsches Passwort.</div>
-    </div>
-  </div>
-  <div id="adm-dash" style="display:none">
-    <!-- Header with tabs -->
-    <div class="sh">
-      <h2>🔐 Admin Dashboard</h2>
-      <span class="sh-tag">ProcureCalc.de</span>
-      <div style="display:flex;gap:6px;margin-left:auto">
-        <button class="exp-btn" id="adm-tab-analytics" onclick="adTab('analytics')" style="background:var(--blue-l);color:var(--blue);border-color:rgba(36,84,232,.3)">📊 Analytics</button>
-        <button class="exp-btn" id="adm-tab-ads" onclick="adTab('ads')">📢 Werbeflächen</button>
-        <button class="exp-btn" id="adm-tab-links" onclick="adTab('links')">🔗 Links</button>
-        <button class="btn-sec" onclick="adLogout()" style="font-size:.75rem;padding:5px 12px">Abmelden</button>
-      </div>
-    </div>
-
-    <!-- TAB: ANALYTICS -->
-    <div id="adm-panel-analytics">
-
-    <!-- Backend-Status Panel -->
-    <div id="backend-status-panel" class="admin-box" style="border-left:3px solid var(--gold);margin-bottom:16px">
-      <h3>🔌 Backend-Verbindung</h3>
-      <div id="backend-status-content">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-          <div style="background:var(--panel);border-radius:var(--r);padding:12px">
-            <div style="font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-bottom:5px;font-weight:600">Supabase</div>
-            <div id="sb-status" style="font-size:.82rem;color:var(--t3)">Prüfe...</div>
-            <div id="sb-url" style="font-size:.72rem;color:var(--t4);margin-top:3px;font-family:monospace"></div>
-          </div>
-          <div style="background:var(--panel);border-radius:var(--r);padding:12px">
-            <div style="font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-bottom:5px;font-weight:600">Formspree</div>
-            <div id="fs-status" style="font-size:.82rem;color:var(--t3)">Prüfe...</div>
-            <div id="fs-url" style="font-size:.72rem;color:var(--t4);margin-top:3px;font-family:monospace"></div>
-          </div>
-        </div>
-        <div style="background:#F5F0E8;border:1px solid rgba(196,168,98,.25);border-radius:var(--r);padding:10px;font-size:.79rem;color:var(--t2)">
-          <strong style="color:var(--gold-d)">Noch nicht konfiguriert?</strong>
-          Öffne <code style="font-family:monospace;background:rgba(139,105,20,.1);padding:1px 5px;border-radius:3px">index.html</code> 
-          in einem Texteditor und ersetze die drei Platzhalter ganz oben im Script-Bereich:
-          <code style="display:block;margin-top:6px;font-family:monospace;font-size:.75rem;background:rgba(139,105,20,.08);padding:8px;border-radius:4px">
-            SUPABASE_URL &nbsp;→ https://xxxxx.supabase.co<br>
-            SUPABASE_ANON → eyJh... (langer Key)<br>
-            FORMSPREE_ID &nbsp;→ xpwzgkla (8 Zeichen)
-          </code>
-        </div>
-      </div>
-    </div>
-
-      <div class="kpi-grid" id="adm-kpis"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-        <div class="admin-box"><h3>📊 Meistgenutzte Kalkulatoren</h3><div id="adm-calcs"></div></div>
-        <div class="admin-box"><h3>💬 Feedbacks</h3><div id="adm-fbs"></div></div>
-      </div>
-      <div class="admin-box" style="margin-top:16px"><h3>🌐 Session-Info</h3><div id="adm-tech" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"></div></div>
-      <div class="admin-box"><h3>⚙️ Aktionen</h3>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn-sec" onclick="if(confirm('Analytics zurücksetzen?')){adResetA();adRender()}">📊 Analytics reset</button>
-          <button class="btn-sec" onclick="if(confirm('Feedbacks löschen?')){adResetFB();adRender()}">🗑️ Feedbacks löschen</button>
-          <button class="btn-prim" onclick="adExport()">⬇ JSON exportieren</button>
-        <button class="btn-sec" onclick="adChangePW()" style="border-color:rgba(196,168,98,.4);color:var(--gold-d)">🔐 Passwort ändern</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB: WERBEFLÄCHEN -->
-    <div id="adm-panel-ads" style="display:none">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-
-        <div class="admin-box">
-          <h3>📢 Top-Banner</h3>
-          <div class="adm-field"><label>Titel</label><input id="adm-banner-title" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link 1 Text</label><input id="adm-banner-l1t" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link 1 URL</label><input id="adm-banner-l1u" placeholder="https://..." oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link 2 Text</label><input id="adm-banner-l2t" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link 2 URL</label><input id="adm-banner-l2u" placeholder="https://..." oninput="adPreview()"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('banner')">💾 Speichern</button>
-        </div>
-
-        <div class="admin-box">
-          <h3>🟦 Sidebar-Karte</h3>
-          <div class="adm-field"><label>Titel</label><input id="adm-sidebar-title" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Beschreibungstext</label><input id="adm-sidebar-text" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link-Text</label><input id="adm-sidebar-lt" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link URL</label><input id="adm-sidebar-url" placeholder="https://..." oninput="adPreview()"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('sidebar')">💾 Speichern</button>
-        </div>
-
-        <div class="admin-box">
-          <h3>🏠 Home-Karte</h3>
-          <div class="adm-field"><label>Label (z.B. "Anzeige")</label><input id="adm-home-label" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Titel</label><input id="adm-home-title" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Beschreibungstext</label><input id="adm-home-text" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Button-Text</label><input id="adm-home-cta" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link URL</label><input id="adm-home-url" placeholder="https://..." oninput="adPreview()"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('home')">💾 Speichern</button>
-        </div>
-
-        <div class="admin-box">
-          <h3>📊 Preisverhandlung-Karte</h3>
-          <div class="adm-field"><label>Label</label><input id="adm-preis-label" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Titel</label><input id="adm-preis-title" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Text</label><input id="adm-preis-text" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Button-Text</label><input id="adm-preis-cta" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link URL</label><input id="adm-preis-url" placeholder="https://..." oninput="adPreview()"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('preis')">💾 Speichern</button>
-        </div>
-
-        <div class="admin-box">
-          <h3>🛡️ Strategie-Karte</h3>
-          <div class="adm-field"><label>Label</label><input id="adm-strat-label" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Titel</label><input id="adm-strat-title" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Text</label><input id="adm-strat-text" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Button-Text</label><input id="adm-strat-cta" oninput="adPreview()"></div>
-          <div class="adm-field"><label>Link URL</label><input id="adm-strat-url" placeholder="https://..." oninput="adPreview()"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveSlot('strat')">💾 Speichern</button>
-        </div>
-
-        <div class="admin-box" style="grid-column:1/-1">
-          <h3>⚠️ Alle Werbeflächen zurücksetzen</h3>
-          <p style="font-size:.82rem;color:var(--t3);margin-bottom:10px">Setzt alle Werbeflächen auf die Standardwerte zurück.</p>
-          <button class="btn-sec" onclick="if(confirm('Alle Werbeflächen zurücksetzen?')){adResetAds();adLoadAds();adPreview()}">🔄 Auf Standard zurücksetzen</button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TAB: LINKS & FOOTER -->
-    <div id="adm-panel-links" style="display:none">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-
-        <div class="admin-box">
-          <h3>🦶 Footer — Ressourcen-Links</h3>
-          <p style="font-size:.8rem;color:var(--t3);margin-bottom:12px">Bis zu 5 Links in der "Ressourcen"-Spalte</p>
-          <div id="adm-footer-links"></div>
-          <button class="btn-prim" style="margin-top:10px" onclick="adSaveLinks()">💾 Footer-Links speichern</button>
-        </div>
-
-        <div class="admin-box">
-          <h3>📋 Kontaktdaten (Footer & Impressum)</h3>
-          <div class="adm-field"><label>Name</label><input id="adm-contact-name" value="Paul Klußmann"></div>
-          <div class="adm-field"><label>Adresse</label><input id="adm-contact-addr" value="31199 Diekholzen"></div>
-          <div class="adm-field"><label>E-Mail</label><input id="adm-contact-email" value="info@procerecalc.de"></div>
-          <button class="btn-prim" style="width:100%;margin-top:10px" onclick="adSaveContact()">💾 Speichern</button>
-          <div id="adm-contact-saved" style="display:none;font-size:.78rem;color:var(--green);margin-top:8px">✓ Gespeichert (wird nach Reload sichtbar)</div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
 </main>
 </div><!-- /layout -->
 
@@ -1279,7 +1061,6 @@ function applyTrackingConsent(consentValue){
       <a href="#" onclick="return false">LME Metallpreise</a>
       <a href="#" onclick="return false">BME-Zertifizierung</a>
       <a href="#" onclick="return false">Eurostat Tarifindex</a>
-      <a href="#" onclick="return false">Werbung schalten</a>
     </div>
     <div class="footer-col">
       <h5>Rechtliches</h5>
@@ -1287,7 +1068,6 @@ function applyTrackingConsent(consentValue){
       <a onclick="go('datenschutz')">Datenschutz</a>
       <a href="#" onclick="openCookieSettings();return false">Cookie-Einstellungen</a>
       <a onclick="openModal('m-fb')">💬 Feedback geben</a>
-      <a onclick="go('admin')">Admin</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1368,21 +1148,6 @@ function applyTrackingConsent(consentValue){
 'use strict';
 // ═══ GLOBALS ═══
 const CH={};
-// Admin-Passwort: SHA-256 gehasht — kein Klartext im Code
-// Standard-PW: ProcureCalc2026! (im Admin änderbar)
-const ADPW_HASH = localStorage.getItem('pc_admin_hash') || 'edc83a892dad212846caea8e0936cc819a050e4dde0021f83e62cbc14dbb75b6';
-function hashPW(s){
-  // Synchrones SHA-256 via SubtleCrypto (async wrapper)
-  // Fallback: einfache djb2-Hash für sofortige Prüfung
-  let h = 5381;
-  for(let i=0;i<s.length;i++) h = ((h<<5)+h)+s.charCodeAt(i);
-  return Math.abs(h).toString(16).padStart(8,'0');
-}
-// Echtes SHA-256 async
-async function sha256(s){
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
 let fbStar=0;
 
 // ── Safe math — no NaN/Infinity leaks ──
@@ -1429,9 +1194,8 @@ function go(id,btn){
   const activeBtn=tnbMap[id];
   if(activeBtn){const el=document.getElementById(activeBtn);if(el)el.classList.add('on');}
   window.scrollTo({top:0,behavior:'smooth'});
-  if(['impressum','datenschutz','admin'].includes(id))return;
+  if(['impressum','datenschutz'].includes(id))return;
   ca();
-  if(id==='admin')setTimeout(adRender,100);
 }
 
 // Scroll to a specific calculator panel within a section
@@ -1462,89 +1226,7 @@ function setStar(n){
   fbStar=n;
   document.querySelectorAll('#stars .star').forEach((s,i)=>{s.classList.toggle('on',i<n);});
 }
-// submitFB() ist jetzt im Backend-Block oben definiert
-
-// ═══ ADMIN ═══
-async function checkPW(){
-  const input = document.getElementById('pw-in').value;
-  if(!input){return;}
-  const inputHash = await sha256(input);
-  if(inputHash === ADPW_HASH){
-    document.getElementById('adm-lock').style.display='none';
-    document.getElementById('adm-dash').style.display='block';
-    adRender();
-    loadSupabaseStats();
-    checkBackendStatus();
-    // Brute-force Schutz: Rate-Limit zurücksetzen
-    sessionStorage.removeItem('pc_pw_attempts');
-  }else{
-    // Rate-limiting: nach 5 Versuchen 30 Sek. Sperre
-    let attempts = parseInt(sessionStorage.getItem('pc_pw_attempts')||'0') + 1;
-    sessionStorage.setItem('pc_pw_attempts', attempts);
-    document.getElementById('pw-err').style.display='block';
-    document.getElementById('pw-in').value='';
-    if(attempts >= 5){
-      document.getElementById('pw-err').textContent='Zu viele Versuche — bitte warte 30 Sekunden.';
-      document.getElementById('pw-in').disabled=true;
-      document.querySelector('[onclick="checkPW()"]').disabled=true;
-      setTimeout(()=>{
-        document.getElementById('pw-in').disabled=false;
-        document.querySelector('[onclick="checkPW()"]').disabled=false;
-        sessionStorage.setItem('pc_pw_attempts','0');
-        document.getElementById('pw-err').style.display='none';
-      }, 30000);
-    }else{
-      document.getElementById('pw-err').textContent='Falsches Passwort. (' + (5-attempts) + ' Versuche verbleibend)';
-    }
-  }
-}
-async function adChangePW(){
-  const np = prompt('Neues Passwort (mind. 8 Zeichen):');
-  if(!np||np.length<8){alert('Passwort zu kurz (mind. 8 Zeichen).');return;}
-  const np2 = prompt('Passwort bestätigen:');
-  if(np!==np2){alert('Passwörter stimmen nicht überein.');return;}
-  const h = await sha256(np);
-  localStorage.setItem('pc_admin_hash', h);
-  alert('✓ Passwort gespeichert. Beim nächsten Login aktiv.');
-}
-function adLogout(){
-  document.getElementById('adm-lock').style.display='block';
-  document.getElementById('adm-dash').style.display='none';
-  document.getElementById('pw-in').value='';document.getElementById('pw-err').style.display='none';
-}
-function adResetA(){const a=JSON.parse(localStorage.getItem('pc_a')||'{}');a.pv=0;a.sess=0;a.calcs={};localStorage.setItem('pc_a',JSON.stringify(a));}
-function adResetFB(){const a=JSON.parse(localStorage.getItem('pc_a')||'{}');a.fb=[];localStorage.setItem('pc_a',JSON.stringify(a));}
-function adExport(){const b=new Blob([localStorage.getItem('pc_a')||'{}'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ProcureCalc_Analytics.json';a.click();}
-
-function adRender(){
-  try{
-    const a=JSON.parse(localStorage.getItem('pc_a')||'{}');
-    const fb=a.fb||[],ca=a.calcs||{};
-    const avg=fb.length?(fb.reduce((s,f)=>s+(f.stars||0),0)/fb.length).toFixed(1):'—';
-    const tot=Object.values(ca).reduce((s,v)=>s+v,0);
-    // KPIs
-    document.getElementById('adm-kpis').innerHTML=
-      [['Seitenaufrufe',a.pv||0,'seit '+(a.first||'heute')],['Sitzungen',a.sess||0,''],
-       ['Kalkulator-Nutzungen',tot,''],['Feedbacks',fb.length,''],
-       ['Ø Bewertung',avg,'Sterne'],['Letzter Aufruf',a.last||'—','']].map(([l,v,s])=>
-      `<div class="kpi-card"><div class="kpi-n">${v}</div><div class="kpi-l">${l}</div>${s?`<div class="kpi-s">${s}</div>`:''}</div>`).join('');
-    // Calcs
-    const sorted=Object.entries(ca).sort((a,b)=>b[1]-a[1]).slice(0,8);
-    document.getElementById('adm-calcs').innerHTML=sorted.length?
-      sorted.map(([k,v])=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:.8rem"><span style="flex:1;color:var(--t2)">${k}</span><div class="bar-wrap"><div class="bar" style="width:${Math.round(v/sorted[0][1]*100)}%"></div></div><strong style="font-family:var(--mono);color:var(--t1);min-width:20px;text-align:right">${v}</strong></div>`).join('')
-      :'<p style="color:var(--t4);text-align:center;padding:16px;font-size:.82rem">Noch keine Nutzungsdaten</p>';
-    // Feedback
-    document.getElementById('adm-fbs').innerHTML=fb.length?
-      fb.slice().reverse().slice(0,6).map(f=>`<div style="border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:8px;font-size:.79rem"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:#F59E0B">${'★'.repeat(f.stars||0)}${'☆'.repeat(5-(f.stars||0))}</span><div style="display:flex;gap:6px;align-items:center">${f.calc?`<span class="badge b">${f.calc}</span>`:''}<span style="color:var(--t4);font-size:.7rem">${f.date||''}</span></div></div>${f.text?`<p style="color:var(--t2)">${f.text}</p>`:'<p style="color:var(--t4)">Kein Text</p>'}</div>`).join('')
-      :'<p style="color:var(--t4);text-align:center;padding:16px;font-size:.82rem">Noch kein Feedback</p>';
-    // Tech
-    document.getElementById('adm-tech').innerHTML=
-      [['Browser',navigator.userAgent.split(' ').slice(-1)[0]],['Sprache',navigator.language],
-       ['Bildschirm',screen.width+'×'+screen.height],['Viewport',window.innerWidth+'×'+window.innerHeight],
-       ['Plattform',navigator.platform||'—'],['Zeitzone',Intl.DateTimeFormat().resolvedOptions().timeZone]].map(([l,v])=>
-      `<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:.79rem"><span style="color:var(--t3)">${l}:</span> <strong style="color:var(--t1)">${v}</strong></div>`).join('');
-  }catch(e){console.error(e);}
-}
+// submitFB() ist im Backend-Block oben definiert
 
 // ═══ HELPERS ═══
 const dc=id=>{if(CH[id]){CH[id].destroy();delete CH[id];}};
@@ -2197,35 +1879,6 @@ function validateInputs(){
 }
 
 
-// ── Backend-Status im Admin anzeigen ────────────────────────
-function checkBackendStatus() {
-  const sbEl  = document.getElementById('sb-status');
-  const sbUrl = document.getElementById('sb-url');
-  const fsEl  = document.getElementById('fs-status');
-  const fsUrl = document.getElementById('fs-url');
-  if (!sbEl) return;
-
-  if (USE_BACKEND) {
-    sbEl.textContent  = '✓ Verbunden';
-    sbEl.style.color  = 'var(--green)';
-    sbUrl.textContent = SUPABASE_URL.replace('https://','').substring(0,30)+'...';
-  } else {
-    sbEl.textContent = '✗ Nicht konfiguriert — nur localStorage';
-    sbEl.style.color = 'var(--red)';
-    sbUrl.textContent = 'DEINE_SUPABASE_URL einsetzen';
-  }
-
-  if (USE_EMAIL) {
-    fsEl.textContent = '✓ Verbunden — Feedback kommt per E-Mail';
-    fsEl.style.color = 'var(--green)';
-    fsUrl.textContent = 'formspree.io/f/' + FORMSPREE_ID;
-  } else {
-    fsEl.textContent = '✗ Nicht konfiguriert';
-    fsEl.style.color = 'var(--red)';
-    fsUrl.textContent = 'DEINE_FORMSPREE_ID einsetzen';
-  }
-}
-
 // ════════════════════════════════════════════════════════════════
 // BACKEND KONFIGURATION
 // ► Trage hier deine Werte ein nachdem du die Accounts angelegt hast
@@ -2262,7 +1915,7 @@ async function sbInsert(table, data) {
 // ── Analytics Tracking ───────────────────────────────────────
 // Ersetzt die alte track() Funktion — bleibt abwärtskompatibel
 async function track(ev, detail='') {
-  // 1. Immer lokal speichern (für Admin-Dashboard)
+  // 1. Immer lokal speichern (lokale Statistik)
   try {
     const a = JSON.parse(localStorage.getItem('pc_a') || '{}');
     if (ev === 'pv') a.pv = (a.pv || 0) + 1;
@@ -2347,96 +2000,6 @@ async function submitFB(e) {
   }, 2500);
 }
 
-// ── Admin Dashboard erweitern — Supabase-Daten laden ─────────
-async function loadSupabaseStats() {
-  if (!USE_BACKEND) return;
-  try {
-    // Letzte 30 Tage Pageviews
-    const since = new Date(Date.now() - 30*24*60*60*1000).toISOString();
-
-    const [pvRes, calcRes, fbRes] = await Promise.all([
-      fetch(`${SUPABASE_URL}/rest/v1/pageviews?event=eq.pageview&created_at=gte.${since}&select=count`, {
-        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON,
-                   'Content-Type': 'application/json', 'Prefer': 'count=exact' }
-      }),
-      fetch(`${SUPABASE_URL}/rest/v1/pageviews?event=eq.calc_use&created_at=gte.${since}&select=calculator`, {
-        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON }
-      }),
-      fetch(`${SUPABASE_URL}/rest/v1/feedback?select=stars,calculator,message,created_at&order=created_at.desc&limit=20`, {
-        headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON }
-      })
-    ]);
-
-    const pvCount  = pvRes.headers.get('content-range')?.split('/')[1] || '?';
-    const calcData = await calcRes.json();
-    const fbData   = await fbRes.json();
-
-    // Kalkulator-Nutzung aggregieren
-    const calcCounts = {};
-    (calcData || []).forEach(r => {
-      if (r.calculator) calcCounts[r.calculator] = (calcCounts[r.calculator] || 0) + 1;
-    });
-
-    // KPI-Banner im Admin ergänzen
-    const kpiEl = document.getElementById('adm-kpis');
-    if (kpiEl) {
-      const sbCard = document.createElement('div');
-      sbCard.className = 'kpi-card';
-      sbCard.style.borderLeft = '3px solid var(--gold)';
-      sbCard.innerHTML = `<div class="kpi-n">${pvCount}</div><div class="kpi-l">Seitenaufrufe (30 Tage · live)</div><div class="kpi-s">via Supabase ✓</div>`;
-      kpiEl.insertBefore(sbCard, kpiEl.firstChild);
-    }
-
-    // Feedback-Liste aus Supabase einfügen
-    const fbEl = document.getElementById('adm-fbs');
-    if (fbEl && fbData && fbData.length > 0) {
-      const sbHeader = document.createElement('div');
-      sbHeader.style.cssText = 'font-size:.68rem;color:var(--gold-d);font-weight:600;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase';
-      sbHeader.textContent = 'Aus Supabase (alle Nutzer)';
-      fbEl.insertBefore(sbHeader, fbEl.firstChild);
-
-      fbData.forEach(fb => {
-        const div = document.createElement('div');
-        div.style.cssText = 'border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:8px;font-size:.79rem;background:#FFFEF9';
-        const d = new Date(fb.created_at).toLocaleDateString('de-DE');
-        div.innerHTML = `
-          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-            <span style="color:#C4A862">${'★'.repeat(fb.stars||0)}${'☆'.repeat(5-(fb.stars||0))}</span>
-            <div style="display:flex;gap:6px;align-items:center">
-              ${fb.calculator ? `<span style="background:var(--gold-a);color:var(--gold-d);font-size:.67rem;padding:1px 6px;border-radius:10px;font-weight:600">${fb.calculator}</span>` : ''}
-              <span style="color:var(--t4);font-size:.7rem">${d}</span>
-            </div>
-          </div>
-          <p style="color:var(--t2)">${fb.message || '<span style=color:var(--t4)>Kein Text</span>'}</p>`;
-        fbEl.appendChild(div);
-      });
-    }
-
-    // Kalkulator-Nutzung aus Supabase
-    const calcEl = document.getElementById('adm-calcs');
-    if (calcEl && Object.keys(calcCounts).length > 0) {
-      const sbHeader2 = document.createElement('div');
-      sbHeader2.style.cssText = 'font-size:.68rem;color:var(--gold-d);font-weight:600;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase';
-      sbHeader2.textContent = 'Alle Nutzer (Supabase · 30 Tage)';
-      calcEl.insertBefore(sbHeader2, calcEl.firstChild);
-
-      const sorted = Object.entries(calcCounts).sort((a,b) => b[1]-a[1]).slice(0,8);
-      const max = sorted[0]?.[1] || 1;
-      sorted.forEach(([k,v]) => {
-        const div = document.createElement('div');
-        div.style.cssText = 'display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:.8rem';
-        div.innerHTML = `<span style="flex:1;color:var(--t2)">${k}</span>
-          <div style="background:var(--panel);border-radius:3px;height:6px;width:80px;overflow:hidden">
-            <div style="height:100%;border-radius:3px;background:var(--gold-d);width:${Math.round(v/max*100)}%"></div>
-          </div>
-          <strong style="font-family:monospace;color:var(--t1);min-width:20px;text-align:right">${v}</strong>`;
-        calcEl.appendChild(div);
-      });
-    }
-
-  } catch(e) { console.warn('Supabase stats load failed:', e); }
-}
-
 // ── Cookie Consent ──
 function openCookieSettings(){
   const banner = document.getElementById('cookie-banner');
@@ -2473,336 +2036,6 @@ function initCookieBanner(){
   applyTrackingConsent(savedConsent);
 }
 
-// ═══ ADMIN TABS ═══
-function adTab(tab) {
-  if(tab==='analytics') { loadSupabaseStats(); }
-  ['analytics','ads','links'].forEach(t => {
-    document.getElementById('adm-panel-'+t).style.display = t===tab ? 'block' : 'none';
-    const btn = document.getElementById('adm-tab-'+t);
-    if(btn) { btn.style.background = t===tab?'var(--blue-l)':''; btn.style.color = t===tab?'var(--blue)':''; btn.style.borderColor = t===tab?'rgba(36,84,232,.3)':''; }
-  });
-  if(tab==='ads') adLoadAds();
-  if(tab==='links') adLoadLinks();
-}
-
-// ═══ AD DEFAULTS ═══
-const AD_DEFAULTS = {
-  banner:  { title:'BME-Kongress Einkauf 2026 · Frankfurt', l1t:'Jetzt anmelden »', l1u:'#', l2t:'SAP Ariba Zertifizierung online', l2u:'#' },
-  sidebar: { title:'SAP Ariba Grundkurs', text:'Online, zertifiziert, auf Deutsch.', lt:'Zum Kurs »', url:'#' },
-  home:    { label:'Anzeige', title:'BME-Kongress Einkauf 2026 · Frankfurt', text:'Strategischer Einkauf, Digitalisierung, Lieferkettenresilienz. Zertifikat inklusive.', cta:'Jetzt anmelden »', url:'#' },
-  preis:   { label:'Anzeige', title:'Destatis Erzeugerpreisindizes — kostenlos', text:'Offizielle Indizes für Material, Energie, Lohn — Grundlage für jeden Preiserhöhungs-Check.', cta:'Zum Portal »', url:'https://www.destatis.de' },
-  strat:   { label:'Partner', title:'Lieferantenrisiko-Software im Vergleich', text:'Risikio, Jaggaer, Coupa — führende Plattformen für Lieferantenmonitoring.', cta:'Zum Vergleich »', url:'#' },
-};
-
-const LINK_DEFAULTS = [
-  { text:'Destatis Preisindizes', url:'https://www.destatis.de' },
-  { text:'LME Metallpreise', url:'https://www.lme.com' },
-  { text:'BME-Zertifizierung', url:'https://www.bme.de' },
-  { text:'Eurostat Tarifindex', url:'https://ec.europa.eu/eurostat' },
-  { text:'Werbung schalten', url:'mailto:info@procerecalc.de' },
-];
-
-let AD_CACHE = null;
-
-function adMergeDefaults(src) {
-  const base = JSON.parse(JSON.stringify(AD_DEFAULTS));
-  if (!src || typeof src !== 'object') return base;
-  Object.keys(base).forEach(slot => {
-    if (src[slot] && typeof src[slot] === 'object') {
-      base[slot] = { ...base[slot], ...src[slot] };
-    }
-  });
-  return base;
-}
-
-async function loadAdsFromBackend() {
-  const localAds = (() => {
-    try { return JSON.parse(localStorage.getItem('pc_ads') || 'null'); } catch(e) { return null; }
-  })();
-
-  if (!USE_BACKEND) {
-    AD_CACHE = adMergeDefaults(localAds);
-    return AD_CACHE;
-  }
-
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/ads?select=*`, {
-      headers: {
-        'apikey': SUPABASE_ANON,
-        'Authorization': 'Bearer ' + SUPABASE_ANON,
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (!res.ok) throw new Error('ads fetch failed');
-
-    const rows = await res.json();
-    let backendAds = null;
-
-    if (Array.isArray(rows) && rows.length > 0) {
-      backendAds = {};
-      rows.forEach(row => {
-        if (!row || typeof row !== 'object') return;
-        const slot = row.slot;
-        const payload = row.data ?? row.payload ?? row.content;
-
-        if (slot && payload && typeof payload === 'object') {
-          backendAds[slot] = payload;
-          return;
-        }
-
-        if (slot) {
-          const copy = { ...row };
-          delete copy.id; delete copy.slot; delete copy.created_at; delete copy.updated_at;
-          if (Object.keys(copy).length) backendAds[slot] = copy;
-          return;
-        }
-
-        if (row.banner || row.sidebar || row.home || row.preis || row.strat) {
-          backendAds = row;
-        }
-      });
-    }
-
-    const merged = adMergeDefaults(backendAds || localAds);
-    AD_CACHE = merged;
-    localStorage.setItem('pc_ads', JSON.stringify(merged));
-    return merged;
-  } catch(e) {
-    AD_CACHE = adMergeDefaults(localAds);
-    return AD_CACHE;
-  }
-}
-
-function adGetAds() {
-  if (AD_CACHE) return AD_CACHE;
-  try {
-    const localAds = JSON.parse(localStorage.getItem('pc_ads') || 'null');
-    AD_CACHE = adMergeDefaults(localAds);
-    return AD_CACHE;
-  } catch(e) {
-    AD_CACHE = JSON.parse(JSON.stringify(AD_DEFAULTS));
-    return AD_CACHE;
-  }
-}
-function adGetLinks() {
-  try { return JSON.parse(localStorage.getItem('pc_links') || 'null') || JSON.parse(JSON.stringify(LINK_DEFAULTS)); } catch(e) { return JSON.parse(JSON.stringify(LINK_DEFAULTS)); }
-}
-
-async function adApplyAll() {
-  const ads = await loadAdsFromBackend();
-  // Banner
-  const bt = document.getElementById('ad-banner-title'); if(bt) bt.textContent = ads.banner.title;
-  const bl1 = document.getElementById('ad-banner-link1'); if(bl1) { bl1.textContent = ads.banner.l1t; bl1.href = ads.banner.l1u||'#'; }
-  const bl2 = document.getElementById('ad-banner-link2'); if(bl2) { bl2.textContent = ads.banner.l2t; bl2.href = ads.banner.l2u||'#'; }
-  // Sidebar
-  const stt = document.getElementById('ad-sidebar-title'); if(stt) stt.textContent = ads.sidebar.title;
-  const stx = document.getElementById('ad-sidebar-text'); if(stx) stx.textContent = ads.sidebar.text;
-  const sla = document.getElementById('ad-sidebar-link'); if(sla) { sla.textContent = ads.sidebar.lt; sla.dataset.url = ads.sidebar.url; }
-  // Home card
-  const hlbl = document.getElementById('ad-home-label'); if(hlbl) hlbl.textContent = ads.home.label;
-  const htti = document.getElementById('ad-home-title'); if(htti) htti.textContent = ads.home.title;
-  const htxt = document.getElementById('ad-home-text'); if(htxt) htxt.textContent = ads.home.text;
-  const hcta = document.getElementById('ad-home-cta'); if(hcta) hcta.textContent = ads.home.cta;
-  const hurl = document.getElementById('ad-home-url_'); // stored in data attr
-  // Preis card
-  const plbl = document.getElementById('ad-preis-label'); if(plbl) plbl.textContent = ads.preis.label;
-  const ptti = document.getElementById('ad-preis-title'); if(ptti) ptti.textContent = ads.preis.title;
-  const ptxt = document.getElementById('ad-preis-text'); if(ptxt) ptxt.textContent = ads.preis.text;
-  const pcta = document.getElementById('ad-preis-cta'); if(pcta) pcta.textContent = ads.preis.cta;
-  // Strat card
-  const slbl = document.getElementById('ad-strat-label'); if(slbl) slbl.textContent = ads.strat.label;
-  const stti = document.getElementById('ad-strat-title'); if(stti) stti.textContent = ads.strat.title;
-  const stxt = document.getElementById('ad-strat-text'); if(stxt) stxt.textContent = ads.strat.text;
-  const scta = document.getElementById('ad-strat-cta'); if(scta) scta.textContent = ads.strat.cta;
-  // Footer links
-  const fcol = document.querySelector('.footer-col:nth-child(3)');
-  if(fcol) {
-    const links = adGetLinks();
-    fcol.innerHTML = '<h5>Ressourcen</h5>' + links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.text}</a>`).join('');
-  }
-}
-
-function adCardClick(urlId) {
-  const ads = adGetAds();
-  const map = { 'ad-home-url': {url: ads.home.url, slot: 'home_card'}, 'ad-preis-url': {url: ads.preis.url, slot: 'preis_card'}, 'ad-strat-url': {url: ads.strat.url, slot: 'strat_card'}, 'ad-sidebar-url': {url: ads.sidebar.url, slot: 'sidebar_card'} };
-  const target = map[urlId];
-  if(!target || !target.url || target.url === '#') return;
-  gaEvent('ad_click', { slot: target.slot });
-  window.open(target.url, '_blank');
-}
-
-function adBannerClick(idx) {
-  const ads = adGetAds();
-  const target = idx === 1
-    ? { url: ads.banner.l1u, slot: 'banner_link_1' }
-    : { url: ads.banner.l2u, slot: 'banner_link_2' };
-  if(!target.url || target.url === '#') return false;
-  gaEvent('ad_click', { slot: target.slot });
-  window.open(target.url, '_blank');
-  return false;
-}
-
-function adLoadAds() {
-  const ads = adGetAds();
-  // Banner
-  const set = (id, val) => { const el=document.getElementById(id); if(el) el.value=val||''; };
-  set('adm-banner-title', ads.banner.title); set('adm-banner-l1t', ads.banner.l1t);
-  set('adm-banner-l1u', ads.banner.l1u);    set('adm-banner-l2t', ads.banner.l2t);
-  set('adm-banner-l2u', ads.banner.l2u);
-  // Sidebar
-  set('adm-sidebar-title', ads.sidebar.title); set('adm-sidebar-text', ads.sidebar.text);
-  set('adm-sidebar-lt', ads.sidebar.lt);       set('adm-sidebar-url', ads.sidebar.url);
-  // Home
-  set('adm-home-label', ads.home.label); set('adm-home-title', ads.home.title);
-  set('adm-home-text', ads.home.text);   set('adm-home-cta', ads.home.cta);
-  set('adm-home-url', ads.home.url);
-  // Preis
-  set('adm-preis-label', ads.preis.label); set('adm-preis-title', ads.preis.title);
-  set('adm-preis-text', ads.preis.text);   set('adm-preis-cta', ads.preis.cta);
-  set('adm-preis-url', ads.preis.url);
-  // Strat
-  set('adm-strat-label', ads.strat.label); set('adm-strat-title', ads.strat.title);
-  set('adm-strat-text', ads.strat.text);   set('adm-strat-cta', ads.strat.cta);
-  set('adm-strat-url', ads.strat.url);
-}
-
-function adLoadLinks() {
-  const links = adGetLinks();
-  const container = document.getElementById('adm-footer-links');
-  if(!container) return;
-  container.innerHTML = links.map((l,i) => `
-    <div style="display:grid;grid-template-columns:1fr 1fr 28px;gap:5px;margin-bottom:6px">
-      <input value="${l.text}" id="adm-fl-t${i}" class="adm-fl-input" placeholder="Link-Text" style="font-family:var(--sans);font-size:.8rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:5px 8px;outline:none">
-      <input value="${l.url}" id="adm-fl-u${i}" class="adm-fl-input" placeholder="URL" style="font-family:var(--sans);font-size:.8rem;background:var(--panel);border:1.5px solid var(--border);color:var(--t1);border-radius:var(--r);padding:5px 8px;outline:none">
-      <button onclick="adRemoveLink(${i})" style="background:var(--red-l);border:1px solid rgba(201,53,53,.2);color:var(--red);border-radius:var(--r);cursor:pointer;font-size:.9rem">×</button>
-    </div>`).join('') +
-    `<button class="btn-sec" style="font-size:.78rem;margin-top:4px" onclick="adAddLink()">+ Link hinzufügen</button>`;
-}
-
-function adAddLink() {
-  const links = adGetLinks();
-  links.push({ text:'Neuer Link', url:'#' });
-  localStorage.setItem('pc_links', JSON.stringify(links));
-  adLoadLinks(); adApplyAll();
-}
-function adRemoveLink(i) {
-  const links = adGetLinks();
-  links.splice(i, 1);
-  localStorage.setItem('pc_links', JSON.stringify(links));
-  adLoadLinks(); adApplyAll();
-}
-function adSaveLinks() {
-  const links = adGetLinks();
-  links.forEach((_,i) => {
-    const t = document.getElementById('adm-fl-t'+i);
-    const u = document.getElementById('adm-fl-u'+i);
-    if(t) links[i].text = t.value;
-    if(u) links[i].url = u.value;
-  });
-  localStorage.setItem('pc_links', JSON.stringify(links));
-  adApplyAll();
-  alert('✓ Footer-Links gespeichert!');
-}
-
-function adSaveContact() {
-  const n = document.getElementById('adm-contact-name')?.value || '';
-  const a = document.getElementById('adm-contact-addr')?.value || '';
-  const e = document.getElementById('adm-contact-email')?.value || '';
-  try { localStorage.setItem('pc_contact', JSON.stringify({name:n, addr:a, email:e})); } catch(err){}
-  const ok = document.getElementById('adm-contact-saved');
-  if(ok) { ok.style.display='block'; setTimeout(()=>ok.style.display='none', 3000); }
-}
-
-async function adSaveSlot(slot) {
-  const ads = adGetAds();
-  const read = id => {
-    const val = document.getElementById('adm-'+slot+'-'+id)?.value;
-    return typeof val === 'string' ? val.trim() : '';
-  };
-  const cleanUrl = url => {
-    const v = (url || '').trim();
-    return v || '#';
-  };
-  if(slot === 'banner') {
-    ads.banner = {
-      title: read('title') || AD_DEFAULTS.banner.title,
-      l1t: read('l1t') || AD_DEFAULTS.banner.l1t,
-      l1u: cleanUrl(read('l1u')),
-      l2t: read('l2t') || AD_DEFAULTS.banner.l2t,
-      l2u: cleanUrl(read('l2u'))
-    };
-  } else if(slot === 'sidebar') {
-    ads.sidebar = {
-      title: read('title') || AD_DEFAULTS.sidebar.title,
-      text: read('text') || AD_DEFAULTS.sidebar.text,
-      lt: read('lt') || AD_DEFAULTS.sidebar.lt,
-      url: cleanUrl(read('url'))
-    };
-  } else {
-    const fallback = AD_DEFAULTS[slot] || {};
-    ads[slot] = {
-      label: read('label') || fallback.label || '',
-      title: read('title') || fallback.title || '',
-      text: read('text') || fallback.text || '',
-      cta: read('cta') || fallback.cta || '',
-      url: cleanUrl(read('url'))
-    };
-  }
-
-  AD_CACHE = adMergeDefaults(ads);
-  localStorage.setItem('pc_ads', JSON.stringify(AD_CACHE));
-
-  if (USE_BACKEND) {
-    try {
-      await fetch(`${SUPABASE_URL}/rest/v1/ads?on_conflict=slot`, {
-        method: 'POST',
-        headers: {
-          'Content-Type':  'application/json',
-          'apikey':        SUPABASE_ANON,
-          'Authorization': 'Bearer ' + SUPABASE_ANON,
-          'Prefer':        'resolution=merge-duplicates,return=minimal'
-        },
-        body: JSON.stringify({ slot, data: AD_CACHE[slot] })
-      });
-    } catch(e) {}
-  }
-
-  adApplyAll();
-  alert('✓ ' + slot + '-Werbefläche gespeichert und live aktualisiert!');
-}
-
-function adPreview() {
-  // Live preview while typing
-  const g = id => document.getElementById(id)?.value ?? '';
-  const applyText = (targetId, sourceId) => {
-    const el=document.getElementById(targetId);
-    if(el) el.textContent = g(sourceId);
-  };
-  applyText('ad-banner-title','adm-banner-title');
-  applyText('ad-banner-link1','adm-banner-l1t');
-  applyText('ad-banner-link2','adm-banner-l2t');
-  applyText('ad-sidebar-title','adm-sidebar-title');
-  applyText('ad-sidebar-text','adm-sidebar-text');
-  applyText('ad-sidebar-link','adm-sidebar-lt');
-  applyText('ad-home-label','adm-home-label');
-  applyText('ad-home-title','adm-home-title');
-  applyText('ad-home-text','adm-home-text');
-  applyText('ad-home-cta','adm-home-cta');
-  applyText('ad-preis-label','adm-preis-label');
-  applyText('ad-preis-title','adm-preis-title');
-  applyText('ad-preis-text','adm-preis-text');
-  applyText('ad-preis-cta','adm-preis-cta');
-  applyText('ad-strat-label','adm-strat-label');
-  applyText('ad-strat-title','adm-strat-title');
-  applyText('ad-strat-text','adm-strat-text');
-  applyText('ad-strat-cta','adm-strat-cta');
-}
-
-function adResetAds() {
-  localStorage.removeItem('pc_ads');
-  localStorage.removeItem('pc_links');
-}
 
 // ═══ INIT (am absoluten Ende des Scripts) ═══
 function runAppInit(){
@@ -2810,7 +2043,6 @@ function runAppInit(){
   ca();
   validateInputs();
   initCookieBanner();
-  loadAdsFromBackend().then(()=>adApplyAll());
 }
 
 if (document.readyState === 'loading') {
